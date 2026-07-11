@@ -71,7 +71,6 @@ Lite detects Pro and shows an admin notice. Deactivate Lite to avoid duplicate c
 == Changelog ==
 
 = 1.0.0 =
-* Initial WordPress.org Lite release
 * Local missing house number, PO box, parcel locker, and postcode format checks
 * Checkout Blocks and classic checkout support
 * Warn and block checkout modes

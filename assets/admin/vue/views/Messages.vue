@@ -1,8 +1,13 @@
 <template>
-  <div class="wpruby-ag-view wpruby-ag-messages">
+  <div class="agl-view agl-view--messages">
+    <header class="agl-view-header">
+      <h2 class="agl-view-header__title">{{ messagesTitle }}</h2>
+      <p class="agl-view-header__desc">{{ messagesDesc }}</p>
+    </header>
+
     <SettingsCard
-      :title="messagesTitle"
-      :description="messagesDesc"
+      :title="templatesTitle"
+      :description="templatesDesc"
     >
       <MessageTemplateField
         v-for="field in messageFields"
@@ -94,4 +99,6 @@ const messageFields = [
 
 const messagesTitle = __('Messages');
 const messagesDesc = __('Customize the text shown when local address checks trigger at checkout.');
+const templatesTitle = __('Message templates');
+const templatesDesc = __('Edit the customer-facing text for each check result.');
 </script>

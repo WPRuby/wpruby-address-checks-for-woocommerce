@@ -73,9 +73,9 @@ class AdminPage {
 			return;
 		}
 
-		echo '<div class="wrap address-guard-wrap">';
-		echo '<div id="address-guard-admin" class="address-guard-app">';
-		echo '<p class="address-guard-app__loading">' . esc_html__( 'Loading Address Guard…', 'address-guard-for-woocommerce' ) . '</p>';
+		echo '<div class="wrap address-guard-lite-wrap">';
+		echo '<div id="address-guard-admin" class="address-guard-lite-admin">';
+		echo '<p class="address-guard-lite-admin__loading">' . esc_html__( 'Loading Address Guard…', 'address-guard-for-woocommerce' ) . '</p>';
 		echo '</div>';
 		echo '</div>';
 	}

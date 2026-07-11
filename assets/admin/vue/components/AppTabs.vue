@@ -1,15 +1,15 @@
 <template>
-  <nav class="wpruby-ag-tabs" :aria-label="tabsLabel">
+  <nav class="agl-tabs" :aria-label="tabsLabel">
     <button
       v-for="tab in tabs"
       :key="tab.id"
       type="button"
-      class="wpruby-ag-tab"
-      :class="{ 'wpruby-ag-tab--active': activeTab === tab.id }"
+      class="agl-tab"
+      :class="{ 'agl-tab--active': activeTab === tab.id }"
       :aria-current="activeTab === tab.id ? 'page' : undefined"
       @click="$emit('change', tab.id)"
     >
-      <span class="wpruby-ag-tab__label">{{ tab.label }}</span>
+      {{ tab.label }}
     </button>
   </nav>
 </template>

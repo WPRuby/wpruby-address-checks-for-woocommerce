@@ -1,15 +1,17 @@
 <template>
-  <section class="wpruby-ag-card" :class="{ 'wpruby-ag-card--compact': compact }">
-    <header v-if="title || description || $slots.actions" class="wpruby-ag-card__head">
-      <div class="wpruby-ag-card__head-main">
-        <h2 v-if="title" class="wpruby-ag-card__title">{{ title }}</h2>
-        <p v-if="description" class="wpruby-ag-card__desc">{{ description }}</p>
+  <section class="agl-card" :class="{ 'agl-card--compact': compact }">
+    <header v-if="title || description || $slots.actions" class="agl-card__head">
+      <div class="agl-card__head-main">
+        <h3 v-if="title" class="agl-card__title">{{ title }}</h3>
+        <p v-if="description" class="agl-card__desc">{{ description }}</p>
       </div>
-      <div v-if="$slots.actions" class="wpruby-ag-card__actions">
+      <div v-if="$slots.actions" class="agl-card__actions">
         <slot name="actions" />
       </div>
     </header>
-    <slot />
+    <div class="agl-card__body">
+      <slot />
+    </div>
   </section>
 </template>
 

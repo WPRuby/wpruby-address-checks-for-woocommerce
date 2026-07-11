@@ -1,16 +1,21 @@
 <template>
-  <div class="wpruby-ag-field">
-    <label class="wpruby-ag-toggle">
+  <div class="agl-field-row" :class="{ 'agl-field-row--disabled': disabled }">
+    <div class="agl-field-row__content">
+      <span class="agl-field-row__label">{{ label }}</span>
+      <p v-if="help" class="agl-field-row__help">{{ help }}</p>
+    </div>
+    <label class="agl-switch">
       <input
         type="checkbox"
+        role="switch"
         :checked="modelValue"
         :disabled="disabled"
+        :aria-checked="modelValue ? 'true' : 'false'"
         @change="$emit('update:modelValue', $event.target.checked)"
       />
-      <span class="wpruby-ag-toggle__track" aria-hidden="true"></span>
-      <span class="wpruby-ag-toggle__label">{{ label }}</span>
+      <span class="agl-switch__track" aria-hidden="true"></span>
+      <span class="screen-reader-text">{{ label }}</span>
     </label>
-    <p v-if="help" class="wpruby-ag-field__help">{{ help }}</p>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="wpruby-ag-view">
+  <div class="agl-view">
     <SettingsCard
       :title="upgradeTitle"
       :description="upgradeIntro"

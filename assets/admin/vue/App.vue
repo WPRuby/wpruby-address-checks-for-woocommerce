@@ -1,5 +1,5 @@
 <template>
-  <div class="wpruby-ag-shell">
+  <div class="agl-shell">
     <AppHeader
       :dirty="isDirty"
       :saving="state.savingSettings"
@@ -8,20 +8,20 @@
 
     <AppTabs :active-tab="activeTab" @change="setActiveTab" />
 
-    <div class="wpruby-ag-shell__body">
-      <div v-if="state.notice" class="wpruby-ag-shell__notice">
+    <div class="agl-shell__body">
+      <div v-if="state.notice" class="agl-shell__notice">
         <Notice :notice="state.notice" @close="clearNotice" />
       </div>
 
-      <div v-if="!state.ready && !state.loadError" class="wpruby-ag-skeleton">
+      <div v-if="!state.ready && !state.loadError" class="agl-skeleton">
         {{ loadingLabel }}
       </div>
 
-      <div v-else-if="state.loadError" class="wpruby-ag-view">
+      <div v-else-if="state.loadError" class="agl-view">
         <div class="wpruby-ag-notice wpruby-ag-notice--error">
           <span>{{ state.loadError }}</span>
         </div>
-        <button type="button" class="wpruby-ag-btn" @click="loadSettings">
+        <button type="button" class="agl-button" @click="loadSettings">
           {{ retryLabel }}
         </button>
       </div>

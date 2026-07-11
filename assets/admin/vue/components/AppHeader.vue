@@ -1,46 +1,50 @@
 <template>
-  <header class="wpruby-ag-header">
-    <div class="wpruby-ag-header__brand">
-      <div class="wpruby-ag-header__titlebar">
-        <span class="wpruby-ag-header__logo" aria-hidden="true">
-          <img :src="logo" width="36" height="36" alt="Address Guard">
+  <header class="agl-header">
+    <div class="agl-header__brand">
+      <div class="agl-header__titlebar">
+        <span class="agl-header__logo" aria-hidden="true">
+          <img :src="logo" width="36" height="36" alt="">
         </span>
-        <h1 class="wpruby-ag-header__title">{{ title }}</h1>
-        <span v-if="version" class="wpruby-ag-header__version">v{{ version }}</span>
+        <h1 class="agl-header__title">{{ title }}</h1>
+        <span v-if="version" class="agl-header__version">v{{ version }}</span>
       </div>
-      <p class="wpruby-ag-header__desc">{{ description }}</p>
+      <p class="agl-header__desc">{{ description }}</p>
 
-      <div v-if="ready" class="wpruby-ag-header__chips">
+      <div v-if="ready" class="agl-header__chips">
         <span
-          class="wpruby-ag-chip"
-          :class="enabled ? 'wpruby-ag-chip--on' : 'wpruby-ag-chip--off'"
+          class="agl-chip"
+          :class="enabled ? 'agl-chip--enabled' : 'agl-chip--disabled'"
         >
-          <span class="wpruby-ag-chip__dot" aria-hidden="true"></span>
+          <span class="agl-chip__dot" aria-hidden="true"></span>
           {{ enabled ? enabledLabel : disabledLabel }}
         </span>
-        <span class="wpruby-ag-chip">
+        <span class="agl-chip" :class="behaviorChipClass">
           {{ validationModeLabel }}
         </span>
-        <span class="wpruby-ag-chip wpruby-ag-chip--on">
+        <span class="agl-chip agl-chip--checkout">
           {{ checkoutSupportLabel }}
         </span>
       </div>
     </div>
 
-    <div class="wpruby-ag-header__actions">
+    <div class="agl-header__actions">
       <span
-        class="wpruby-ag-status"
-        :class="dirty ? 'wpruby-ag-status--dirty' : 'wpruby-ag-status--saved'"
+        class="agl-save-status"
+        :class="dirty ? 'agl-save-status--dirty' : 'agl-save-status--saved'"
       >
-        <span class="wpruby-ag-status__dot" aria-hidden="true"></span>
         {{ dirty ? unsavedLabel : savedLabel }}
       </span>
       <button
         type="button"
-        class="wpruby-ag-btn wpruby-ag-btn--primary wpruby-ag-header__save"
+        class="agl-button agl-button--save"
+        :class="{
+          'agl-button--save-active': dirty && !saving,
+          'agl-button--save-saving': saving,
+        }"
         :disabled="saving || !dirty"
         @click="$emit('save')"
       >
+        <span v-if="saving" class="agl-button__spinner" aria-hidden="true"></span>
         {{ saving ? savingLabel : saveLabel }}
       </button>
     </div>
@@ -80,6 +84,11 @@ const enabled = computed(() => !!(state.settings && state.settings.plugin_enable
 const validationModeLabel = computed(() => {
   const mode = state.settings?.validation_mode || 'warn';
   return `${__('Behavior')}: ${modeLabel(mode)}`;
+});
+
+const behaviorChipClass = computed(() => {
+  const mode = state.settings?.validation_mode || 'warn';
+  return mode === 'block' ? 'agl-chip--block' : 'agl-chip--warn';
 });
 
 const checkoutSupportLabel = computed(() => {

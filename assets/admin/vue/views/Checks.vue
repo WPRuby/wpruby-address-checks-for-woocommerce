@@ -1,8 +1,13 @@
 <template>
-  <div class="wpruby-ag-view">
+  <div class="agl-view">
+    <header class="agl-view-header">
+      <h2 class="agl-view-header__title">{{ checksTitle }}</h2>
+      <p class="agl-view-header__desc">{{ checksDesc }}</p>
+    </header>
+
     <SettingsCard
-      :title="checksTitle"
-      :description="checksDesc"
+      :title="checksCardTitle"
+      :description="checksCardDesc"
     >
       <ToggleField
         v-for="check in checks"
@@ -27,6 +32,8 @@ const settings = computed(() => state.settings);
 
 const checksTitle = __('Checks');
 const checksDesc = __('Choose which local address checks run at checkout. These checks do not call external APIs.');
+const checksCardTitle = __('Local address checks');
+const checksCardDesc = __('Enable the checks that should run when customers enter their address at checkout.');
 
 const checks = [
   {
