@@ -289,7 +289,7 @@ class CheckoutValidation {
 
 		throw new RouteException(
 			'address_guard_' . sanitize_key( $type ) . '_invalid',
-			wp_strip_all_tags( $message ),
+			esc_html( wp_strip_all_tags( $message ) ),
 			400
 		);
 	}

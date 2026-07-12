@@ -13,6 +13,7 @@ ZIP_FILE := $(DIST_DIR)/$(PLUGIN_SLUG)-$(VERSION).zip
 RSYNC_EXCLUDES := \
 	--exclude .git \
 	--exclude .github \
+	--exclude .gitignore \
 	--exclude node_modules \
 	--exclude vendor \
 	--exclude tests \

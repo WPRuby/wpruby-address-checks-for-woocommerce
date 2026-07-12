@@ -60,8 +60,6 @@ final class Plugin {
 	 * Constructor: wire everything up.
 	 */
 	private function __construct() {
-		add_action( 'init', array( $this, 'load_textdomain' ) );
-
 		if ( ! $this->is_woocommerce_active() ) {
 			add_action( 'admin_notices', array( $this, 'render_missing_woocommerce_notice' ) );
 
@@ -117,19 +115,6 @@ final class Plugin {
 		$classic_checkout->register();
 		$checkout_validation->register();
 		$order_notes->register();
-	}
-
-	/**
-	 * Load translations.
-	 *
-	 * @return void
-	 */
-	public function load_textdomain(): void {
-		load_plugin_textdomain(
-			'address-guard-for-woocommerce',
-			false,
-			dirname( ADDRESS_GUARD_BASENAME ) . '/languages'
-		);
 	}
 
 	/**
