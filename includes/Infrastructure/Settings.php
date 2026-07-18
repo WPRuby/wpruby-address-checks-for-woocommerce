@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Settings
  *
- * Reads and writes Lite plugin settings stored in a single option.
+ * Reads and writes plugin settings stored in a single option.
  */
 class Settings {
 

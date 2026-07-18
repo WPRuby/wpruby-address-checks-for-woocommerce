@@ -138,7 +138,6 @@ class Assets {
 				'settings'        => $this->settings->for_app(),
 				'defaultMessages' => $this->settings->defaults()['messages'],
 				'logo'            => ADDRESS_GUARD_PLUGIN_URL . 'assets/admin/images/logo.png',
-				'proUrl'          => esc_url_raw( 'https://wpruby.com/plugin/woocommerce-address-guard-pro/' ),
 				'countryOptions'  => CountryOptions::for_app(),
 			)
 		);

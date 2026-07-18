@@ -1,6 +1,6 @@
 {
   "name": "wpruby/address-guard-for-woocommerce",
-  "description": "Automated test tooling for WooCommerce Address Guard Pro.",
+  "description": "Automated test tooling for Address Guard for WooCommerce.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "require": {

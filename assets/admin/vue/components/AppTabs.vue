@@ -29,6 +29,5 @@ const tabs = [
   { id: 'autocomplete', label: __('Autocomplete') },
   { id: 'checks', label: __('Checks') },
   { id: 'messages', label: __('Messages') },
-  { id: 'upgrade', label: __('Upgrade to Pro') },
 ];
 </script>

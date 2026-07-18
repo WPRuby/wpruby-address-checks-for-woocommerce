@@ -63,12 +63,6 @@ add_action(
 add_action(
 	'plugins_loaded',
 	static function () {
-		if ( address_guard_pro_is_active() ) {
-			add_action( 'admin_notices', 'WPRuby\\AddressGuard\\address_guard_lite_pro_conflict_notice' );
-
-			return;
-		}
-
 		Plugin::get_instance();
 	},
 	20

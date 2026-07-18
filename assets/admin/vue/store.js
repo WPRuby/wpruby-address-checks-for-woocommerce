@@ -36,7 +36,6 @@ export function blankMeta() {
     supports_blocks: true,
     supports_classic: true,
     country_options: boot.countryOptions || [],
-    pro_url: boot.proUrl || 'https://wpruby.com/plugin/woocommerce-address-guard-pro/',
     docs_url: '',
   };
 }

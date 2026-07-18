@@ -14,7 +14,7 @@ Add Google address autocomplete and local checkout address checks for WooCommerc
 
 Address Guard for WooCommerce helps customers enter addresses faster with Google Places Autocomplete and catches common checkout address issues such as missing house numbers, PO boxes, and parcel locker addresses.
 
-This free Lite plugin provides **address autocomplete and checkout address checks**. It does not claim full postal deliverability validation. Provider-powered address validation and correction suggestions are available in Address Guard Pro.
+This plugin provides **address autocomplete and checkout address checks**. It does not claim full postal deliverability validation.
 
 **Google Places Autocomplete:**
 
@@ -36,8 +36,6 @@ This free Lite plugin provides **address autocomplete and checkout address check
 
 * WooCommerce Checkout Blocks
 * Classic `[woocommerce_checkout]` shortcode
-
-**Need more?** Upgrade to [Address Guard Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/) for provider-powered address validation, correction suggestions, Loqate, Mapbox, advanced rules, an address tester, logs, and order review tools.
 
 == External services ==
 
@@ -61,9 +59,9 @@ Local checkout checks always run on your server and do not require Google.
 
 == Frequently Asked Questions ==
 
-= Does the free plugin include address validation? =
+= Does this plugin include full address validation? =
 
-The free plugin includes Google Places Autocomplete and local checkout address checks. Provider-powered address validation and correction suggestions are available in Address Guard Pro.
+No. This plugin includes Google Places Autocomplete and local checkout address checks such as missing house numbers, PO boxes, and parcel locker detection. It does not perform provider-powered postal deliverability validation.
 
 = Do I need a Google API key? =
 
@@ -73,17 +71,13 @@ Google Autocomplete requires your own Google Maps Platform API key. Local checko
 
 Only when Google Autocomplete is enabled. Customer address search input is sent to Google Places to return suggestions.
 
-= Does Lite support Checkout Blocks? =
+= Does this support Checkout Blocks? =
 
-Yes, Lite supports WooCommerce Checkout Blocks and the classic checkout shortcode.
+Yes. Address Guard supports WooCommerce Checkout Blocks and the classic checkout shortcode.
 
 = Can I warn instead of blocking checkout? =
 
 Yes. Choose **Warn customer** or **Block checkout** under WooCommerce → Address Guard → General.
-
-= What happens if Address Guard Pro is also installed? =
-
-Lite detects Pro and shows an admin notice. Deactivate Lite to avoid duplicate checkout checks.
 
 == Screenshots ==
 
@@ -91,7 +85,6 @@ Lite detects Pro and shows an admin notice. Deactivate Lite to avoid duplicate c
 2. Autocomplete — Google Places API key and country limits
 3. Checks — toggle local address checks
 4. Messages — customize customer-facing warning and error text
-5. Upgrade — compare Lite and Pro features
 
 == Changelog ==
 
@@ -104,4 +97,4 @@ Lite detects Pro and shows an admin notice. Deactivate Lite to avoid duplicate c
 == Upgrade Notice ==
 
 = 1.0.0 =
-Initial Lite release for WordPress.org with Google Places Autocomplete and local checkout checks.
+Initial release with Google Places Autocomplete and local checkout checks.
