@@ -1,4 +1,4 @@
-=== Address Guard for WooCommerce ===
+=== Address Guard for WooCommerce – Google Address Autocomplete & Checkout Address Checks ===
 Contributors: wpruby, waseem_senjer
 Tags: woocommerce, checkout, address, autocomplete, google places
 Requires at least: 5.6
@@ -14,16 +14,22 @@ Add Google address autocomplete and local checkout address checks for WooCommerc
 
 Address Guard for WooCommerce helps customers enter addresses faster with Google Places Autocomplete and catches common checkout address issues such as missing house numbers, PO boxes, and parcel locker addresses.
 
-This plugin provides **address autocomplete and checkout address checks**. It does not claim full postal deliverability validation.
+Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
-**Google Places Autocomplete:**
+This plugin provides address autocomplete and checkout address checks. It does not perform full postal deliverability validation.
+
+**Works with WooCommerce**
+
+* Supports WooCommerce Checkout Blocks
+* Supports classic `[woocommerce_checkout]` shortcode
+
+**Google Places Autocomplete support**
 
 * Optional Google Places Autocomplete at checkout
 * Bring-your-own Google Maps Platform API key
 * Works with shipping and billing address line 1
-* Supports WooCommerce Checkout Blocks and classic checkout
 
-**Local checkout checks:**
+**Local checkout checks**
 
 * Missing house or building number detection
 * PO box detection
@@ -32,22 +38,24 @@ This plugin provides **address autocomplete and checkout address checks**. It do
 * Warn customer or block checkout modes
 * Optional private order notes when a check triggers
 
-**Checkout support:**
-
-* WooCommerce Checkout Blocks
-* Classic `[woocommerce_checkout]` shortcode
+Local checkout checks run on your server and do not require Google.
 
 == External services ==
 
-When Google Places Autocomplete is enabled, address search queries are sent to Google through your configured Google Maps Platform account. The plugin does not include bundled Google API usage.
+When Google Places Autocomplete is enabled, address search queries entered by customers at checkout are sent to Google Places through the merchant’s configured Google Maps Platform account. This is used to return address suggestions.
 
-* **Service:** Google Places API (Google Maps Platform)
-* **Data sent:** The customer’s typed address search text and optional country context used to return suggestions
-* **Why:** To show address autocomplete suggestions at checkout
-* **Terms:** [Google Maps Platform Terms of Service](https://cloud.google.com/maps-platform/terms)
-* **Privacy:** [Google Privacy Policy](https://policies.google.com/privacy)
+This plugin does not include bundled Google API usage. Store owners must use their own Google Maps Platform API key.
 
-Local checkout checks always run on your server and do not require Google.
+* Service provider: Google Maps Platform
+* Service documentation: https://developers.google.com/maps/documentation/places
+* Terms: https://cloud.google.com/maps-platform/terms
+* Privacy Policy: https://policies.google.com/privacy
+
+== Source code ==
+
+Compiled admin assets live in `assets/admin/dist/`. The human-readable Vue source used to build them is included in `assets/admin/vue/`.
+
+Public repository: https://github.com/WPRuby/address-guard-for-woocommerce
 
 == Installation ==
 
@@ -65,19 +73,23 @@ No. This plugin includes Google Places Autocomplete and local checkout address c
 
 = Do I need a Google API key? =
 
-Google Autocomplete requires your own Google Maps Platform API key. Local checkout checks can work without Google Autocomplete.
+Google Places Autocomplete requires your own Google Maps Platform API key. Local checkout checks can work without Google Autocomplete.
 
 = Does the plugin send address data to Google? =
 
-Only when Google Autocomplete is enabled. Customer address search input is sent to Google Places to return suggestions.
+Only when Google Places Autocomplete is enabled. Customer address search input is sent to Google Places to return suggestions. Local checks stay on your server.
 
 = Does this support Checkout Blocks? =
 
-Yes. Address Guard supports WooCommerce Checkout Blocks and the classic checkout shortcode.
+Yes. Address Guard for WooCommerce supports WooCommerce Checkout Blocks and the classic checkout shortcode.
 
 = Can I warn instead of blocking checkout? =
 
 Yes. Choose **Warn customer** or **Block checkout** under WooCommerce → Address Guard → General.
+
+= Is this an official WooCommerce or Google plugin? =
+
+No. Address Guard for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 == Screenshots ==
 

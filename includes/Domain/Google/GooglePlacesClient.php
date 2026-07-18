@@ -99,7 +99,7 @@ class GooglePlacesClient {
 		if ( '' === $place_id ) {
 			throw new GoogleApiException(
 				'invalid_place_id',
-				__( 'A valid place ID is required.', 'address-guard-for-woocommerce' )
+				esc_html__( 'A valid place ID is required.', 'address-guard-for-woocommerce' )
 			);
 		}
 
@@ -147,7 +147,7 @@ class GooglePlacesClient {
 		if ( ! $this->has_api_key() ) {
 			throw new GoogleApiException(
 				'missing_api_key',
-				__( 'Google API key is missing.', 'address-guard-for-woocommerce' )
+				esc_html__( 'Google API key is missing.', 'address-guard-for-woocommerce' )
 			);
 		}
 
@@ -181,7 +181,7 @@ class GooglePlacesClient {
 		if ( is_wp_error( $response ) ) {
 			throw new GoogleApiException(
 				'network_error',
-				__( 'Could not reach Google APIs. Check your server network connection.', 'address-guard-for-woocommerce' ),
+				esc_html__( 'Could not reach Google APIs. Check your server network connection.', 'address-guard-for-woocommerce' ),
 				array(
 					'http_code' => 0,
 				)
@@ -197,6 +197,7 @@ class GooglePlacesClient {
 			return $data;
 		}
 
-		throw GoogleApiException::from_response( $data, $code );
+		$exception = GoogleApiException::from_response( $data, $code );
+		throw $exception;
 	}
 }

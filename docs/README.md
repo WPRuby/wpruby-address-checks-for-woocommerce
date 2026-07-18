@@ -2,6 +2,8 @@
 
 WordPress.org plugin that adds Google Places Autocomplete and local checkout address checks for WooCommerce.
 
+Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+
 ## Features
 
 * Google Places Autocomplete (merchant-owned API key)
@@ -35,17 +37,22 @@ Settings are stored in the WordPress option `address_guard_lite_settings`.
 make build
 ```
 
-Output: `dist/address-guard-for-woocommerce-{version}.zip`
+Output:
 
-The ZIP excludes tests, source Vue files, and development configs.
+* `dist/address-guard-for-woocommerce.zip`
+* `dist/address-guard-for-woocommerce-{version}.zip`
+
+The ZIP includes compiled admin assets plus human-readable Vue source (`assets/admin/vue/`), `package.json`, and `vite.config.js` for WordPress.org review. It excludes tests, `node_modules`, `vendor`, and development folders.
 
 ## WordPress.org release checklist
 
 - [ ] Bump version in `address-guard-for-woocommerce.php` and `readme.txt` stable tag
 - [ ] Run `make test` and `make build`
 - [ ] Confirm ZIP passes `scripts/validate-build.php`
+- [ ] Run Plugin Check: `wp plugin check address-guard-for-woocommerce`
 - [ ] Test classic checkout and Checkout Blocks
 - [ ] Test with HPOS enabled
+- [ ] Confirm Google API key is masked in admin and never exposed to checkout JS
 - [ ] Upload to WordPress.org SVN
 
 ## Filter hooks

@@ -220,7 +220,7 @@ class SettingsController {
 			'supports_blocks'         => $checkout['supports_blocks'],
 			'supports_classic'        => $checkout['supports_classic'],
 			'country_options'         => CountryOptions::for_app(),
-			'docs_url'                => esc_url_raw( 'https://wpruby.com/docs/address-guard/' ),
+			'docs_url'                => esc_url_raw( 'https://wpruby.com/plugin/address-guard-for-woocommerce/' ),
 		);
 	}
 

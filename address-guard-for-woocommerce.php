@@ -4,8 +4,8 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Address Guard for WooCommerce
- * Plugin URI:        https://wordpress.org/plugins/address-guard-for-woocommerce/
- * Description:       Address autocomplete and checkout address checks for WooCommerce — Google Places Autocomplete plus missing house number, PO box, and parcel locker detection.
+ * Plugin URI:        https://wpruby.com/plugin/address-guard-for-woocommerce/
+ * Description:       Add Google address autocomplete and local checkout address checks for WooCommerce, including missing house number, PO box, and parcel locker detection.
  * Version:           1.0.0
  * Requires PHP:      7.4
  * Requires at least: 5.6
@@ -15,7 +15,7 @@
  * Author:            WPRuby
  * Author URI:        https://wpruby.com
  * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       address-guard-for-woocommerce
  * Domain Path:       /languages
  *
@@ -38,8 +38,20 @@ define( 'ADDRESS_GUARD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'ADDRESS_GUARD_TEXT_DOMAIN', 'address-guard-for-woocommerce' );
 define( 'ADDRESS_GUARD_BASENAME', plugin_basename( __FILE__ ) );
 
-require_once ADDRESS_GUARD_PLUGIN_DIR . 'includes/autoload.php';
 require_once ADDRESS_GUARD_PLUGIN_DIR . 'includes/functions.php';
+
+/*
+ * Bail before loading Lite classes when Pro is active. Both plugins share the
+ * WPRuby\AddressGuard namespace; loading both would cause fatal class collisions
+ * and duplicate checkout checks.
+ */
+if ( address_guard_pro_is_active() ) {
+	add_action( 'admin_notices', __NAMESPACE__ . '\\address_guard_pro_conflict_notice' );
+
+	return;
+}
+
+require_once ADDRESS_GUARD_PLUGIN_DIR . 'includes/autoload.php';
 
 register_activation_hook( __FILE__, array( Plugin::class, 'activate' ) );
 register_deactivation_hook( __FILE__, array( Plugin::class, 'deactivate' ) );

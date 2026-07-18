@@ -31,9 +31,14 @@ $zip->close();
 
 $required = array(
 	'address-guard-for-woocommerce/address-guard-for-woocommerce.php',
+	'address-guard-for-woocommerce/readme.txt',
 	'address-guard-for-woocommerce/includes/Plugin.php',
 	'address-guard-for-woocommerce/assets/admin/dist/app.js',
 	'address-guard-for-woocommerce/assets/admin/dist/app.css',
+	'address-guard-for-woocommerce/assets/admin/vue/main.js',
+	'address-guard-for-woocommerce/assets/admin/vue/App.vue',
+	'address-guard-for-woocommerce/package.json',
+	'address-guard-for-woocommerce/vite.config.js',
 	'address-guard-for-woocommerce/assets/checkout/validation.js',
 	'address-guard-for-woocommerce/assets/checkout/autocomplete.js',
 );
@@ -41,18 +46,23 @@ $required = array(
 $forbidden_patterns = array(
 	'#(^|/)tests/#',
 	'#(^|/)node_modules/#',
-	'#(^|/)assets/admin/vue/#',
+	'#(^|/)vendor/#',
 	'#(^|/)\.git(/|$)#',
 	'#(^|/)\.github/#',
+	'#(^|/)\.idea/#',
+	'#(^|/)\.vscode/#',
 	'#(^|/)phpunit\.xml#',
-	'#(^|/)package(-lock)?\.json$#',
-	'#(^|/)vite\.config\.js$#',
+	'#(^|/)package-lock\.json$#',
 	'#(^|/)Makefile$#',
 	'#(^|/)composer\.(json|lock)$#',
 	'#(^|/)scripts/#',
+	'#(^|/)docs/#',
+	'#(^|/)assets/frontend/#',
 	'#(^|/)includes/Licensing/#',
 	'#(^|/)includes/Domain/Providers/#',
 	'#(^|/)includes/Domain/Rules/#',
+	'#woocommerce-address-guard-pro#',
+	'#\.DS_Store$#',
 	'#\.map$#',
 );
 
@@ -78,15 +88,44 @@ foreach ( $entries as $entry ) {
 			break;
 		}
 	}
+
+	// ZIP must nest under the plugin slug only.
+	if ( 'address-guard-for-woocommerce/' !== substr( $entry, 0, strlen( 'address-guard-for-woocommerce/' ) )
+		&& 'address-guard-for-woocommerce' !== $entry ) {
+		$errors[] = "Unexpected top-level path in ZIP: {$entry}";
+	}
 }
+
+// Confirm plugin header identity strings.
+$main = 'address-guard-for-woocommerce/address-guard-for-woocommerce.php';
+$tmp  = tempnam( sys_get_temp_dir(), 'agzip' );
+$zip  = new ZipArchive();
+if ( true === $zip->open( $zip_path ) ) {
+	$contents = $zip->getFromName( $main );
+	$zip->close();
+	if ( is_string( $contents ) ) {
+		if ( false === strpos( $contents, 'Plugin Name:       Address Guard for WooCommerce' ) ) {
+			$errors[] = 'Plugin Name header mismatch.';
+		}
+		if ( false === strpos( $contents, 'Text Domain:       address-guard-for-woocommerce' ) ) {
+			$errors[] = 'Text Domain header mismatch.';
+		}
+		if ( false !== strpos( $contents, 'Plugin Name:       WooCommerce Address Guard' ) ) {
+			$errors[] = 'Plugin Name must not use WooCommerce-first branding.';
+		}
+	} else {
+		$errors[] = "Unable to read {$main} from ZIP.";
+	}
+}
+unset( $tmp );
 
 if ( ! empty( $errors ) ) {
 	fwrite( STDERR, "Build validation failed for {$zip_path}:\n" );
-	foreach ( $errors as $error ) {
+	foreach ( array_unique( $errors ) as $error ) {
 		fwrite( STDERR, " - {$error}\n" );
 	}
 	exit( 1 );
 }
 
-fwrite( STDOUT, "Build validation passed for {$zip_path}\n" );
+fwrite( STDOUT, 'Build validation passed for ' . $zip_path . ' (' . count( $entries ) . " entries)\n" );
 exit( 0 );

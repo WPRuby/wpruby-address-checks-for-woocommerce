@@ -90,7 +90,7 @@ class GoogleApiException extends \Exception {
 
 		return new self(
 			$code,
-			self::admin_message_for_code( $code ),
+			esc_html( self::admin_message_for_code( $code ) ),
 			array(
 				'http_code' => $http_code,
 				'status'    => sanitize_key( $status ),

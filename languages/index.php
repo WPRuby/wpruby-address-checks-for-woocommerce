@@ -4,3 +4,7 @@
  *
  * @package WPRuby\AddressGuard
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}

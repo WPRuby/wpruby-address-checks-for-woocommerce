@@ -105,7 +105,7 @@ class GooglePlacesService {
 		if ( ! $this->client()->has_api_key() ) {
 			throw new GoogleApiException(
 				'missing_api_key',
-				GoogleApiException::admin_message_for_code( 'missing_api_key' )
+				esc_html( GoogleApiException::admin_message_for_code( 'missing_api_key' ) )
 			);
 		}
 
@@ -117,7 +117,7 @@ class GooglePlacesService {
 		if ( empty( $components ) ) {
 			throw new GoogleApiException(
 				'no_address_components',
-				GoogleApiException::admin_message_for_code( 'no_address_components' )
+				esc_html( GoogleApiException::admin_message_for_code( 'no_address_components' ) )
 			);
 		}
 
