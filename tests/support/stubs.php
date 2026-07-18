@@ -192,6 +192,13 @@ if ( ! class_exists( 'WP_REST_Request' ) ) {
 		public function get_header( $key ) {
 			return $this->headers[ strtolower( $key ) ] ?? null;
 		}
+
+		public function set_body( $body ) {
+			$decoded = json_decode( (string) $body, true );
+			if ( is_array( $decoded ) ) {
+				$this->params = array_merge( $this->params, $decoded );
+			}
+		}
 	}
 }
 
@@ -360,6 +367,33 @@ function wpruby_ag_test_setup_wc( array $required_fields = array() ): void {
 				);
 			}
 			return $fields;
+		}
+
+		public function get_countries() {
+			return array(
+				'US' => 'United States',
+				'CA' => 'Canada',
+				'GB' => 'United Kingdom',
+				'DE' => 'Germany',
+			);
+		}
+
+		public function get_states( $country ) {
+			$country = strtoupper( (string) $country );
+			if ( 'US' === $country ) {
+				return array(
+					'CA' => 'California',
+					'IL' => 'Illinois',
+				);
+			}
+			if ( 'DE' === $country ) {
+				return array(
+					'BY' => 'Bavaria',
+					'NW' => 'North Rhine-Westphalia',
+				);
+			}
+
+			return array();
 		}
 	};
 

@@ -17,7 +17,9 @@ use WPRuby\AddressGuard\Tests\TestCase;
 class RestPermissionsTest extends TestCase {
 
 	public function test_admin_settings_endpoint_requires_manage_woocommerce(): void {
-		$controller = new SettingsController( $this->settings_with_validation( 'block' ) );
+		$settings   = $this->settings_with_validation( 'block' );
+		$google     = new \WPRuby\AddressGuard\Domain\Google\GooglePlacesService( $settings );
+		$controller = new SettingsController( $settings, $google );
 
 		$result = $controller->check_permission();
 		$this->assertInstanceOf( WP_Error::class, $result );

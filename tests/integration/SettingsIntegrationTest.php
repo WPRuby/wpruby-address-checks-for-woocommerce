@@ -39,4 +39,13 @@ class SettingsIntegrationTest extends TestCase {
 		$this->assertTrue( $settings->is_check_enabled( 'check_parcel_locker' ) );
 		$this->assertTrue( $settings->is_check_enabled( 'check_postcode_format' ) );
 	}
+
+	public function test_autocomplete_defaults_to_disabled_without_api_key(): void {
+		$settings = new Settings();
+
+		$this->assertFalse( $settings->is_autocomplete_enabled() );
+		$this->assertSame( '', $settings->google_api_key() );
+		$this->assertSame( array(), $settings->autocomplete_countries() );
+		$this->assertSame( '', $settings->for_app()['google_api_key'] );
+	}
 }

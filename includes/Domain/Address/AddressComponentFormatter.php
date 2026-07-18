@@ -57,29 +57,26 @@ class AddressComponentFormatter {
 			return $street_number;
 		}
 
-		$address_1 = $this->should_put_number_first( $country )
+		$format = $this->should_put_number_first( $country )
 			? trim( $street_number . ' ' . $route )
 			: trim( $route . ' ' . $street_number );
+
+		$components = array_merge(
+			$components,
+			array(
+				'street_number' => $street_number,
+				'route'         => $route,
+			)
+		);
 
 		/**
 		 * Filter the formatted street address line.
 		 *
-		 * @param string               $address_1     Formatted street line.
-		 * @param array<string,string> $components    Provider address components.
-		 * @param string               $country       ISO country code.
+		 * @param string               $format     Formatted street line.
+		 * @param string               $country    ISO country code.
+		 * @param array<string,string> $components Provider address components.
 		 */
-		return (string) apply_filters(
-			'wpruby_address_guard_street_line_format',
-			$address_1,
-			array_merge(
-				$components,
-				array(
-					'street_number' => $street_number,
-					'route'         => $route,
-				)
-			),
-			$country
-		);
+		return (string) apply_filters( 'address_guard_street_line_format', $format, $country, $components );
 	}
 
 	/**
@@ -106,6 +103,6 @@ class AddressComponentFormatter {
 		 * @param bool   $number_first Default based on built-in country lists.
 		 * @param string $country      ISO country code.
 		 */
-		return (bool) apply_filters( 'wpruby_address_guard_street_number_first', true, $country );
+		return (bool) apply_filters( 'address_guard_street_number_first', true, $country );
 	}
 }

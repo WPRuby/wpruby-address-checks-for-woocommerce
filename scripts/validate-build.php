@@ -35,6 +35,7 @@ $required = array(
 	'address-guard-for-woocommerce/assets/admin/dist/app.js',
 	'address-guard-for-woocommerce/assets/admin/dist/app.css',
 	'address-guard-for-woocommerce/assets/checkout/validation.js',
+	'address-guard-for-woocommerce/assets/checkout/autocomplete.js',
 );
 
 $forbidden_patterns = array(
@@ -52,7 +53,6 @@ $forbidden_patterns = array(
 	'#(^|/)includes/Licensing/#',
 	'#(^|/)includes/Domain/Providers/#',
 	'#(^|/)includes/Domain/Rules/#',
-	'#(^|/)assets/checkout/autocomplete\.js$#',
 	'#\.map$#',
 );
 

@@ -67,4 +67,5 @@ export class ApiError extends Error {
 export const api = {
   getSettings: () => request('/settings'),
   saveSettings: (settings) => request('/settings', { method: 'POST', body: settings }),
+  testGoogleAutocomplete: () => request('/google/test', { method: 'POST', body: {} }),
 };

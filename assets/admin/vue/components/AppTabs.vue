@@ -26,6 +26,7 @@ const tabsLabel = __('Address Guard sections');
 
 const tabs = [
   { id: 'general', label: __('General') },
+  { id: 'autocomplete', label: __('Autocomplete') },
   { id: 'checks', label: __('Checks') },
   { id: 'messages', label: __('Messages') },
   { id: 'upgrade', label: __('Upgrade to Pro') },

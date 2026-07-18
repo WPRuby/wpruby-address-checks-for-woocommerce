@@ -5,7 +5,7 @@
  * @wordpress-plugin
  * Plugin Name:       Address Guard for WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/address-guard-for-woocommerce/
- * Description:       Catch missing house numbers, PO boxes, parcel lockers, and common checkout address issues before WooCommerce orders are placed.
+ * Description:       Address autocomplete and checkout address checks for WooCommerce — Google Places Autocomplete plus missing house number, PO box, and parcel locker detection.
  * Version:           1.0.0
  * Requires PHP:      7.4
  * Requires at least: 5.6

@@ -2,7 +2,7 @@ import { computed } from 'vue';
 import { __ } from '../api/client.js';
 import { state } from '../store.js';
 
-const boot = window.wpRubyAddressGuard || {};
+const boot = window.addressGuardAdmin || {};
 
 export function countryOptionsSource() {
   return state.meta?.country_options || boot.countryOptions || [];

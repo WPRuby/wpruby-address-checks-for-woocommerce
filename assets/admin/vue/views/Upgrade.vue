@@ -46,34 +46,39 @@ const boot = window.addressGuardAdmin || {};
 const proUrl = computed(() => state.meta.pro_url || boot.proUrl || 'https://wpruby.com/plugin/woocommerce-address-guard-pro/');
 
 const upgradeTitle = __('Upgrade to Pro');
-const upgradeIntro = __('Address Guard Lite performs local checkout checks only.');
+const upgradeIntro = __('Address autocomplete and checkout address checks for WooCommerce.');
 const upgradeCopy = __(
-  'Need address autocomplete, provider-powered validation, correction suggestions, Loqate, Google, Mapbox, advanced rules, and order review tools? Upgrade to Address Guard Pro.'
+  'Upgrade to Address Guard Pro for provider-powered address validation, correction suggestions, Loqate, Mapbox, advanced rules, an address tester, logs, and order review tools.'
 );
 
 const liteTitle = __('Lite (this plugin)');
 const proTitle = __('Address Guard Pro');
 
 const liteFeatures = [
-  __('Local address checks'),
+  __('Google Places Autocomplete'),
   __('Missing house number detection'),
   __('PO box detection'),
-  __('Parcel locker detection'),
-  __('Warn or block checkout'),
+  __('Parcel locker / Packstation detection'),
+  __('Warn/block checkout'),
+  __('Checkout Blocks support'),
+  __('Classic checkout support'),
 ];
 
 const proFeatures = [
-  __('Google, Mapbox, and Loqate providers'),
-  __('Address autocomplete'),
-  __('Provider-powered address validation'),
+  __('Google Address Validation'),
+  __('Loqate Address Verify'),
+  __('Mapbox / Loqate autocomplete providers'),
   __('Correction suggestions'),
   __('Advanced rules'),
+  __('Rule presets'),
+  __('Address tester'),
   __('Order review panel'),
   __('Logs'),
-  __('Address tester'),
+  __('Provider error handling'),
+  __('Multi-provider setup'),
 ];
 
-const ctaLabel = __('Learn about Address Guard Pro');
+const ctaLabel = __('Upgrade to Address Guard Pro');
 </script>
 
 <style scoped>

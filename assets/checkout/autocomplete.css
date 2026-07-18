@@ -1,0 +1,172 @@
+.wpruby-ag-autocomplete {
+	position: relative;
+	width: 100%;
+}
+
+.wpruby-ag-autocomplete__announcer {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.wpruby-ag-autocomplete-dropdown {
+	position: absolute;
+	z-index: 9999;
+	left: 0;
+	right: 0;
+	top: calc(100% + 6px);
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+}
+
+.wpruby-ag-autocomplete-dropdown[hidden] {
+	display: none;
+}
+
+.wpruby-ag-autocomplete-list {
+	margin: 0;
+	padding: 4px 0;
+	list-style: none;
+	max-height: 280px;
+	overflow-y: auto;
+}
+
+.wpruby-ag-autocomplete-option {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0.7rem 0.9rem;
+	cursor: pointer;
+	line-height: 1.35;
+	text-align: left;
+	border: 0;
+	background: transparent;
+	color: #1d2327;
+	transition: background-color 0.12s ease;
+}
+
+.wpruby-ag-autocomplete-option:hover,
+.wpruby-ag-autocomplete-option--active {
+	background: #f6f7f7;
+}
+
+.wpruby-ag-autocomplete-option__main {
+	display: block;
+	font-size: 0.9375rem;
+	font-weight: 500;
+	color: #1d2327;
+	word-break: break-word;
+}
+
+.wpruby-ag-autocomplete-option__meta {
+	display: block;
+	margin-top: 0.15rem;
+	font-size: 0.8125rem;
+	color: #646970;
+	word-break: break-word;
+}
+
+.wpruby-ag-autocomplete-loading,
+.wpruby-ag-autocomplete-empty,
+.wpruby-ag-autocomplete-error {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+	padding: 0.85rem 0.95rem;
+}
+
+.wpruby-ag-autocomplete-loading {
+	align-items: center;
+	color: #646970;
+	font-size: 0.875rem;
+}
+
+.wpruby-ag-autocomplete-loading__spinner {
+	flex-shrink: 0;
+	width: 1rem;
+	height: 1rem;
+	border: 2px solid #dcdcde;
+	border-top-color: #646970;
+	border-radius: 50%;
+	animation: wpruby-ag-spin 0.7s linear infinite;
+}
+
+@keyframes wpruby-ag-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.wpruby-ag-autocomplete-loading__text {
+	line-height: 1.4;
+}
+
+.wpruby-ag-autocomplete-empty__icon,
+.wpruby-ag-autocomplete-error__icon {
+	flex-shrink: 0;
+	width: 1.125rem;
+	height: 1.125rem;
+	margin-top: 0.1rem;
+	color: #8c8f94;
+}
+
+.wpruby-ag-autocomplete-empty__icon svg,
+.wpruby-ag-autocomplete-error__icon svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.wpruby-ag-autocomplete-empty__content,
+.wpruby-ag-autocomplete-error__content {
+	min-width: 0;
+}
+
+.wpruby-ag-autocomplete-empty__title,
+.wpruby-ag-autocomplete-error__title {
+	margin: 0;
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.35;
+	color: #50575e;
+}
+
+.wpruby-ag-autocomplete-empty__message,
+.wpruby-ag-autocomplete-error__message {
+	margin: 0.25rem 0 0;
+	font-size: 0.8125rem;
+	line-height: 1.45;
+	color: #646970;
+}
+
+.wpruby-ag-autocomplete-error__title {
+	color: #50575e;
+}
+
+.wc-block-components-text-input .wpruby-ag-autocomplete,
+.woocommerce-billing-fields .wpruby-ag-autocomplete,
+.woocommerce-shipping-fields .wpruby-ag-autocomplete {
+	width: 100%;
+}
+
+@media (max-width: 480px) {
+	.wpruby-ag-autocomplete-option {
+		padding: 0.85rem 0.95rem;
+		min-height: 44px;
+	}
+
+	.wpruby-ag-autocomplete-loading,
+	.wpruby-ag-autocomplete-empty,
+	.wpruby-ag-autocomplete-error {
+		padding: 0.75rem 0.85rem;
+	}
+}

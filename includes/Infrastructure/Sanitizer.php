@@ -53,6 +53,47 @@ class Sanitizer {
 	}
 
 	/**
+	 * Sanitize a credential / API key string.
+	 *
+	 * @param mixed $value Raw value.
+	 *
+	 * @return string
+	 */
+	public static function credential( $value ): string {
+		$value = is_string( $value ) ? trim( $value ) : '';
+		$value = preg_replace( '/[\r\n\t]+/', '', $value );
+
+		return is_string( $value ) ? $value : '';
+	}
+
+	/**
+	 * Sanitize a list of ISO country codes.
+	 *
+	 * @param mixed $value Raw value.
+	 *
+	 * @return string[]
+	 */
+	public static function country_codes( $value ): array {
+		if ( is_string( $value ) ) {
+			$value = preg_split( '/[\s,]+/', $value );
+		}
+
+		if ( ! is_array( $value ) ) {
+			return array();
+		}
+
+		$codes = array();
+		foreach ( $value as $code ) {
+			$code = strtoupper( sanitize_text_field( (string) $code ) );
+			if ( preg_match( '/^[A-Z]{2}$/', $code ) ) {
+				$codes[] = $code;
+			}
+		}
+
+		return array_values( array_unique( $codes ) );
+	}
+
+	/**
 	 * Sanitize message templates.
 	 *
 	 * @param mixed $value Raw value.

@@ -69,7 +69,7 @@ const version = boot.version || '';
 
 const title = __('Address Guard for WooCommerce');
 const description = __(
-  'Prevent common WooCommerce checkout address mistakes before the order is placed.'
+  'Address autocomplete and checkout address checks for WooCommerce.'
 );
 const saveLabel = __('Save changes');
 const savingLabel = __('Saving…');

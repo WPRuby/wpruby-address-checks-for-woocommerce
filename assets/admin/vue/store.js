@@ -19,6 +19,7 @@ const BOOL_KEYS = [
   'plugin_enabled',
   'validate_shipping_address',
   'validate_billing_address',
+  'autocomplete_enabled',
   'check_missing_house_number',
   'check_po_box',
   'check_parcel_locker',
@@ -34,7 +35,9 @@ export function blankMeta() {
     checkout_detected_label: '',
     supports_blocks: true,
     supports_classic: true,
+    country_options: boot.countryOptions || [],
     pro_url: boot.proUrl || 'https://wpruby.com/plugin/woocommerce-address-guard-pro/',
+    docs_url: '',
   };
 }
 
@@ -57,6 +60,18 @@ export function normalizeSettings(raw = {}) {
 
   if (!['warn', 'block'].includes(settings.validation_mode)) {
     settings.validation_mode = 'warn';
+  }
+
+  if (!Array.isArray(settings.autocomplete_countries)) {
+    settings.autocomplete_countries = [];
+  } else {
+    settings.autocomplete_countries = settings.autocomplete_countries.map((code) =>
+      String(code || '').toUpperCase()
+    );
+  }
+
+  if (typeof settings.google_api_key !== 'string') {
+    settings.google_api_key = '';
   }
 
   return settings;

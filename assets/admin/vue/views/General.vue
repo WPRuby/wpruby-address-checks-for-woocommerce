@@ -71,12 +71,12 @@ import { __ } from '../api/client.js';
 const settings = computed(() => state.settings);
 
 const generalTitle = __('General');
-const generalDesc = __('Enable Address Guard and choose how checkout should respond to local address issues.');
+const generalDesc = __('Address autocomplete and checkout address checks for WooCommerce.');
 
 const statusTitle = __('Plugin status');
-const statusDesc = __('Turn local address checks on or off for checkout.');
+const statusDesc = __('Turn Address Guard on or off for checkout.');
 const enableLabel = __('Enable Address Guard');
-const enableHelp = __('When enabled, configured checks run during checkout.');
+const enableHelp = __('When enabled, configured autocomplete and local checks run during checkout.');
 
 const behaviorTitle = __('Checkout behavior');
 const behaviorQuestion = __('How should checkout respond?');

@@ -8,6 +8,7 @@
 namespace WPRuby\AddressGuard\Infrastructure;
 
 use WPRuby\AddressGuard\Admin\AdminPage;
+use WPRuby\AddressGuard\WooCommerce\CheckoutCompatibility;
 use WPRuby\AddressGuard\WooCommerce\CheckoutValidation;
 use WPRuby\AddressGuard\WooCommerce\ClassicCheckoutIntegration;
 
@@ -138,6 +139,7 @@ class Assets {
 				'defaultMessages' => $this->settings->defaults()['messages'],
 				'logo'            => ADDRESS_GUARD_PLUGIN_URL . 'assets/admin/images/logo.png',
 				'proUrl'          => esc_url_raw( 'https://wpruby.com/plugin/woocommerce-address-guard-pro/' ),
+				'countryOptions'  => CountryOptions::for_app(),
 			)
 		);
 
@@ -147,11 +149,21 @@ class Assets {
 	}
 
 	/**
-	 * Enqueue checkout validation assets when enabled.
+	 * Enqueue checkout validation and autocomplete assets when enabled.
 	 *
 	 * @return void
 	 */
 	public function enqueue_checkout(): void {
+		$this->enqueue_checkout_validation();
+		$this->enqueue_checkout_autocomplete();
+	}
+
+	/**
+	 * Enqueue local validation assets.
+	 *
+	 * @return void
+	 */
+	private function enqueue_checkout_validation(): void {
 		if ( ! $this->checkout_validation->should_enqueue() && ! $this->classic_checkout->should_enqueue_validation() ) {
 			return;
 		}
@@ -186,6 +198,86 @@ class Assets {
 			'address-guard-validation',
 			'addressGuardCheckout',
 			$this->checkout_validation->frontend_config()
+		);
+	}
+
+	/**
+	 * Enqueue Google Places autocomplete assets.
+	 *
+	 * @return void
+	 */
+	private function enqueue_checkout_autocomplete(): void {
+		if ( ! $this->settings->is_autocomplete_enabled() ) {
+			return;
+		}
+
+		$compatibility = new CheckoutCompatibility();
+		if ( ! $compatibility->should_load_checkout_assets() ) {
+			return;
+		}
+
+		$js_file  = ADDRESS_GUARD_PLUGIN_DIR . 'assets/checkout/autocomplete.js';
+		$css_file = ADDRESS_GUARD_PLUGIN_DIR . 'assets/checkout/autocomplete.css';
+
+		if ( ! is_readable( $js_file ) ) {
+			return;
+		}
+
+		$version = (string) ADDRESS_GUARD_VERSION . '.' . (string) filemtime( $js_file );
+
+		if ( is_readable( $css_file ) ) {
+			wp_enqueue_style(
+				'address-guard-autocomplete',
+				ADDRESS_GUARD_PLUGIN_URL . 'assets/checkout/autocomplete.css',
+				array(),
+				$version
+			);
+		}
+
+		wp_enqueue_script(
+			'address-guard-autocomplete',
+			ADDRESS_GUARD_PLUGIN_URL . 'assets/checkout/autocomplete.js',
+			array( 'jquery', 'wp-data', 'wp-hooks' ),
+			$version,
+			true
+		);
+
+		wp_localize_script(
+			'address-guard-autocomplete',
+			'addressGuardAutocomplete',
+			$this->autocomplete_frontend_config()
+		);
+	}
+
+	/**
+	 * Frontend config for checkout autocomplete.
+	 *
+	 * @return array<string,mixed>
+	 */
+	private function autocomplete_frontend_config(): array {
+		return array(
+			'restUrl'               => esc_url_raw( rest_url( 'address-guard/v1/' ) ),
+			'restNonce'             => wp_create_nonce( 'wp_rest' ),
+			'minChars'              => 3,
+			'debounceMs'            => 300,
+			'billingEnabled'        => true,
+			'shippingEnabled'       => true,
+			'preferredCountries'    => $this->settings->autocomplete_countries(),
+			'checkoutBlocks'        => ( new CheckoutCompatibility() )->checkout_page_uses_blocks(),
+			'checkoutMode'          => 'auto',
+			'autocompleteProvider'  => 'google_places',
+			'requiresDetails'       => true,
+			'debug'                 => false,
+			'i18n'                  => array(
+				'loading'            => __( 'Searching addresses…', 'address-guard-for-woocommerce' ),
+				'noResultsFound'     => __( 'No address matches found', 'address-guard-for-woocommerce' ),
+				'noResultsFoundHint' => __( 'Check the street name or selected country and try again.', 'address-guard-for-woocommerce' ),
+				'errorTitle'         => __( 'Address search is temporarily unavailable.', 'address-guard-for-woocommerce' ),
+				'errorHint'          => __( 'You can still enter the address manually.', 'address-guard-for-woocommerce' ),
+				'queryTooShort'      => __( 'Keep typing to search for an address.', 'address-guard-for-woocommerce' ),
+				'detailsLoading'     => __( 'Loading address details…', 'address-guard-for-woocommerce' ),
+				'detailsError'       => __( 'Could not load address details.', 'address-guard-for-woocommerce' ),
+			),
 		);
 	}
 }

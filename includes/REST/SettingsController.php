@@ -11,6 +11,8 @@ use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
+use WPRuby\AddressGuard\Domain\Google\GooglePlacesService;
+use WPRuby\AddressGuard\Infrastructure\CountryOptions;
 use WPRuby\AddressGuard\Infrastructure\Sanitizer;
 use WPRuby\AddressGuard\Infrastructure\Settings;
 use WPRuby\AddressGuard\WooCommerce\CheckoutCompatibility;
@@ -37,12 +39,21 @@ class SettingsController {
 	private $settings;
 
 	/**
+	 * Google Places service.
+	 *
+	 * @var GooglePlacesService
+	 */
+	private $google;
+
+	/**
 	 * Constructor.
 	 *
-	 * @param Settings $settings Settings accessor.
+	 * @param Settings            $settings Settings accessor.
+	 * @param GooglePlacesService $google   Google Places service.
 	 */
-	public function __construct( Settings $settings ) {
+	public function __construct( Settings $settings, GooglePlacesService $google ) {
 		$this->settings = $settings;
+		$this->google   = $google;
 	}
 
 	/**
@@ -74,6 +85,18 @@ class SettingsController {
 				array(
 					'methods'             => WP_REST_Server::CREATABLE,
 					'callback'            => array( $this, 'save_settings' ),
+					'permission_callback' => $auth,
+				),
+			)
+		);
+
+		register_rest_route(
+			self::NAMESPACE,
+			'/google/test',
+			array(
+				array(
+					'methods'             => WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'test_google' ),
 					'permission_callback' => $auth,
 				),
 			)
@@ -120,6 +143,7 @@ class SettingsController {
 		}
 
 		$defaults = $this->settings->defaults();
+		$stored   = $this->settings->all();
 		$messages = Sanitizer::messages( $raw['messages'] ?? array() );
 
 		$clean = array(
@@ -127,12 +151,15 @@ class SettingsController {
 			'validation_mode'            => Sanitizer::validation_mode( $raw['validation_mode'] ?? 'warn' ),
 			'validate_shipping_address'  => Sanitizer::checkbox( $this->bool_in( $raw, 'validate_shipping_address' ) ),
 			'validate_billing_address'   => Sanitizer::checkbox( $this->bool_in( $raw, 'validate_billing_address' ) ),
+			'autocomplete_enabled'       => Sanitizer::checkbox( $this->bool_in( $raw, 'autocomplete_enabled' ) ),
+			'google_api_key'             => $this->credential_in( $raw, 'google_api_key', $stored ),
+			'autocomplete_countries'     => Sanitizer::country_codes( $raw['autocomplete_countries'] ?? array() ),
 			'check_missing_house_number' => Sanitizer::checkbox( $this->bool_in( $raw, 'check_missing_house_number' ) ),
 			'check_po_box'               => Sanitizer::checkbox( $this->bool_in( $raw, 'check_po_box' ) ),
 			'check_parcel_locker'        => Sanitizer::checkbox( $this->bool_in( $raw, 'check_parcel_locker' ) ),
 			'check_postcode_format'      => Sanitizer::checkbox( $this->bool_in( $raw, 'check_postcode_format' ) ),
 			'messages'                   => wp_parse_args( $messages, $defaults['messages'] ),
-			'order_add_validation_notes'   => Sanitizer::checkbox( $this->bool_in( $raw, 'order_add_validation_notes' ) ),
+			'order_add_validation_notes' => Sanitizer::checkbox( $this->bool_in( $raw, 'order_add_validation_notes' ) ),
 		);
 
 		$this->settings->save( $clean );
@@ -142,6 +169,23 @@ class SettingsController {
 				'settings' => $this->settings->for_app(),
 				'meta'     => $this->meta_for_app(),
 				'message'  => __( 'Settings saved.', 'address-guard-for-woocommerce' ),
+			),
+			200
+		);
+	}
+
+	/**
+	 * POST /google/test
+	 *
+	 * @return WP_REST_Response
+	 */
+	public function test_google(): WP_REST_Response {
+		$result = $this->google->test_connection();
+
+		return new WP_REST_Response(
+			array(
+				'success' => ! empty( $result['success'] ),
+				'message' => (string) ( $result['message'] ?? '' ),
 			),
 			200
 		);
@@ -175,7 +219,9 @@ class SettingsController {
 			'checkout_detected_label' => $checkout['detected_label'],
 			'supports_blocks'         => $checkout['supports_blocks'],
 			'supports_classic'        => $checkout['supports_classic'],
+			'country_options'         => CountryOptions::for_app(),
 			'pro_url'                 => esc_url_raw( 'https://wpruby.com/plugin/woocommerce-address-guard-pro/' ),
+			'docs_url'                => esc_url_raw( 'https://wpruby.com/docs/address-guard/' ),
 		);
 	}
 
@@ -189,5 +235,27 @@ class SettingsController {
 	 */
 	private function bool_in( array $raw, string $key ) {
 		return array_key_exists( $key, $raw ) ? $raw[ $key ] : 'no';
+	}
+
+	/**
+	 * Resolve a credential field, preserving the stored value when masked.
+	 *
+	 * @param array<string,mixed> $raw    Request payload.
+	 * @param string              $key    Setting key.
+	 * @param array<string,mixed> $stored Stored settings.
+	 *
+	 * @return string
+	 */
+	private function credential_in( array $raw, string $key, array $stored ): string {
+		if ( ! array_key_exists( $key, $raw ) ) {
+			return (string) ( $stored[ $key ] ?? '' );
+		}
+
+		$value = Sanitizer::credential( $raw[ $key ] );
+		if ( Settings::is_masked_value( $value ) ) {
+			return (string) ( $stored[ $key ] ?? '' );
+		}
+
+		return $value;
 	}
 }

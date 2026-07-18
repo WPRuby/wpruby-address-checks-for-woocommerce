@@ -37,6 +37,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppTabs from './components/AppTabs.vue';
 import Notice from './components/Notice.vue';
 import General from './views/General.vue';
+import Autocomplete from './views/Autocomplete.vue';
 import Checks from './views/Checks.vue';
 import Messages from './views/Messages.vue';
 import Upgrade from './views/Upgrade.vue';
@@ -51,6 +52,7 @@ import { __ } from './api/client.js';
 
 const tabs = [
   { id: 'general', view: General },
+  { id: 'autocomplete', view: Autocomplete },
   { id: 'checks', view: Checks },
   { id: 'messages', view: Messages },
   { id: 'upgrade', view: Upgrade },

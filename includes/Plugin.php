@@ -9,8 +9,10 @@ namespace WPRuby\AddressGuard;
 
 use WPRuby\AddressGuard\Admin\AdminPage;
 use WPRuby\AddressGuard\Domain\AddressValidator;
+use WPRuby\AddressGuard\Domain\Google\GooglePlacesService;
 use WPRuby\AddressGuard\Infrastructure\Assets;
 use WPRuby\AddressGuard\Infrastructure\Settings;
+use WPRuby\AddressGuard\REST\AutocompleteController;
 use WPRuby\AddressGuard\REST\SettingsController;
 use WPRuby\AddressGuard\REST\ValidationController;
 use WPRuby\AddressGuard\WooCommerce\CheckoutCompatibility;
@@ -97,15 +99,17 @@ final class Plugin {
 	 * @return void
 	 */
 	private function boot(): void {
-		$this->settings     = new Settings();
-		$validator          = new AddressValidator( $this->settings );
-		$order_notes        = new OrderNotes( $this->settings );
-		$compatibility      = new CheckoutCompatibility();
-		$classic_checkout   = new ClassicCheckoutIntegration( $this->settings, $validator, $compatibility, $order_notes );
+		$this->settings      = new Settings();
+		$validator           = new AddressValidator( $this->settings );
+		$google              = new GooglePlacesService( $this->settings );
+		$order_notes         = new OrderNotes( $this->settings );
+		$compatibility       = new CheckoutCompatibility();
+		$classic_checkout    = new ClassicCheckoutIntegration( $this->settings, $validator, $compatibility, $order_notes );
 		$checkout_validation = new CheckoutValidation( $this->settings, $validator, $compatibility, $order_notes );
 
 		( new Assets( $this->settings, $classic_checkout, $checkout_validation ) )->register();
-		( new SettingsController( $this->settings ) )->register();
+		( new SettingsController( $this->settings, $google ) )->register();
+		( new AutocompleteController( $this->settings, $google ) )->register();
 		( new ValidationController( $this->settings, $validator ) )->register();
 
 		if ( is_admin() ) {
