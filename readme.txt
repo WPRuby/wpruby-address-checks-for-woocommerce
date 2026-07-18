@@ -1,5 +1,5 @@
 === Address Guard for WooCommerce – Google Address Autocomplete & Checkout Address Checks ===
-Contributors: wpruby, waseem_senjer
+Contributors: waseem_senjer, wprubyplugins
 Tags: woocommerce, checkout, address, autocomplete, google places
 Requires at least: 5.6
 Tested up to: 7.0
