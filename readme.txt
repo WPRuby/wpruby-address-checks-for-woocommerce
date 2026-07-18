@@ -1,4 +1,4 @@
-=== Address Guard for WooCommerce – Google Address Autocomplete & Checkout Address Checks ===
+=== Address Guard for WooCommerce ===
 Contributors: waseem_senjer, wprubyplugins
 Tags: woocommerce, checkout, address, autocomplete, google places
 Requires at least: 5.6
@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add Google address autocomplete and local checkout address checks for WooCommerce, including missing house number, PO box, and parcel locker detection.
+Add Google address autocomplete and local checkout address checks for WooCommerce, including house number, PO box, and parcel locker detection.
 
 == Description ==
 
