@@ -104,7 +104,7 @@ if ( true === $zip->open( $zip_path ) ) {
 	$contents = $zip->getFromName( $main );
 	$zip->close();
 	if ( is_string( $contents ) ) {
-		if ( false === strpos( $contents, 'Plugin Name:       Address Guard for WooCommerce' ) ) {
+		if ( false === strpos( $contents, 'Plugin Name:       Checkout Address Guard for WooCommerce' ) ) {
 			$errors[] = 'Plugin Name header mismatch.';
 		}
 		if ( false === strpos( $contents, 'Text Domain:       address-guard-for-woocommerce' ) ) {

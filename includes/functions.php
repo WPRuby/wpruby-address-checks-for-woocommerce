@@ -73,7 +73,7 @@ function address_guard_pro_conflict_notice(): void {
 
 	echo '<div class="notice notice-warning"><p>';
 	echo esc_html__(
-		'Address Guard Pro is active. Please deactivate Address Guard for WooCommerce to avoid duplicate checkout address checks.',
+		'Address Guard Pro is active. Please deactivate Checkout Address Guard for WooCommerce to avoid duplicate checkout address checks.',
 		'address-guard-for-woocommerce'
 	);
 	echo '</p></div>';

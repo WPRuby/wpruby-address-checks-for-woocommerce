@@ -42,6 +42,6 @@ class ProConflictTest extends TestCase {
 		$output = ob_get_clean();
 
 		$this->assertStringContainsString( 'Address Guard Pro is active', $output );
-		$this->assertStringContainsString( 'Address Guard for WooCommerce', $output );
+		$this->assertStringContainsString( 'Checkout Address Guard for WooCommerce', $output );
 	}
 }

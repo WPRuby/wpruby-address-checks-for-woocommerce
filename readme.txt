@@ -1,4 +1,4 @@
-=== Address Guard for WooCommerce ===
+=== Checkout Address Guard for WooCommerce ===
 Contributors: waseem_senjer, wprubyplugins
 Tags: woocommerce, checkout, address, autocomplete, google places
 Requires at least: 5.6
@@ -12,9 +12,9 @@ Add Google address autocomplete and local checkout address checks for WooCommerc
 
 == Description ==
 
-Address Guard for WooCommerce helps customers enter addresses faster with Google Places Autocomplete and catches common checkout address issues such as missing house numbers, PO boxes, and parcel locker addresses.
+Checkout Address Guard for WooCommerce helps customers enter addresses faster with Google Places Autocomplete and catches common checkout address issues such as missing house numbers, PO boxes, and parcel locker addresses.
 
-Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+Checkout Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 This plugin provides address autocomplete and checkout address checks. It does not perform full postal deliverability validation.
 
@@ -81,7 +81,7 @@ Only when Google Places Autocomplete is enabled. Customer address search input i
 
 = Does this support Checkout Blocks? =
 
-Yes. Address Guard for WooCommerce supports WooCommerce Checkout Blocks and the classic checkout shortcode.
+Yes. Checkout Address Guard for WooCommerce supports WooCommerce Checkout Blocks and the classic checkout shortcode.
 
 = Can I warn instead of blocking checkout? =
 
@@ -89,7 +89,7 @@ Yes. Choose **Warn customer** or **Block checkout** under WooCommerce → Addres
 
 = Is this an official WooCommerce or Google plugin? =
 
-No. Address Guard for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+No. Checkout Address Guard for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 == Screenshots ==
 

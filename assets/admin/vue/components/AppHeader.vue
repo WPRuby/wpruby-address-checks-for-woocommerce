@@ -67,7 +67,7 @@ defineEmits(['save']);
 const boot = window.addressGuardAdmin || {};
 const version = boot.version || '';
 
-const title = __('Address Guard for WooCommerce');
+const title = __('Checkout Address Guard for WooCommerce');
 const description = __(
   'Address autocomplete and checkout address checks for WooCommerce.'
 );

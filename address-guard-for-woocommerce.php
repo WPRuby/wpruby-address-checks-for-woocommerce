@@ -3,7 +3,7 @@
  * The plugin bootstrap file.
  *
  * @wordpress-plugin
- * Plugin Name:       Address Guard for WooCommerce
+ * Plugin Name:       Checkout Address Guard for WooCommerce
  * Plugin URI:        https://wpruby.com/plugin/address-guard-for-woocommerce/
  * Description:       Add Google address autocomplete and local checkout address checks for WooCommerce, including missing house number, PO box, and parcel locker detection.
  * Version:           1.0.0

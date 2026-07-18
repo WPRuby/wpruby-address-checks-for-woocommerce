@@ -1,8 +1,8 @@
-# Address Guard for WooCommerce
+# Checkout Address Guard for WooCommerce
 
 WordPress.org plugin that adds Google Places Autocomplete and local checkout address checks for WooCommerce.
 
-Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+Checkout Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 ## Features
 
