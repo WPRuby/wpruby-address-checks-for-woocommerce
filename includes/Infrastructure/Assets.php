@@ -99,7 +99,7 @@ class Assets {
 					echo '<div class="notice notice-error"><p>';
 					echo esc_html__(
 						'Address Guard: the admin app bundle is missing. Run "npm install && npm run build" inside the plugin folder.',
-						'address-guard-for-woocommerce'
+						'checkout-address-guard-for-woocommerce'
 					);
 					echo '</p></div>';
 				}
@@ -143,7 +143,7 @@ class Assets {
 		);
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'address-guard-admin-app', 'address-guard-for-woocommerce' );
+			wp_set_script_translations( 'address-guard-admin-app', 'checkout-address-guard-for-woocommerce' );
 		}
 	}
 
@@ -268,14 +268,14 @@ class Assets {
 			'requiresDetails'       => true,
 			'debug'                 => false,
 			'i18n'                  => array(
-				'loading'            => __( 'Searching addresses…', 'address-guard-for-woocommerce' ),
-				'noResultsFound'     => __( 'No address matches found', 'address-guard-for-woocommerce' ),
-				'noResultsFoundHint' => __( 'Check the street name or selected country and try again.', 'address-guard-for-woocommerce' ),
-				'errorTitle'         => __( 'Address search is temporarily unavailable.', 'address-guard-for-woocommerce' ),
-				'errorHint'          => __( 'You can still enter the address manually.', 'address-guard-for-woocommerce' ),
-				'queryTooShort'      => __( 'Keep typing to search for an address.', 'address-guard-for-woocommerce' ),
-				'detailsLoading'     => __( 'Loading address details…', 'address-guard-for-woocommerce' ),
-				'detailsError'       => __( 'Could not load address details.', 'address-guard-for-woocommerce' ),
+				'loading'            => __( 'Searching addresses…', 'checkout-address-guard-for-woocommerce' ),
+				'noResultsFound'     => __( 'No address matches found', 'checkout-address-guard-for-woocommerce' ),
+				'noResultsFoundHint' => __( 'Check the street name or selected country and try again.', 'checkout-address-guard-for-woocommerce' ),
+				'errorTitle'         => __( 'Address search is temporarily unavailable.', 'checkout-address-guard-for-woocommerce' ),
+				'errorHint'          => __( 'You can still enter the address manually.', 'checkout-address-guard-for-woocommerce' ),
+				'queryTooShort'      => __( 'Keep typing to search for an address.', 'checkout-address-guard-for-woocommerce' ),
+				'detailsLoading'     => __( 'Loading address details…', 'checkout-address-guard-for-woocommerce' ),
+				'detailsError'       => __( 'Could not load address details.', 'checkout-address-guard-for-woocommerce' ),
 			),
 		);
 	}

@@ -232,14 +232,14 @@ class AddressValidator {
 	 */
 	public function issue_label( string $code ): string {
 		$labels = array(
-			'missing_house_number'      => __( 'Missing house number', 'address-guard-for-woocommerce' ),
-			'po_box_detected'           => __( 'PO box detected', 'address-guard-for-woocommerce' ),
-			'parcel_locker_detected'    => __( 'Parcel locker detected', 'address-guard-for-woocommerce' ),
-			'postcode_country_mismatch' => __( 'Postcode format mismatch', 'address-guard-for-woocommerce' ),
-			'missing_address_1'         => __( 'Missing street address', 'address-guard-for-woocommerce' ),
-			'missing_country'           => __( 'Missing country', 'address-guard-for-woocommerce' ),
-			'missing_postcode'          => __( 'Missing postcode', 'address-guard-for-woocommerce' ),
-			'missing_state'             => __( 'Missing state', 'address-guard-for-woocommerce' ),
+			'missing_house_number'      => __( 'Missing house number', 'checkout-address-guard-for-woocommerce' ),
+			'po_box_detected'           => __( 'PO box detected', 'checkout-address-guard-for-woocommerce' ),
+			'parcel_locker_detected'    => __( 'Parcel locker detected', 'checkout-address-guard-for-woocommerce' ),
+			'postcode_country_mismatch' => __( 'Postcode format mismatch', 'checkout-address-guard-for-woocommerce' ),
+			'missing_address_1'         => __( 'Missing street address', 'checkout-address-guard-for-woocommerce' ),
+			'missing_country'           => __( 'Missing country', 'checkout-address-guard-for-woocommerce' ),
+			'missing_postcode'          => __( 'Missing postcode', 'checkout-address-guard-for-woocommerce' ),
+			'missing_state'             => __( 'Missing state', 'checkout-address-guard-for-woocommerce' ),
 		);
 
 		return $labels[ $code ] ?? sanitize_text_field( $code );
@@ -365,8 +365,8 @@ class AddressValidator {
 	 */
 	private function address_type_label( string $type ): string {
 		return Address::TYPE_BILLING === $type
-			? __( 'Billing address', 'address-guard-for-woocommerce' )
-			: __( 'Shipping address', 'address-guard-for-woocommerce' );
+			? __( 'Billing address', 'checkout-address-guard-for-woocommerce' )
+			: __( 'Shipping address', 'checkout-address-guard-for-woocommerce' );
 	}
 
 	/**
@@ -378,14 +378,14 @@ class AddressValidator {
 	 */
 	private function field_label_for_code( string $code ): string {
 		$labels = array(
-			'missing_address_1'         => __( 'Street address', 'address-guard-for-woocommerce' ),
-			'missing_country'           => __( 'Country', 'address-guard-for-woocommerce' ),
-			'missing_postcode'          => __( 'Postcode', 'address-guard-for-woocommerce' ),
-			'missing_state'             => __( 'State / Region', 'address-guard-for-woocommerce' ),
-			'missing_house_number'      => __( 'House number', 'address-guard-for-woocommerce' ),
-			'postcode_country_mismatch' => __( 'Postcode', 'address-guard-for-woocommerce' ),
-			'po_box_detected'           => __( 'Street address', 'address-guard-for-woocommerce' ),
-			'parcel_locker_detected'    => __( 'Street address', 'address-guard-for-woocommerce' ),
+			'missing_address_1'         => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
+			'missing_country'           => __( 'Country', 'checkout-address-guard-for-woocommerce' ),
+			'missing_postcode'          => __( 'Postcode', 'checkout-address-guard-for-woocommerce' ),
+			'missing_state'             => __( 'State / Region', 'checkout-address-guard-for-woocommerce' ),
+			'missing_house_number'      => __( 'House number', 'checkout-address-guard-for-woocommerce' ),
+			'postcode_country_mismatch' => __( 'Postcode', 'checkout-address-guard-for-woocommerce' ),
+			'po_box_detected'           => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
+			'parcel_locker_detected'    => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
 		);
 
 		return $labels[ $code ] ?? '';

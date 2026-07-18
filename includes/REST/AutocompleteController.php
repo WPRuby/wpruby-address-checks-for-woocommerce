@@ -137,7 +137,7 @@ class AutocompleteController {
 		if ( ! $this->settings->is_autocomplete_enabled() ) {
 			return new WP_Error(
 				'address_guard_autocomplete_disabled',
-				__( 'Address autocomplete is not enabled.', 'address-guard-for-woocommerce' ),
+				__( 'Address autocomplete is not enabled.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -146,7 +146,7 @@ class AutocompleteController {
 		if ( ! is_string( $nonce ) || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new WP_Error(
 				'address_guard_invalid_nonce',
-				__( 'Invalid autocomplete request.', 'address-guard-for-woocommerce' ),
+				__( 'Invalid autocomplete request.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -183,7 +183,7 @@ class AutocompleteController {
 		} catch ( GoogleApiException $exception ) {
 			return new WP_Error(
 				'address_guard_autocomplete_unavailable',
-				__( 'Address search is temporarily unavailable.', 'address-guard-for-woocommerce' ),
+				__( 'Address search is temporarily unavailable.', 'checkout-address-guard-for-woocommerce' ),
 				array(
 					'status' => 502,
 					'code'   => $exception->get_error_code(),
@@ -206,7 +206,7 @@ class AutocompleteController {
 		if ( '' === $place_id ) {
 			return new WP_Error(
 				'address_guard_missing_place_id',
-				__( 'A place ID is required.', 'address-guard-for-woocommerce' ),
+				__( 'A place ID is required.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -216,7 +216,7 @@ class AutocompleteController {
 		} catch ( GoogleApiException $exception ) {
 			return new WP_Error(
 				'address_guard_details_unavailable',
-				__( 'Address search is temporarily unavailable.', 'address-guard-for-woocommerce' ),
+				__( 'Address search is temporarily unavailable.', 'checkout-address-guard-for-woocommerce' ),
 				array(
 					'status' => 502,
 					'code'   => $exception->get_error_code(),

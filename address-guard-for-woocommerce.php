@@ -16,7 +16,7 @@
  * Author URI:        https://wpruby.com
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       address-guard-for-woocommerce
+ * Text Domain:       checkout-address-guard-for-woocommerce
  * Domain Path:       /languages
  *
  * @package WPRuby\AddressGuard
@@ -35,7 +35,7 @@ define( 'ADDRESS_GUARD_VERSION', '1.0.0' );
 define( 'ADDRESS_GUARD_PLUGIN_FILE', __FILE__ );
 define( 'ADDRESS_GUARD_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ADDRESS_GUARD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'ADDRESS_GUARD_TEXT_DOMAIN', 'address-guard-for-woocommerce' );
+define( 'ADDRESS_GUARD_TEXT_DOMAIN', 'checkout-address-guard-for-woocommerce' );
 define( 'ADDRESS_GUARD_BASENAME', plugin_basename( __FILE__ ) );
 
 require_once ADDRESS_GUARD_PLUGIN_DIR . 'includes/functions.php';

@@ -60,44 +60,44 @@ class LocalAddressValidator {
 
 		if ( '' === trim( $address->get( 'address_1' ) ) ) {
 			$issues[] = 'missing_address_1';
-			$errors[] = __( 'Street address is required.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'Street address is required.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( '' === $country ) {
 			$issues[] = 'missing_country';
-			$errors[] = __( 'Country is required.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'Country is required.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( $this->country_requires_postcode( $country ) && '' === trim( $address->get( 'postcode' ) ) ) {
 			$issues[] = 'missing_postcode';
-			$errors[] = __( 'Postcode is required for the selected country.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'Postcode is required for the selected country.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( $this->country_requires_state( $country ) && '' === trim( $address->get( 'state' ) ) ) {
 			$issues[] = 'missing_state';
-			$errors[] = __( 'State or region is required for the selected country.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'State or region is required for the selected country.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( $this->settings->is_check_enabled( 'check_po_box' ) && $this->contains_po_box( $address ) ) {
 			$issues[] = 'po_box_detected';
-			$errors[] = __( 'PO Box addresses may not be deliverable.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'PO Box addresses may not be deliverable.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( $this->settings->is_check_enabled( 'check_parcel_locker' ) && $this->contains_parcel_locker( $address ) ) {
 			$issues[] = 'parcel_locker_detected';
-			$errors[] = __( 'Parcel locker addresses may not be deliverable.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'Parcel locker addresses may not be deliverable.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( $this->settings->is_check_enabled( 'check_missing_house_number' ) && $this->missing_house_number( $address ) ) {
 			$issues[] = 'missing_house_number';
-			$errors[] = __( 'Please include a house or building number in the street address.', 'address-guard-for-woocommerce' );
+			$errors[] = __( 'Please include a house or building number in the street address.', 'checkout-address-guard-for-woocommerce' );
 		}
 
 		if ( $this->settings->is_check_enabled( 'check_postcode_format' ) ) {
 			$postcode_issue = $this->postcode_country_mismatch( $address );
 			if ( null !== $postcode_issue ) {
 				$issues[] = $postcode_issue;
-				$errors[] = __( 'The postcode does not match the selected country.', 'address-guard-for-woocommerce' );
+				$errors[] = __( 'The postcode does not match the selected country.', 'checkout-address-guard-for-woocommerce' );
 			}
 		}
 

@@ -108,7 +108,7 @@ class ValidationController {
 		if ( ! $this->settings->is_enabled() || ! $this->validator->is_validation_active() ) {
 			return new WP_Error(
 				'address_guard_validation_disabled',
-				__( 'Address validation is not enabled.', 'address-guard-for-woocommerce' ),
+				__( 'Address validation is not enabled.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -117,7 +117,7 @@ class ValidationController {
 		if ( ! is_string( $nonce ) || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new WP_Error(
 				'address_guard_invalid_nonce',
-				__( 'Invalid validation request.', 'address-guard-for-woocommerce' ),
+				__( 'Invalid validation request.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -144,7 +144,7 @@ class ValidationController {
 		if ( ! $this->validator->should_validate_type( $type ) ) {
 			return new WP_Error(
 				'address_guard_validation_type_disabled',
-				__( 'Validation is not enabled for this address type.', 'address-guard-for-woocommerce' ),
+				__( 'Validation is not enabled for this address type.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -155,7 +155,7 @@ class ValidationController {
 		if ( ! $value->is_populated() ) {
 			return new WP_Error(
 				'address_guard_empty_address',
-				__( 'Address is empty.', 'address-guard-for-woocommerce' ),
+				__( 'Address is empty.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => 400 )
 			);
 		}

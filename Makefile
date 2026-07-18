@@ -4,7 +4,7 @@ PHP ?= php
 COMPOSER ?= composer
 NPM ?= npm
 
-PLUGIN_SLUG := address-guard-for-woocommerce
+PLUGIN_SLUG := checkout-address-guard-for-woocommerce
 VERSION := $(shell $(PHP) -r '$$c=file_get_contents("address-guard-for-woocommerce.php"); if (preg_match("/Version:\\s+([0-9.]+)/", $$c, $$m)) { echo $$m[1]; }')
 BUILD_DIR := build/$(PLUGIN_SLUG)
 DIST_DIR := dist

@@ -50,7 +50,7 @@ async function request(path, { method = 'GET', body = null } = {}) {
 
 export function __(text) {
   if (window.wp && window.wp.i18n && typeof window.wp.i18n.__ === 'function') {
-    return window.wp.i18n.__(text, 'address-guard-for-woocommerce');
+    return window.wp.i18n.__(text, 'checkout-address-guard-for-woocommerce');
   }
   return text;
 }

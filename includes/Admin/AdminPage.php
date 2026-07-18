@@ -40,8 +40,8 @@ class AdminPage {
 	public function add_menu(): void {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Address Guard', 'address-guard-for-woocommerce' ),
-			__( 'Address Guard', 'address-guard-for-woocommerce' ),
+			__( 'Address Guard', 'checkout-address-guard-for-woocommerce' ),
+			__( 'Address Guard', 'checkout-address-guard-for-woocommerce' ),
 			self::CAPABILITY,
 			self::PAGE_SLUG,
 			array( $this, 'render_page' )
@@ -57,7 +57,7 @@ class AdminPage {
 	 */
 	public function action_links( array $links ): array {
 		$url  = admin_url( 'admin.php?page=' . self::PAGE_SLUG );
-		$link = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'address-guard-for-woocommerce' ) . '</a>';
+		$link = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'checkout-address-guard-for-woocommerce' ) . '</a>';
 		array_unshift( $links, $link );
 
 		return $links;
@@ -75,7 +75,7 @@ class AdminPage {
 
 		echo '<div class="wrap address-guard-lite-wrap">';
 		echo '<div id="address-guard-admin" class="address-guard-lite-admin">';
-		echo '<p class="address-guard-lite-admin__loading">' . esc_html__( 'Loading Address Guard…', 'address-guard-for-woocommerce' ) . '</p>';
+		echo '<p class="address-guard-lite-admin__loading">' . esc_html__( 'Loading Address Guard…', 'checkout-address-guard-for-woocommerce' ) . '</p>';
 		echo '</div>';
 		echo '</div>';
 	}

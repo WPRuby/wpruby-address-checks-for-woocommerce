@@ -112,7 +112,7 @@ class SettingsController {
 		if ( ! current_user_can( self::CAPABILITY ) && ! current_user_can( 'manage_options' ) ) {
 			return new WP_Error(
 				'address_guard_forbidden',
-				__( 'You do not have permission to manage Address Guard settings.', 'address-guard-for-woocommerce' ),
+				__( 'You do not have permission to manage Address Guard settings.', 'checkout-address-guard-for-woocommerce' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -168,7 +168,7 @@ class SettingsController {
 			array(
 				'settings' => $this->settings->for_app(),
 				'meta'     => $this->meta_for_app(),
-				'message'  => __( 'Settings saved.', 'address-guard-for-woocommerce' ),
+				'message'  => __( 'Settings saved.', 'checkout-address-guard-for-woocommerce' ),
 			),
 			200
 		);

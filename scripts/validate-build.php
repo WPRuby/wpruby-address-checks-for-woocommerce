@@ -29,18 +29,21 @@ for ( $i = 0; $i < $zip->numFiles; $i++ ) {
 }
 $zip->close();
 
+$slug = 'checkout-address-guard-for-woocommerce';
+$main_file = 'address-guard-for-woocommerce.php';
+
 $required = array(
-	'address-guard-for-woocommerce/address-guard-for-woocommerce.php',
-	'address-guard-for-woocommerce/readme.txt',
-	'address-guard-for-woocommerce/includes/Plugin.php',
-	'address-guard-for-woocommerce/assets/admin/dist/app.js',
-	'address-guard-for-woocommerce/assets/admin/dist/app.css',
-	'address-guard-for-woocommerce/assets/admin/vue/main.js',
-	'address-guard-for-woocommerce/assets/admin/vue/App.vue',
-	'address-guard-for-woocommerce/package.json',
-	'address-guard-for-woocommerce/vite.config.js',
-	'address-guard-for-woocommerce/assets/checkout/validation.js',
-	'address-guard-for-woocommerce/assets/checkout/autocomplete.js',
+	"{$slug}/{$main_file}",
+	"{$slug}/readme.txt",
+	"{$slug}/includes/Plugin.php",
+	"{$slug}/assets/admin/dist/app.js",
+	"{$slug}/assets/admin/dist/app.css",
+	"{$slug}/assets/admin/vue/main.js",
+	"{$slug}/assets/admin/vue/App.vue",
+	"{$slug}/package.json",
+	"{$slug}/vite.config.js",
+	"{$slug}/assets/checkout/validation.js",
+	"{$slug}/assets/checkout/autocomplete.js",
 );
 
 $forbidden_patterns = array(
@@ -90,14 +93,14 @@ foreach ( $entries as $entry ) {
 	}
 
 	// ZIP must nest under the plugin slug only.
-	if ( 'address-guard-for-woocommerce/' !== substr( $entry, 0, strlen( 'address-guard-for-woocommerce/' ) )
-		&& 'address-guard-for-woocommerce' !== $entry ) {
+	if ( "{$slug}/" !== substr( $entry, 0, strlen( "{$slug}/" ) )
+		&& $slug !== $entry ) {
 		$errors[] = "Unexpected top-level path in ZIP: {$entry}";
 	}
 }
 
 // Confirm plugin header identity strings.
-$main = 'address-guard-for-woocommerce/address-guard-for-woocommerce.php';
+$main = "{$slug}/{$main_file}";
 $tmp  = tempnam( sys_get_temp_dir(), 'agzip' );
 $zip  = new ZipArchive();
 if ( true === $zip->open( $zip_path ) ) {
@@ -107,7 +110,7 @@ if ( true === $zip->open( $zip_path ) ) {
 		if ( false === strpos( $contents, 'Plugin Name:       Checkout Address Guard for WooCommerce' ) ) {
 			$errors[] = 'Plugin Name header mismatch.';
 		}
-		if ( false === strpos( $contents, 'Text Domain:       address-guard-for-woocommerce' ) ) {
+		if ( false === strpos( $contents, 'Text Domain:       checkout-address-guard-for-woocommerce' ) ) {
 			$errors[] = 'Text Domain header mismatch.';
 		}
 		if ( false !== strpos( $contents, 'Plugin Name:       WooCommerce Address Guard' ) ) {

@@ -163,7 +163,7 @@ class OrderNotes {
 			$label = $validator->issue_label( $code );
 			$note  = sprintf(
 				/* translators: %s: detected issue label */
-				__( 'Address Guard: %s detected.', 'address-guard-for-woocommerce' ),
+				__( 'Address Guard: %s detected.', 'checkout-address-guard-for-woocommerce' ),
 				$label
 			);
 

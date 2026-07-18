@@ -51,19 +51,19 @@ class CountryOptions {
 		return array(
 			array(
 				'value' => 'US',
-				'label' => __( 'United States', 'address-guard-for-woocommerce' ),
+				'label' => __( 'United States', 'checkout-address-guard-for-woocommerce' ),
 			),
 			array(
 				'value' => 'CA',
-				'label' => __( 'Canada', 'address-guard-for-woocommerce' ),
+				'label' => __( 'Canada', 'checkout-address-guard-for-woocommerce' ),
 			),
 			array(
 				'value' => 'GB',
-				'label' => __( 'United Kingdom', 'address-guard-for-woocommerce' ),
+				'label' => __( 'United Kingdom', 'checkout-address-guard-for-woocommerce' ),
 			),
 			array(
 				'value' => 'DE',
-				'label' => __( 'Germany', 'address-guard-for-woocommerce' ),
+				'label' => __( 'Germany', 'checkout-address-guard-for-woocommerce' ),
 			),
 		);
 	}

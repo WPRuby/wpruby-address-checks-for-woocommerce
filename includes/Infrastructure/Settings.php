@@ -54,12 +54,12 @@ class Settings {
 			'check_parcel_locker'          => 'yes',
 			'check_postcode_format'        => 'yes',
 			'messages'                     => array(
-				'po_box_blocked'            => __( 'PO box addresses are not allowed for this order.', 'address-guard-for-woocommerce' ),
-				'locker_blocked'            => __( 'Parcel locker addresses are not allowed for this order.', 'address-guard-for-woocommerce' ),
-				'missing_house_number'      => __( 'Please include a house or building number in your {address_type}.', 'address-guard-for-woocommerce' ),
-				'country_postcode_mismatch' => __( 'The postcode {postcode} does not match the selected country {country}.', 'address-guard-for-woocommerce' ),
-				'validation_blocked'        => __( 'We cannot complete checkout with this address. Please update your {address_type}.', 'address-guard-for-woocommerce' ),
-				'validation_warning'        => __( 'Your address was accepted with a warning. Please review your {address_type} before placing your order.', 'address-guard-for-woocommerce' ),
+				'po_box_blocked'            => __( 'PO box addresses are not allowed for this order.', 'checkout-address-guard-for-woocommerce' ),
+				'locker_blocked'            => __( 'Parcel locker addresses are not allowed for this order.', 'checkout-address-guard-for-woocommerce' ),
+				'missing_house_number'      => __( 'Please include a house or building number in your {address_type}.', 'checkout-address-guard-for-woocommerce' ),
+				'country_postcode_mismatch' => __( 'The postcode {postcode} does not match the selected country {country}.', 'checkout-address-guard-for-woocommerce' ),
+				'validation_blocked'        => __( 'We cannot complete checkout with this address. Please update your {address_type}.', 'checkout-address-guard-for-woocommerce' ),
+				'validation_warning'        => __( 'Your address was accepted with a warning. Please review your {address_type} before placing your order.', 'checkout-address-guard-for-woocommerce' ),
 			),
 			'order_add_validation_notes'   => 'yes',
 		);

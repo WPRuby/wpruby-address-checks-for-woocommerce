@@ -37,7 +37,7 @@ if ( ! defined( 'ADDRESS_GUARD_VERSION' ) ) {
 	define( 'ADDRESS_GUARD_PLUGIN_FILE', $plugin_root . '/address-guard-for-woocommerce.php' );
 	define( 'ADDRESS_GUARD_PLUGIN_DIR', $plugin_root . '/' );
 	define( 'ADDRESS_GUARD_PLUGIN_URL', 'https://example.test/wp-content/plugins/address-guard-for-woocommerce/' );
-	define( 'ADDRESS_GUARD_TEXT_DOMAIN', 'address-guard-for-woocommerce' );
+	define( 'ADDRESS_GUARD_TEXT_DOMAIN', 'checkout-address-guard-for-woocommerce' );
 	define( 'ADDRESS_GUARD_BASENAME', 'address-guard-for-woocommerce/address-guard-for-woocommerce.php' );
 }
 

@@ -39,8 +39,8 @@ make build
 
 Output:
 
-* `dist/address-guard-for-woocommerce.zip`
-* `dist/address-guard-for-woocommerce-{version}.zip`
+* `dist/checkout-address-guard-for-woocommerce.zip`
+* `dist/checkout-address-guard-for-woocommerce-{version}.zip`
 
 The ZIP includes compiled admin assets plus human-readable Vue source (`assets/admin/vue/`), `package.json`, and `vite.config.js` for WordPress.org review. It excludes tests, `node_modules`, `vendor`, and development folders.
 
@@ -49,7 +49,7 @@ The ZIP includes compiled admin assets plus human-readable Vue source (`assets/a
 - [ ] Bump version in `address-guard-for-woocommerce.php` and `readme.txt` stable tag
 - [ ] Run `make test` and `make build`
 - [ ] Confirm ZIP passes `scripts/validate-build.php`
-- [ ] Run Plugin Check: `wp plugin check address-guard-for-woocommerce`
+- [ ] Run Plugin Check: `wp plugin check checkout-address-guard-for-woocommerce --slug=checkout-address-guard-for-woocommerce`
 - [ ] Test classic checkout and Checkout Blocks
 - [ ] Test with HPOS enabled
 - [ ] Confirm Google API key is masked in admin and never exposed to checkout JS

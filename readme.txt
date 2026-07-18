@@ -59,7 +59,7 @@ Public repository: https://github.com/WPRuby/address-guard-for-woocommerce
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/address-guard-for-woocommerce`, or install through the WordPress plugins screen.
+1. Upload the plugin files to `/wp-content/plugins/checkout-address-guard-for-woocommerce`, or install through the WordPress plugins screen.
 2. Activate the plugin through the Plugins screen.
 3. Ensure WooCommerce is installed and active.
 4. Go to WooCommerce → Address Guard to configure autocomplete, checks, and messages.

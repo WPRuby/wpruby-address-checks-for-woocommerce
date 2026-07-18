@@ -187,17 +187,17 @@ class CheckoutCompatibility {
 	public function label_for_context( string $context ): string {
 		switch ( $context ) {
 			case self::CONTEXT_BLOCKS:
-				return __( 'Checkout Blocks', 'address-guard-for-woocommerce' );
+				return __( 'Checkout Blocks', 'checkout-address-guard-for-woocommerce' );
 			case self::CONTEXT_CLASSIC:
-				return __( 'Classic shortcode checkout', 'address-guard-for-woocommerce' );
+				return __( 'Classic shortcode checkout', 'checkout-address-guard-for-woocommerce' );
 			case self::CONTEXT_ORDER_PAY:
-				return __( 'Order pay page', 'address-guard-for-woocommerce' );
+				return __( 'Order pay page', 'checkout-address-guard-for-woocommerce' );
 			case self::CONTEXT_ORDER_RECEIVED:
-				return __( 'Order received page', 'address-guard-for-woocommerce' );
+				return __( 'Order received page', 'checkout-address-guard-for-woocommerce' );
 			case self::CONTEXT_ADMIN:
-				return __( 'Admin', 'address-guard-for-woocommerce' );
+				return __( 'Admin', 'checkout-address-guard-for-woocommerce' );
 			default:
-				return __( 'Unknown', 'address-guard-for-woocommerce' );
+				return __( 'Unknown', 'checkout-address-guard-for-woocommerce' );
 		}
 	}
 
