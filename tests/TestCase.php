@@ -15,7 +15,7 @@ abstract class TestCase extends PhpUnitTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$GLOBALS['address_guard_test_options']     = array(
+		$GLOBALS['wpruby_address_checks_test_options'] = array(
 			'date_format'     => 'F j, Y',
 			'time_format'     => 'g:i a',
 			'timezone_string' => 'UTC',

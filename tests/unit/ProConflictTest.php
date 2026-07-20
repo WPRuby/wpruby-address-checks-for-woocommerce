@@ -16,7 +16,7 @@ class ProConflictTest extends TestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$GLOBALS['address_guard_test_options']['active_plugins'] = array();
+		$GLOBALS['wpruby_address_checks_test_options']['active_plugins'] = array();
 	}
 
 	public function test_pro_is_inactive_by_default(): void {
@@ -24,7 +24,7 @@ class ProConflictTest extends TestCase {
 	}
 
 	public function test_pro_is_detected_from_active_plugins_option(): void {
-		$GLOBALS['address_guard_test_options']['active_plugins'] = array(
+		$GLOBALS['wpruby_address_checks_test_options']['active_plugins'] = array(
 			'address-guard-pro/address-guard-for-woocommerce.php',
 		);
 
@@ -41,7 +41,7 @@ class ProConflictTest extends TestCase {
 		wpruby_address_checks_pro_conflict_notice();
 		$output = ob_get_clean();
 
-		$this->assertStringContainsString( 'Address Guard Pro is active', $output );
-		$this->assertStringContainsString( 'Checkout Address Guard for WooCommerce', $output );
+		$this->assertStringContainsString( 'WPRuby Address Checks Pro is active', $output );
+		$this->assertStringContainsString( 'WPRuby Address Checks for WooCommerce', $output );
 	}
 }
