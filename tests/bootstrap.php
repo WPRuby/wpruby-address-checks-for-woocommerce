@@ -262,4 +262,3 @@ if ( ! function_exists( 'is_wp_error' ) ) {
 
 require_once __DIR__ . '/support/stubs.php';
 require_once $plugin_root . '/includes/autoload.php';
-require_once $plugin_root . '/includes/functions.php';

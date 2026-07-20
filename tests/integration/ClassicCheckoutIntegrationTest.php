@@ -52,7 +52,7 @@ class ClassicCheckoutIntegrationTest extends TestCase {
 		$integration->validate_checkout_address( array(), $errors );
 
 		$this->assertNotEmpty( $errors->get_error_messages() );
-		$this->assertSame( 'address_guard_shipping', $errors->get_error_code() );
+		$this->assertSame( 'wpruby_ac_shipping', $errors->get_error_code() );
 	}
 
 	public function test_classic_checkout_allows_valid_address(): void {

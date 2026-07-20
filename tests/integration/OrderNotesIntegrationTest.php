@@ -34,7 +34,7 @@ class OrderNotesIntegrationTest extends TestCase {
 		$notes->persist_on_order_processed( 1, array(), $order );
 
 		$this->assertNotEmpty( $order->get_notes() );
-		$this->assertStringContainsString( 'Address Guard', $order->get_notes()[0]['content'] );
+		$this->assertStringContainsString( 'WPRuby Address Checks', $order->get_notes()[0]['content'] );
 		$this->assertSame( 'missing_house_number', $order->get_meta( OrderNotes::META_ISSUE_CODE ) );
 	}
 }

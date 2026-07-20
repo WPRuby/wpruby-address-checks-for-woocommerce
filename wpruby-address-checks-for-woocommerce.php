@@ -39,19 +39,6 @@ define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPRUBY_ADDRESS_CHECKS_TEXT_DOMAIN', 'wpruby-address-checks-for-woocommerce' );
 define( 'WPRUBY_ADDRESS_CHECKS_BASENAME', plugin_basename( __FILE__ ) );
 
-require_once WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'includes/functions.php';
-
-/*
- * Bail before loading Lite classes when Pro is active. Both plugins share the
- * WPRuby\AddressGuard namespace; loading both would cause fatal class collisions
- * and duplicate checkout checks.
- */
-if ( wpruby_address_checks_pro_is_active() ) {
-	add_action( 'admin_notices', __NAMESPACE__ . '\\wpruby_address_checks_pro_conflict_notice' );
-
-	return;
-}
-
 require_once WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'includes/autoload.php';
 
 register_activation_hook( __FILE__, array( Plugin::class, 'activate' ) );

@@ -64,7 +64,6 @@ $forbidden_patterns = array(
 	'#(^|/)includes/Licensing/#',
 	'#(^|/)includes/Domain/Providers/#',
 	'#(^|/)includes/Domain/Rules/#',
-	'#woocommerce-address-guard-pro#',
 	'#\.DS_Store$#',
 	'#\.map$#',
 );

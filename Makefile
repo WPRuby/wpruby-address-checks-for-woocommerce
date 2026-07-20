@@ -57,8 +57,6 @@ build: assets
 	rm -rf "$(BUILD_DIR)" "$(ZIP_FILE)" "$(ZIP_VERSIONED)"
 	mkdir -p "$(BUILD_DIR)" "$(DIST_DIR)"
 	rsync -a $(RSYNC_EXCLUDES) ./ "$(BUILD_DIR)/"
-	# Remove any leftover Pro-named artifacts that must never ship with Lite.
-	rm -rf build/woocommerce-address-guard-pro "$(DIST_DIR)/woocommerce-address-guard-pro"*
 	find "$(BUILD_DIR)" -name '.DS_Store' -delete
 	cd build && zip -rq "../$(ZIP_FILE)" "$(PLUGIN_SLUG)"
 	cp "$(ZIP_FILE)" "$(ZIP_VERSIONED)"
