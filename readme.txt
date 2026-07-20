@@ -40,8 +40,6 @@ This plugin provides address autocomplete and checkout address checks. It does n
 
 Local checkout checks run on your server and do not require Google.
 
-Provider-powered address validation and correction suggestions are available in WPRuby Address Checks Pro.
-
 == External services ==
 
 When Google Places Autocomplete is enabled, address search queries entered by customers at checkout are sent to Google Places through the store owner's configured Google Maps Platform account. This is used to return address suggestions.
