@@ -147,27 +147,27 @@ class GoogleApiException extends \Exception {
 	public static function admin_message_for_code( string $code ): string {
 		switch ( $code ) {
 			case 'missing_api_key':
-				return __( 'Google API key is missing.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google API key is missing.', 'wpruby-address-checks-for-woocommerce' );
 			case 'invalid_api_key':
-				return __( 'Google request failed: API key is invalid or the API is not enabled.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google request failed: API key is invalid or the API is not enabled.', 'wpruby-address-checks-for-woocommerce' );
 			case 'api_not_enabled':
-				return __( 'Google request failed: required API is not enabled for this key.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google request failed: required API is not enabled for this key.', 'wpruby-address-checks-for-woocommerce' );
 			case 'quota_exceeded':
-				return __( 'Google request failed: quota exceeded or rate limit reached.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google request failed: quota exceeded or rate limit reached.', 'wpruby-address-checks-for-woocommerce' );
 			case 'invalid_request':
-				return __( 'Google request failed: invalid request parameters.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google request failed: invalid request parameters.', 'wpruby-address-checks-for-woocommerce' );
 			case 'network_error':
-				return __( 'Google request failed: network error.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google request failed: network error.', 'wpruby-address-checks-for-woocommerce' );
 			case 'invalid_place_id':
-				return __( 'Google Place Details request failed: invalid place ID.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google Place Details request failed: invalid place ID.', 'wpruby-address-checks-for-woocommerce' );
 			case 'no_suggestions':
-				return __( 'Google Places returned no autocomplete suggestions.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google Places returned no autocomplete suggestions.', 'wpruby-address-checks-for-woocommerce' );
 			case 'no_address_components':
-				return __( 'Google Place Details returned no usable address components.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google Place Details returned no usable address components.', 'wpruby-address-checks-for-woocommerce' );
 			case 'malformed_response':
-				return __( 'Google response could not be parsed.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google response could not be parsed.', 'wpruby-address-checks-for-woocommerce' );
 			default:
-				return __( 'Google request failed.', 'checkout-address-guard-for-woocommerce' );
+				return __( 'Google request failed.', 'wpruby-address-checks-for-woocommerce' );
 		}
 	}
 }

@@ -1,8 +1,8 @@
 /**
- * REST client for the Address Guard admin app.
+ * REST client for the WPRuby Address Checks admin app.
  */
 
-const boot = window.addressGuardAdmin || {};
+const boot = window.wprubyAddressChecksAdmin || {};
 
 const baseUrl = (boot.restUrl || '').replace(/\/$/, '');
 const nonce = boot.restNonce || '';
@@ -50,7 +50,7 @@ async function request(path, { method = 'GET', body = null } = {}) {
 
 export function __(text) {
   if (window.wp && window.wp.i18n && typeof window.wp.i18n.__ === 'function') {
-    return window.wp.i18n.__(text, 'checkout-address-guard-for-woocommerce');
+    return window.wp.i18n.__(text, 'wpruby-address-checks-for-woocommerce');
   }
   return text;
 }

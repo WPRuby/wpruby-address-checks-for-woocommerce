@@ -1,13 +1,13 @@
-.address-guard-validation-notices {
+.wpruby-ac-validation-notices {
 	margin: 0 0 16px;
 }
 
-.address-guard-validation-notices--billing,
-.address-guard-validation-notices--shipping {
+.wpruby-ac-validation-notices--billing,
+.wpruby-ac-validation-notices--shipping {
 	margin-top: 0;
 }
 
-.address-guard-validation-notice {
+.wpruby-ac-validation-notice {
 	border-left: 4px solid #dba617;
 	background: #fff8e5;
 	color: #1d2327;
@@ -16,28 +16,28 @@
 	border-radius: 4px;
 }
 
-.address-guard-validation-notice.is-error {
+.wpruby-ac-validation-notice.is-error {
 	border-left-color: #d63638;
 	background: #fcf0f1;
 }
 
-.address-guard-validation-notice.is-warning {
+.wpruby-ac-validation-notice.is-warning {
 	border-left-color: #dba617;
 	background: #fff8e5;
 }
 
-.address-guard-validation-notice__title {
+.wpruby-ac-validation-notice__title {
 	display: block;
 	font-weight: 600;
 	margin-bottom: 4px;
 }
 
-.address-guard-field-error {
+.wpruby-ac-field-error {
 	border-color: #d63638 !important;
 	box-shadow: 0 0 0 1px #d63638;
 }
 
-.wc-block-components-text-input.address-guard-field-error input,
-.wc-block-components-text-input.address-guard-field-error select {
+.wc-block-components-text-input.wpruby-ac-field-error input,
+.wc-block-components-text-input.wpruby-ac-field-error select {
 	border-color: #d63638;
 }

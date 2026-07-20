@@ -14,12 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class AdminPage
  *
- * Registers the "WooCommerce > Address Guard" page and renders the single
+ * Registers the "WooCommerce > Address Checks" page and renders the single
  * mount point for the Vue admin application.
  */
 class AdminPage {
 
-	const PAGE_SLUG  = 'address-guard';
+	const PAGE_SLUG  = 'wpruby-address-checks';
 	const CAPABILITY = 'manage_woocommerce';
 
 	/**
@@ -29,7 +29,7 @@ class AdminPage {
 	 */
 	public function register(): void {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
-		add_filter( 'plugin_action_links_' . ADDRESS_GUARD_BASENAME, array( $this, 'action_links' ) );
+		add_filter( 'plugin_action_links_' . WPRUBY_ADDRESS_CHECKS_BASENAME, array( $this, 'action_links' ) );
 	}
 
 	/**
@@ -40,8 +40,8 @@ class AdminPage {
 	public function add_menu(): void {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Address Guard', 'checkout-address-guard-for-woocommerce' ),
-			__( 'Address Guard', 'checkout-address-guard-for-woocommerce' ),
+			__( 'Address Checks', 'wpruby-address-checks-for-woocommerce' ),
+			__( 'Address Checks', 'wpruby-address-checks-for-woocommerce' ),
 			self::CAPABILITY,
 			self::PAGE_SLUG,
 			array( $this, 'render_page' )
@@ -57,7 +57,7 @@ class AdminPage {
 	 */
 	public function action_links( array $links ): array {
 		$url  = admin_url( 'admin.php?page=' . self::PAGE_SLUG );
-		$link = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'checkout-address-guard-for-woocommerce' ) . '</a>';
+		$link = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'wpruby-address-checks-for-woocommerce' ) . '</a>';
 		array_unshift( $links, $link );
 
 		return $links;
@@ -73,9 +73,9 @@ class AdminPage {
 			return;
 		}
 
-		echo '<div class="wrap address-guard-lite-wrap">';
-		echo '<div id="address-guard-admin" class="address-guard-lite-admin">';
-		echo '<p class="address-guard-lite-admin__loading">' . esc_html__( 'Loading Address Guard…', 'checkout-address-guard-for-woocommerce' ) . '</p>';
+		echo '<div class="wrap wpruby-address-checks-wrap">';
+		echo '<div id="wpruby-address-checks-admin" class="wpruby-address-checks-admin">';
+		echo '<p class="wpruby-address-checks-admin__loading">' . esc_html__( 'Loading WPRuby Address Checks…', 'wpruby-address-checks-for-woocommerce' ) . '</p>';
 		echo '</div>';
 		echo '</div>';
 	}

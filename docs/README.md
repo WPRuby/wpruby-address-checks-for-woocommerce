@@ -1,8 +1,8 @@
-# Checkout Address Guard for WooCommerce
+# WPRuby Address Checks for WooCommerce
 
 WordPress.org plugin that adds Google Places Autocomplete and local checkout address checks for WooCommerce.
 
-Checkout Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+WPRuby Address Checks for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 ## Features
 
@@ -29,7 +29,7 @@ Run the admin Vue app in watch mode:
 npm run dev
 ```
 
-Settings are stored in the WordPress option `address_guard_lite_settings`.
+Settings are stored in the WordPress option `wpruby_address_checks_settings`.
 
 ## Build release ZIP
 
@@ -39,27 +39,37 @@ make build
 
 Output:
 
-* `dist/checkout-address-guard-for-woocommerce.zip`
-* `dist/checkout-address-guard-for-woocommerce-{version}.zip`
+* `dist/wpruby-address-checks-for-woocommerce.zip`
+* `dist/wpruby-address-checks-for-woocommerce-{version}.zip`
 
 The ZIP includes compiled admin assets plus human-readable Vue source (`assets/admin/vue/`), `package.json`, and `vite.config.js` for WordPress.org review. It excludes tests, `node_modules`, `vendor`, and development folders.
 
 ## WordPress.org release checklist
 
-- [ ] Bump version in `address-guard-for-woocommerce.php` and `readme.txt` stable tag
+- [ ] Bump version in `wpruby-address-checks-for-woocommerce.php` and `readme.txt` stable tag
 - [ ] Run `make test` and `make build`
 - [ ] Confirm ZIP passes `scripts/validate-build.php`
-- [ ] Run Plugin Check: `wp plugin check checkout-address-guard-for-woocommerce --slug=checkout-address-guard-for-woocommerce`
+- [ ] Run Plugin Check: `wp plugin check wpruby-address-checks-for-woocommerce --slug=wpruby-address-checks-for-woocommerce`
 - [ ] Test classic checkout and Checkout Blocks
 - [ ] Test with HPOS enabled
 - [ ] Confirm Google API key is masked in admin and never exposed to checkout JS
 - [ ] Upload to WordPress.org SVN
 
+## Ownership verification reminder
+
+Before replying to the WordPress.org Plugins Team, the submitter should do one of:
+
+* Change the WordPress.org account email to a WPRuby-domain email, or
+* Add the requested DNS TXT record to the wpruby.com domain, or
+* Ask the Plugins Team to transfer the submission to an official WPRuby WordPress.org account
+
+Do not resubmit using another account.
+
 ## Filter hooks
 
-* `address_guard_default_settings`
-* `address_guard_validate_address`
-* `address_guard_street_line_format`
-* `address_guard_lite_missing_house_number_patterns`
-* `address_guard_lite_po_box_patterns`
-* `address_guard_lite_parcel_locker_patterns`
+* `wpruby_address_checks_default_settings`
+* `wpruby_address_checks_validate_address`
+* `wpruby_address_checks_street_line_format`
+* `wpruby_address_checks_missing_house_number_patterns`
+* `wpruby_address_checks_po_box_patterns`
+* `wpruby_address_checks_parcel_locker_patterns`

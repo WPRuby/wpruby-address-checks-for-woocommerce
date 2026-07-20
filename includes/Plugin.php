@@ -142,8 +142,8 @@ final class Plugin {
 
 		echo '<div class="notice notice-error"><p>';
 		echo esc_html__(
-			'Checkout Address Guard for WooCommerce requires WooCommerce to be installed and active.',
-			'checkout-address-guard-for-woocommerce'
+			'WPRuby Address Checks for WooCommerce requires WooCommerce to be installed and active.',
+			'wpruby-address-checks-for-woocommerce'
 		);
 		echo '</p></div>';
 	}

@@ -33,7 +33,7 @@ import MessageTemplateField from '../components/MessageTemplateField.vue';
 import { state } from '../store.js';
 import { __ } from '../api/client.js';
 
-const boot = window.addressGuardAdmin || {};
+const boot = window.wprubyAddressChecksAdmin || {};
 const settings = computed(() => state.settings);
 const defaultMessages = boot.defaultMessages || {};
 

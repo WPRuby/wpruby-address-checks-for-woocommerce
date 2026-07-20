@@ -66,16 +66,16 @@ class MessageFormatter {
 	 */
 	public static function sample_context(): array {
 		return array(
-			'address_type'      => __( 'Shipping address', 'checkout-address-guard-for-woocommerce' ),
+			'address_type'      => __( 'Shipping address', 'wpruby-address-checks-for-woocommerce' ),
 			'original_address'  => '123 Main St, Springfield, IL 62701, US',
 			'suggested_address' => '123 Main Street, Springfield, IL 62701, US',
-			'field'             => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
+			'field'             => __( 'Street address', 'wpruby-address-checks-for-woocommerce' ),
 			'country'           => 'US',
 			'postcode'          => '62701',
 			'city'              => 'Springfield',
-			'rule_name'         => __( 'No PO Boxes', 'checkout-address-guard-for-woocommerce' ),
+			'rule_name'         => __( 'No PO Boxes', 'wpruby-address-checks-for-woocommerce' ),
 			'provider'          => 'google_address_validation',
-			'validation_status' => __( 'Invalid', 'checkout-address-guard-for-woocommerce' ),
+			'validation_status' => __( 'Invalid', 'wpruby-address-checks-for-woocommerce' ),
 		);
 	}
 }

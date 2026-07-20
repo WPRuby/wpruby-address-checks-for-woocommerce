@@ -9,8 +9,8 @@ namespace WPRuby\AddressGuard\Tests\Unit;
 
 use WPRuby\AddressGuard\Tests\TestCase;
 
-use function WPRuby\AddressGuard\address_guard_pro_conflict_notice;
-use function WPRuby\AddressGuard\address_guard_pro_is_active;
+use function WPRuby\AddressGuard\wpruby_address_checks_pro_conflict_notice;
+use function WPRuby\AddressGuard\wpruby_address_checks_pro_is_active;
 
 class ProConflictTest extends TestCase {
 
@@ -20,7 +20,7 @@ class ProConflictTest extends TestCase {
 	}
 
 	public function test_pro_is_inactive_by_default(): void {
-		$this->assertFalse( address_guard_pro_is_active() );
+		$this->assertFalse( wpruby_address_checks_pro_is_active() );
 	}
 
 	public function test_pro_is_detected_from_active_plugins_option(): void {
@@ -28,17 +28,17 @@ class ProConflictTest extends TestCase {
 			'address-guard-pro/address-guard-for-woocommerce.php',
 		);
 
-		$this->assertTrue( address_guard_pro_is_active() );
+		$this->assertTrue( wpruby_address_checks_pro_is_active() );
 	}
 
 	public function test_conflict_notice_requires_capability(): void {
 		ob_start();
-		address_guard_pro_conflict_notice();
+		wpruby_address_checks_pro_conflict_notice();
 		$this->assertSame( '', ob_get_clean() );
 
 		$this->grant_capability( 'activate_plugins' );
 		ob_start();
-		address_guard_pro_conflict_notice();
+		wpruby_address_checks_pro_conflict_notice();
 		$output = ob_get_clean();
 
 		$this->assertStringContainsString( 'Address Guard Pro is active', $output );

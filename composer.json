@@ -1,6 +1,6 @@
 {
-  "name": "wpruby/address-guard-for-woocommerce",
-  "description": "Automated test tooling for Checkout Address Guard for WooCommerce.",
+  "name": "wpruby/wpruby-address-checks-for-woocommerce",
+  "description": "Automated test tooling for WPRuby Address Checks for WooCommerce.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
   "require": {

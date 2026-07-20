@@ -22,7 +22,7 @@ defineProps({
 });
 defineEmits(['change']);
 
-const tabsLabel = __('Address Guard sections');
+const tabsLabel = __('Address Checks sections');
 
 const tabs = [
   { id: 'general', label: __('General') },

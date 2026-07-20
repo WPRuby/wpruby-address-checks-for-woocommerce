@@ -22,7 +22,7 @@ export default defineConfig({
       input: fileURLToPath(new URL('./assets/admin/vue/main.js', import.meta.url)),
       output: {
         format: 'iife',
-        name: 'AddressGuardAdmin',
+        name: 'WPRubyAddressChecksAdmin',
         entryFileNames: 'app.js',
         chunkFileNames: 'app-[name].js',
         assetFileNames: (assetInfo) => {

@@ -56,7 +56,7 @@ import { computed } from 'vue';
 import { state, validationModeLabel as modeLabel } from '../store.js';
 import { __ } from '../api/client.js';
 
-const logo = computed(() => window.addressGuardAdmin?.logo || '');
+const logo = computed(() => window.wprubyAddressChecksAdmin?.logo || '');
 
 defineProps({
   dirty: { type: Boolean, default: false },
@@ -64,10 +64,10 @@ defineProps({
 });
 defineEmits(['save']);
 
-const boot = window.addressGuardAdmin || {};
+const boot = window.wprubyAddressChecksAdmin || {};
 const version = boot.version || '';
 
-const title = __('Checkout Address Guard for WooCommerce');
+const title = __('WPRuby Address Checks for WooCommerce');
 const description = __(
   'Address autocomplete and checkout address checks for WooCommerce.'
 );

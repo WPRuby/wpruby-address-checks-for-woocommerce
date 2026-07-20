@@ -63,7 +63,7 @@ class GooglePlacesClient {
 		 *
 		 * @param array<string,mixed> $body Request body.
 		 */
-		$body = (array) apply_filters( 'address_guard_google_autocomplete_request', $body );
+		$body = (array) apply_filters( 'wpruby_address_checks_google_autocomplete_request', $body );
 
 		$response = $this->request(
 			'POST',
@@ -82,7 +82,7 @@ class GooglePlacesClient {
 		 * @param array<string,mixed> $response Decoded response.
 		 * @param array<string,mixed> $body     Request body.
 		 */
-		return (array) apply_filters( 'address_guard_google_autocomplete_response', $response, $body );
+		return (array) apply_filters( 'wpruby_address_checks_google_autocomplete_response', $response, $body );
 	}
 
 	/**
@@ -99,7 +99,7 @@ class GooglePlacesClient {
 		if ( '' === $place_id ) {
 			throw new GoogleApiException(
 				'invalid_place_id',
-				esc_html__( 'A valid place ID is required.', 'checkout-address-guard-for-woocommerce' )
+				esc_html__( 'A valid place ID is required.', 'wpruby-address-checks-for-woocommerce' )
 			);
 		}
 
@@ -111,7 +111,7 @@ class GooglePlacesClient {
 		 * @param string $url      Request URL.
 		 * @param string $place_id Place ID.
 		 */
-		$url = (string) apply_filters( 'address_guard_google_details_request', $url, $place_id );
+		$url = (string) apply_filters( 'wpruby_address_checks_google_details_request', $url, $place_id );
 
 		$response = $this->request(
 			'GET',
@@ -129,7 +129,7 @@ class GooglePlacesClient {
 		 * @param array<string,mixed> $response Decoded response.
 		 * @param string              $place_id Place ID.
 		 */
-		return (array) apply_filters( 'address_guard_google_details_response', $response, $place_id );
+		return (array) apply_filters( 'wpruby_address_checks_google_details_response', $response, $place_id );
 	}
 
 	/**
@@ -147,7 +147,7 @@ class GooglePlacesClient {
 		if ( ! $this->has_api_key() ) {
 			throw new GoogleApiException(
 				'missing_api_key',
-				esc_html__( 'Google API key is missing.', 'checkout-address-guard-for-woocommerce' )
+				esc_html__( 'Google API key is missing.', 'wpruby-address-checks-for-woocommerce' )
 			);
 		}
 
@@ -156,7 +156,7 @@ class GooglePlacesClient {
 		 *
 		 * @param string $api_key API key.
 		 */
-		$api_key = (string) apply_filters( 'address_guard_google_api_key', $this->api_key );
+		$api_key = (string) apply_filters( 'wpruby_address_checks_google_api_key', $this->api_key );
 
 		$headers = array(
 			'X-Goog-Api-Key' => $api_key,
@@ -181,7 +181,7 @@ class GooglePlacesClient {
 		if ( is_wp_error( $response ) ) {
 			throw new GoogleApiException(
 				'network_error',
-				esc_html__( 'Could not reach Google APIs. Check your server network connection.', 'checkout-address-guard-for-woocommerce' ),
+				esc_html__( 'Could not reach Google APIs. Check your server network connection.', 'wpruby-address-checks-for-woocommerce' ),
 				array(
 					'http_code' => 0,
 				)

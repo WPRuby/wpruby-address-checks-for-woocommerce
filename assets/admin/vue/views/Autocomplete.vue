@@ -89,7 +89,7 @@ const enableLabel = __('Enable address autocomplete at checkout');
 const enableHelp = __('Show Google-powered address suggestions while customers type their checkout address.');
 
 const apiKeyLabel = __('Google API key');
-const apiKeyHelp = __('Use your own Google Maps Platform API key. Address Guard does not include bundled API usage.');
+const apiKeyHelp = __('Use your own Google Maps Platform API key. This plugin does not include bundled API usage.');
 const apiKeyPlaceholder = '••••••••';
 
 const countriesLabel = __('Autocomplete countries');

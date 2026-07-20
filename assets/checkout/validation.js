@@ -1,5 +1,5 @@
 /**
- * Address Guard checkout validation UI helpers.
+ * WPRuby Address Checks checkout validation UI helpers.
  *
  * Classic checkout: inline notices are inserted near each address section.
  * Checkout Blocks: DOM-based insertion near address forms (MutationObserver).
@@ -7,7 +7,7 @@
 (function (window, document) {
 	'use strict';
 
-	var config = window.addressGuardCheckout || {};
+	var config = window.wprubyAddressChecksCheckout || {};
 	if (!config.restUrl) {
 		return;
 	}
@@ -67,7 +67,7 @@
 	}
 
 	function ensureSectionNoticeHost(type, mode) {
-		var hostId = 'address-guard-validation-notices-' + type;
+		var hostId = 'wpruby-ac-validation-notices-' + type;
 		var host = document.getElementById(hostId);
 
 		if (host) {
@@ -76,7 +76,7 @@
 
 		host = document.createElement('div');
 		host.id = hostId;
-		host.className = 'address-guard-validation-notices address-guard-validation-notices--' + type;
+		host.className = 'wpruby-ac-validation-notices wpruby-ac-validation-notices--' + type;
 		host.setAttribute('data-address-type', type);
 
 		var section = findAddressSection(type, mode);
@@ -85,11 +85,11 @@
 			return host;
 		}
 
-		var fallback = document.getElementById('address-guard-validation-notices');
+		var fallback = document.getElementById('wpruby-ac-validation-notices');
 		if (!fallback) {
 			fallback = document.createElement('div');
-			fallback.id = 'address-guard-validation-notices';
-			fallback.className = 'address-guard-validation-notices';
+			fallback.id = 'wpruby-ac-validation-notices';
+			fallback.className = 'wpruby-ac-validation-notices';
 
 			var checkoutForm = $('form.checkout') || $('form.woocommerce-checkout') || $('.wc-block-checkout__form');
 			if (checkoutForm) {
@@ -104,7 +104,7 @@
 	}
 
 	function clearSectionNotice(type) {
-		var host = document.getElementById('address-guard-validation-notices-' + type);
+		var host = document.getElementById('wpruby-ac-validation-notices-' + type);
 		if (host) {
 			host.innerHTML = '';
 		}
@@ -114,7 +114,7 @@
 		var host = ensureSectionNoticeHost(type, mode);
 		var checkoutMeta = result.checkout || {};
 		var message = result.message || checkoutMeta.notice || '';
-		var className = 'address-guard-validation-notice';
+		var className = 'wpruby-ac-validation-notice';
 
 		host.innerHTML = '';
 
@@ -129,7 +129,7 @@
 		notice.setAttribute('role', 'alert');
 
 		var title = document.createElement('span');
-		title.className = 'address-guard-validation-notice__title';
+		title.className = 'wpruby-ac-validation-notice__title';
 		title.textContent = message;
 		notice.appendChild(title);
 		host.appendChild(notice);
@@ -138,7 +138,7 @@
 			var addressField = findField(type, 'address_1', mode);
 			if (addressField) {
 				addressField.setAttribute('aria-invalid', 'true');
-				addressField.classList.add('address-guard-field-error');
+				addressField.classList.add('wpruby-ac-field-error');
 			}
 		}
 	}
@@ -191,18 +191,18 @@
 
 	function bindType(type, mode) {
 		var field = findField(type, 'address_1', mode);
-		if (!field || field.getAttribute('data-address-guard-validation-bound') === '1') {
+		if (!field || field.getAttribute('data-wpruby-ac-validation-bound') === '1') {
 			return;
 		}
 
-		field.setAttribute('data-address-guard-validation-bound', '1');
+		field.setAttribute('data-wpruby-ac-validation-bound', '1');
 
 		field.addEventListener('blur', function () {
 			validateAddress(type, mode).then(function (result) {
 				if (!result || result.status === 'valid' || result.status === 'skipped') {
 					clearSectionNotice(type);
 					field.removeAttribute('aria-invalid');
-					field.classList.remove('address-guard-field-error');
+					field.classList.remove('wpruby-ac-field-error');
 					return;
 				}
 				renderNotice(result, type, mode);
@@ -220,7 +220,7 @@
 				var addressField = findField(type, 'address_1', mode);
 				if (addressField) {
 					addressField.removeAttribute('aria-invalid');
-					addressField.classList.remove('address-guard-field-error');
+					addressField.classList.remove('wpruby-ac-field-error');
 				}
 			});
 		});

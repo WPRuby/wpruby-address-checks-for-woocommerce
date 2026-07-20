@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class AutocompleteController {
 
-	const NAMESPACE = 'address-guard/v1';
+	const NAMESPACE = 'wpruby-address-checks/v1';
 
 	/**
 	 * Settings accessor.
@@ -136,8 +136,8 @@ class AutocompleteController {
 	public function check_permission( WP_REST_Request $request ) {
 		if ( ! $this->settings->is_autocomplete_enabled() ) {
 			return new WP_Error(
-				'address_guard_autocomplete_disabled',
-				__( 'Address autocomplete is not enabled.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_autocomplete_disabled',
+				__( 'Address autocomplete is not enabled.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -145,8 +145,8 @@ class AutocompleteController {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 		if ( ! is_string( $nonce ) || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new WP_Error(
-				'address_guard_invalid_nonce',
-				__( 'Invalid autocomplete request.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_invalid_nonce',
+				__( 'Invalid autocomplete request.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -182,8 +182,8 @@ class AutocompleteController {
 			$suggestions = $this->google->search( $query, $context );
 		} catch ( GoogleApiException $exception ) {
 			return new WP_Error(
-				'address_guard_autocomplete_unavailable',
-				__( 'Address search is temporarily unavailable.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_autocomplete_unavailable',
+				__( 'Address search is temporarily unavailable.', 'wpruby-address-checks-for-woocommerce' ),
 				array(
 					'status' => 502,
 					'code'   => $exception->get_error_code(),
@@ -205,8 +205,8 @@ class AutocompleteController {
 		$place_id = sanitize_text_field( (string) $request->get_param( 'place_id' ) );
 		if ( '' === $place_id ) {
 			return new WP_Error(
-				'address_guard_missing_place_id',
-				__( 'A place ID is required.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_missing_place_id',
+				__( 'A place ID is required.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -215,8 +215,8 @@ class AutocompleteController {
 			$details = $this->google->get_details( $place_id );
 		} catch ( GoogleApiException $exception ) {
 			return new WP_Error(
-				'address_guard_details_unavailable',
-				__( 'Address search is temporarily unavailable.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_details_unavailable',
+				__( 'Address search is temporarily unavailable.', 'wpruby-address-checks-for-woocommerce' ),
 				array(
 					'status' => 502,
 					'code'   => $exception->get_error_code(),

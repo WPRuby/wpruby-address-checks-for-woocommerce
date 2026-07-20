@@ -72,7 +72,7 @@ class ProviderStateMapper {
 		 * @param array<string,string> $states WooCommerce states for the country.
 		 */
 		return (string) apply_filters(
-			'wpruby_address_guard_provider_state_mapping',
+			'wpruby_address_checks_provider_state_mapping',
 			$normalized,
 			$country,
 			$provider_state,
@@ -108,7 +108,7 @@ class ProviderStateMapper {
 		 * @param string $country        ISO country code.
 		 * @param string $state          WooCommerce state code.
 		 */
-		return (bool) apply_filters( 'wpruby_address_guard_display_state_in_summary', true, $country, $state );
+		return (bool) apply_filters( 'wpruby_address_checks_display_state_in_summary', true, $country, $state );
 	}
 
 	/**

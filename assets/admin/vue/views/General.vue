@@ -74,8 +74,8 @@ const generalTitle = __('General');
 const generalDesc = __('Address autocomplete and checkout address checks for WooCommerce.');
 
 const statusTitle = __('Plugin status');
-const statusDesc = __('Turn Address Guard on or off for checkout.');
-const enableLabel = __('Enable Address Guard');
+const statusDesc = __('Turn address checks on or off for checkout.');
+const enableLabel = __('Enable address checks');
 const enableHelp = __('When enabled, configured autocomplete and local checks run during checkout.');
 
 const behaviorTitle = __('Checkout behavior');
@@ -100,5 +100,5 @@ const billingHelp = __('Validate the billing address at checkout.');
 const notesTitle = __('Order notes');
 const notesDesc = __('Automatically record check results on the order.');
 const notesLabel = __('Add order notes when a check triggers');
-const notesHelp = __('Adds a private order note such as “Address Guard: Missing house number detected.”');
+const notesHelp = __('Adds a private order note such as “WPRuby Address Checks: Missing house number detected.”');
 </script>

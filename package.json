@@ -1,8 +1,8 @@
 {
-  "name": "address-guard-for-woocommerce-admin",
+  "name": "wpruby-address-checks-for-woocommerce-admin",
   "version": "1.0.0",
   "private": true,
-  "description": "Vue 3 admin app for Checkout Address Guard for WooCommerce.",
+  "description": "Vue 3 admin app for WPRuby Address Checks for WooCommerce.",
   "type": "module",
   "scripts": {
     "dev": "vite build --watch",

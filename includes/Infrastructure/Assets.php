@@ -87,8 +87,8 @@ class Assets {
 			return;
 		}
 
-		$dist_dir = ADDRESS_GUARD_PLUGIN_DIR . 'assets/admin/dist/';
-		$dist_url = ADDRESS_GUARD_PLUGIN_URL . 'assets/admin/dist/';
+		$dist_dir = WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'assets/admin/dist/';
+		$dist_url = WPRUBY_ADDRESS_CHECKS_PLUGIN_URL . 'assets/admin/dist/';
 		$js_file  = $dist_dir . 'app.js';
 		$css_file = $dist_dir . 'app.css';
 
@@ -98,8 +98,8 @@ class Assets {
 				static function () {
 					echo '<div class="notice notice-error"><p>';
 					echo esc_html__(
-						'Address Guard: the admin app bundle is missing. Run "npm install && npm run build" inside the plugin folder.',
-						'checkout-address-guard-for-woocommerce'
+						'WPRuby Address Checks: the admin app bundle is missing. Run "npm install && npm run build" inside the plugin folder.',
+						'wpruby-address-checks-for-woocommerce'
 					);
 					echo '</p></div>';
 				}
@@ -108,11 +108,11 @@ class Assets {
 			return;
 		}
 
-		$version = (string) ADDRESS_GUARD_VERSION . '.' . (string) filemtime( $js_file );
+		$version = (string) WPRUBY_ADDRESS_CHECKS_VERSION . '.' . (string) filemtime( $js_file );
 
 		if ( is_readable( $css_file ) ) {
 			wp_enqueue_style(
-				'address-guard-admin-app',
+				'wpruby-address-checks-admin-app',
 				$dist_url . 'app.css',
 				array(),
 				$version
@@ -120,7 +120,7 @@ class Assets {
 		}
 
 		wp_enqueue_script(
-			'address-guard-admin-app',
+			'wpruby-address-checks-admin-app',
 			$dist_url . 'app.js',
 			array( 'wp-i18n' ),
 			$version,
@@ -128,22 +128,22 @@ class Assets {
 		);
 
 		wp_localize_script(
-			'address-guard-admin-app',
-			'addressGuardAdmin',
+			'wpruby-address-checks-admin-app',
+			'wprubyAddressChecksAdmin',
 			array(
-				'restUrl'         => esc_url_raw( rest_url( 'address-guard/v1/' ) ),
+				'restUrl'         => esc_url_raw( rest_url( 'wpruby-address-checks/v1/' ) ),
 				'restNonce'       => wp_create_nonce( 'wp_rest' ),
-				'version'         => (string) ADDRESS_GUARD_VERSION,
+				'version'         => (string) WPRUBY_ADDRESS_CHECKS_VERSION,
 				'adminUrl'        => esc_url_raw( admin_url() ),
 				'settings'        => $this->settings->for_app(),
 				'defaultMessages' => $this->settings->defaults()['messages'],
-				'logo'            => ADDRESS_GUARD_PLUGIN_URL . 'assets/admin/images/logo.png',
+				'logo'            => WPRUBY_ADDRESS_CHECKS_PLUGIN_URL . 'assets/admin/images/logo.png',
 				'countryOptions'  => CountryOptions::for_app(),
 			)
 		);
 
 		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'address-guard-admin-app', 'checkout-address-guard-for-woocommerce' );
+			wp_set_script_translations( 'wpruby-address-checks-admin-app', 'wpruby-address-checks-for-woocommerce' );
 		}
 	}
 
@@ -167,35 +167,35 @@ class Assets {
 			return;
 		}
 
-		$js_file  = ADDRESS_GUARD_PLUGIN_DIR . 'assets/checkout/validation.js';
-		$css_file = ADDRESS_GUARD_PLUGIN_DIR . 'assets/checkout/validation.css';
+		$js_file  = WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'assets/checkout/validation.js';
+		$css_file = WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'assets/checkout/validation.css';
 
 		if ( ! is_readable( $js_file ) ) {
 			return;
 		}
 
-		$version = (string) ADDRESS_GUARD_VERSION . '.' . (string) filemtime( $js_file );
+		$version = (string) WPRUBY_ADDRESS_CHECKS_VERSION . '.' . (string) filemtime( $js_file );
 
 		if ( is_readable( $css_file ) ) {
 			wp_enqueue_style(
-				'address-guard-validation',
-				ADDRESS_GUARD_PLUGIN_URL . 'assets/checkout/validation.css',
+				'wpruby-address-checks-validation',
+				WPRUBY_ADDRESS_CHECKS_PLUGIN_URL . 'assets/checkout/validation.css',
 				array(),
 				$version
 			);
 		}
 
 		wp_enqueue_script(
-			'address-guard-validation',
-			ADDRESS_GUARD_PLUGIN_URL . 'assets/checkout/validation.js',
+			'wpruby-address-checks-validation',
+			WPRUBY_ADDRESS_CHECKS_PLUGIN_URL . 'assets/checkout/validation.js',
 			array( 'jquery' ),
 			$version,
 			true
 		);
 
 		wp_localize_script(
-			'address-guard-validation',
-			'addressGuardCheckout',
+			'wpruby-address-checks-validation',
+			'wprubyAddressChecksCheckout',
 			$this->checkout_validation->frontend_config()
 		);
 	}
@@ -215,35 +215,35 @@ class Assets {
 			return;
 		}
 
-		$js_file  = ADDRESS_GUARD_PLUGIN_DIR . 'assets/checkout/autocomplete.js';
-		$css_file = ADDRESS_GUARD_PLUGIN_DIR . 'assets/checkout/autocomplete.css';
+		$js_file  = WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'assets/checkout/autocomplete.js';
+		$css_file = WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'assets/checkout/autocomplete.css';
 
 		if ( ! is_readable( $js_file ) ) {
 			return;
 		}
 
-		$version = (string) ADDRESS_GUARD_VERSION . '.' . (string) filemtime( $js_file );
+		$version = (string) WPRUBY_ADDRESS_CHECKS_VERSION . '.' . (string) filemtime( $js_file );
 
 		if ( is_readable( $css_file ) ) {
 			wp_enqueue_style(
-				'address-guard-autocomplete',
-				ADDRESS_GUARD_PLUGIN_URL . 'assets/checkout/autocomplete.css',
+				'wpruby-address-checks-autocomplete',
+				WPRUBY_ADDRESS_CHECKS_PLUGIN_URL . 'assets/checkout/autocomplete.css',
 				array(),
 				$version
 			);
 		}
 
 		wp_enqueue_script(
-			'address-guard-autocomplete',
-			ADDRESS_GUARD_PLUGIN_URL . 'assets/checkout/autocomplete.js',
+			'wpruby-address-checks-autocomplete',
+			WPRUBY_ADDRESS_CHECKS_PLUGIN_URL . 'assets/checkout/autocomplete.js',
 			array( 'jquery', 'wp-data', 'wp-hooks' ),
 			$version,
 			true
 		);
 
 		wp_localize_script(
-			'address-guard-autocomplete',
-			'addressGuardAutocomplete',
+			'wpruby-address-checks-autocomplete',
+			'wprubyAddressChecksAutocomplete',
 			$this->autocomplete_frontend_config()
 		);
 	}
@@ -255,7 +255,7 @@ class Assets {
 	 */
 	private function autocomplete_frontend_config(): array {
 		return array(
-			'restUrl'               => esc_url_raw( rest_url( 'address-guard/v1/' ) ),
+			'restUrl'               => esc_url_raw( rest_url( 'wpruby-address-checks/v1/' ) ),
 			'restNonce'             => wp_create_nonce( 'wp_rest' ),
 			'minChars'              => 3,
 			'debounceMs'            => 300,
@@ -268,14 +268,14 @@ class Assets {
 			'requiresDetails'       => true,
 			'debug'                 => false,
 			'i18n'                  => array(
-				'loading'            => __( 'Searching addresses…', 'checkout-address-guard-for-woocommerce' ),
-				'noResultsFound'     => __( 'No address matches found', 'checkout-address-guard-for-woocommerce' ),
-				'noResultsFoundHint' => __( 'Check the street name or selected country and try again.', 'checkout-address-guard-for-woocommerce' ),
-				'errorTitle'         => __( 'Address search is temporarily unavailable.', 'checkout-address-guard-for-woocommerce' ),
-				'errorHint'          => __( 'You can still enter the address manually.', 'checkout-address-guard-for-woocommerce' ),
-				'queryTooShort'      => __( 'Keep typing to search for an address.', 'checkout-address-guard-for-woocommerce' ),
-				'detailsLoading'     => __( 'Loading address details…', 'checkout-address-guard-for-woocommerce' ),
-				'detailsError'       => __( 'Could not load address details.', 'checkout-address-guard-for-woocommerce' ),
+				'loading'            => __( 'Searching addresses…', 'wpruby-address-checks-for-woocommerce' ),
+				'noResultsFound'     => __( 'No address matches found', 'wpruby-address-checks-for-woocommerce' ),
+				'noResultsFoundHint' => __( 'Check the street name or selected country and try again.', 'wpruby-address-checks-for-woocommerce' ),
+				'errorTitle'         => __( 'Address search is temporarily unavailable.', 'wpruby-address-checks-for-woocommerce' ),
+				'errorHint'          => __( 'You can still enter the address manually.', 'wpruby-address-checks-for-woocommerce' ),
+				'queryTooShort'      => __( 'Keep typing to search for an address.', 'wpruby-address-checks-for-woocommerce' ),
+				'detailsLoading'     => __( 'Loading address details…', 'wpruby-address-checks-for-woocommerce' ),
+				'detailsError'       => __( 'Could not load address details.', 'wpruby-address-checks-for-woocommerce' ),
 			),
 		);
 	}

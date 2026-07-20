@@ -121,7 +121,7 @@ class ClassicCheckoutIntegration {
 		}
 
 		return array(
-			'restUrl'         => esc_url_raw( rest_url( 'address-guard/v1/' ) ),
+			'restUrl'         => esc_url_raw( rest_url( 'wpruby-address-checks/v1/' ) ),
 			'restNonce'       => wp_create_nonce( 'wp_rest' ),
 			'mode'            => $this->settings->validation_mode(),
 			'billingEnabled'  => $this->settings->is_validate_billing_enabled(),
@@ -227,7 +227,7 @@ class ClassicCheckoutIntegration {
 		$message   = $this->notice_message( $result, $address, $type );
 
 		if ( $this->validator->should_block_checkout( $result ) ) {
-			$errors->add( 'address_guard_' . $field_key, wp_kses_post( $message ) );
+			$errors->add( 'wpruby_ac_' . $field_key, wp_kses_post( $message ) );
 			return;
 		}
 

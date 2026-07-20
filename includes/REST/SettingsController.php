@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class SettingsController {
 
-	const NAMESPACE  = 'address-guard/v1';
+	const NAMESPACE  = 'wpruby-address-checks/v1';
 	const CAPABILITY = 'manage_woocommerce';
 
 	/**
@@ -111,8 +111,8 @@ class SettingsController {
 	public function check_permission() {
 		if ( ! current_user_can( self::CAPABILITY ) && ! current_user_can( 'manage_options' ) ) {
 			return new WP_Error(
-				'address_guard_forbidden',
-				__( 'You do not have permission to manage Address Guard settings.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_forbidden',
+				__( 'You do not have permission to manage address check settings.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => rest_authorization_required_code() )
 			);
 		}
@@ -168,7 +168,7 @@ class SettingsController {
 			array(
 				'settings' => $this->settings->for_app(),
 				'meta'     => $this->meta_for_app(),
-				'message'  => __( 'Settings saved.', 'checkout-address-guard-for-woocommerce' ),
+				'message'  => __( 'Settings saved.', 'wpruby-address-checks-for-woocommerce' ),
 			),
 			200
 		);
@@ -220,7 +220,7 @@ class SettingsController {
 			'supports_blocks'         => $checkout['supports_blocks'],
 			'supports_classic'        => $checkout['supports_classic'],
 			'country_options'         => CountryOptions::for_app(),
-			'docs_url'                => esc_url_raw( 'https://wpruby.com/plugin/address-guard-for-woocommerce/' ),
+			'docs_url'                => esc_url_raw( 'https://wpruby.com/' ),
 		);
 	}
 

@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import './styles.css';
 
-const mountEl = document.getElementById('address-guard-admin');
+const mountEl = document.getElementById('wpruby-address-checks-admin');
 
 if (mountEl) {
   mountEl.innerHTML = '';

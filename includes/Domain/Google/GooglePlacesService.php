@@ -151,7 +151,7 @@ class GooglePlacesService {
 		if ( ! $this->client()->has_api_key() ) {
 			return array(
 				'success' => false,
-				'message' => __( 'Google Places Autocomplete could not be reached. Check your API key and enabled Google APIs.', 'checkout-address-guard-for-woocommerce' ),
+				'message' => __( 'Google Places Autocomplete could not be reached. Check your API key and enabled Google APIs.', 'wpruby-address-checks-for-woocommerce' ),
 			);
 		}
 
@@ -176,20 +176,20 @@ class GooglePlacesService {
 			if ( empty( $suggestions ) ) {
 				return array(
 					'success' => false,
-					'message' => __( 'Google Places Autocomplete could not be reached. Check your API key and enabled Google APIs.', 'checkout-address-guard-for-woocommerce' ),
+					'message' => __( 'Google Places Autocomplete could not be reached. Check your API key and enabled Google APIs.', 'wpruby-address-checks-for-woocommerce' ),
 				);
 			}
 
 			return array(
 				'success' => true,
-				'message' => __( 'Google Places Autocomplete is connected.', 'checkout-address-guard-for-woocommerce' ),
+				'message' => __( 'Google Places Autocomplete is connected.', 'wpruby-address-checks-for-woocommerce' ),
 			);
 		} catch ( GoogleApiException $exception ) {
 			unset( $exception );
 
 			return array(
 				'success' => false,
-				'message' => __( 'Google Places Autocomplete could not be reached. Check your API key and enabled Google APIs.', 'checkout-address-guard-for-woocommerce' ),
+				'message' => __( 'Google Places Autocomplete could not be reached. Check your API key and enabled Google APIs.', 'wpruby-address-checks-for-woocommerce' ),
 			);
 		}
 	}

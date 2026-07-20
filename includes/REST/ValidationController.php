@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class ValidationController {
 
-	const NAMESPACE = 'address-guard/v1';
+	const NAMESPACE = 'wpruby-address-checks/v1';
 
 	/**
 	 * Settings accessor.
@@ -107,8 +107,8 @@ class ValidationController {
 	public function check_permission( WP_REST_Request $request ) {
 		if ( ! $this->settings->is_enabled() || ! $this->validator->is_validation_active() ) {
 			return new WP_Error(
-				'address_guard_validation_disabled',
-				__( 'Address validation is not enabled.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_validation_disabled',
+				__( 'Address validation is not enabled.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -116,8 +116,8 @@ class ValidationController {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 		if ( ! is_string( $nonce ) || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
 			return new WP_Error(
-				'address_guard_invalid_nonce',
-				__( 'Invalid validation request.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_invalid_nonce',
+				__( 'Invalid validation request.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -143,8 +143,8 @@ class ValidationController {
 
 		if ( ! $this->validator->should_validate_type( $type ) ) {
 			return new WP_Error(
-				'address_guard_validation_type_disabled',
-				__( 'Validation is not enabled for this address type.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_validation_type_disabled',
+				__( 'Validation is not enabled for this address type.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -154,8 +154,8 @@ class ValidationController {
 
 		if ( ! $value->is_populated() ) {
 			return new WP_Error(
-				'address_guard_empty_address',
-				__( 'Address is empty.', 'checkout-address-guard-for-woocommerce' ),
+				'wpruby_ac_empty_address',
+				__( 'Address is empty.', 'wpruby-address-checks-for-woocommerce' ),
 				array( 'status' => 400 )
 			);
 		}

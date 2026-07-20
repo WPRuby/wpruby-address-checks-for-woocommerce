@@ -84,7 +84,7 @@ class GoogleAutocompleteTest extends TestCase {
 
 		$result = $controller->check_permission( $request );
 		$this->assertInstanceOf( \WP_Error::class, $result );
-		$this->assertSame( 'address_guard_autocomplete_disabled', $result->get_error_code() );
+		$this->assertSame( 'wpruby_ac_autocomplete_disabled', $result->get_error_code() );
 	}
 
 	public function test_autocomplete_query_uses_typed_query_and_checkout_country_only(): void {
@@ -254,7 +254,7 @@ class GoogleAutocompleteTest extends TestCase {
 
 		$result = $controller->search( $request );
 		$this->assertInstanceOf( \WP_Error::class, $result );
-		$this->assertSame( 'address_guard_autocomplete_unavailable', $result->get_error_code() );
+		$this->assertSame( 'wpruby_ac_autocomplete_unavailable', $result->get_error_code() );
 		$this->assertStringNotContainsString( 'leaked', $result->get_error_message() );
 		$this->assertStringNotContainsString( 'AIza', $result->get_error_message() );
 	}

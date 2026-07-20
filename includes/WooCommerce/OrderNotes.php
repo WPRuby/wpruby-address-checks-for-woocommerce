@@ -24,10 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class OrderNotes {
 
-	const SESSION_SNAPSHOTS_KEY = 'address_guard_lite_snapshots';
+	const SESSION_SNAPSHOTS_KEY = 'wpruby_address_checks_snapshots';
 
-	const META_ISSUE_CODE = '_address_guard_lite_issue_code';
-	const META_ACTION     = '_address_guard_lite_action';
+	const META_ISSUE_CODE = '_wpruby_address_checks_issue_code';
+	const META_ACTION     = '_wpruby_address_checks_action';
 
 	/**
 	 * Settings accessor.
@@ -163,7 +163,7 @@ class OrderNotes {
 			$label = $validator->issue_label( $code );
 			$note  = sprintf(
 				/* translators: %s: detected issue label */
-				__( 'Address Guard: %s detected.', 'checkout-address-guard-for-woocommerce' ),
+				__( 'WPRuby Address Checks: %s detected.', 'wpruby-address-checks-for-woocommerce' ),
 				$label
 			);
 

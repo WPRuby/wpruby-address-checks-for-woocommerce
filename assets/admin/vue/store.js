@@ -1,7 +1,7 @@
 import { reactive, computed } from 'vue';
 import { api, ApiError, __ } from './api/client.js';
 
-const boot = window.addressGuardAdmin || {};
+const boot = window.wprubyAddressChecksAdmin || {};
 
 export const state = reactive({
   ready: false,
@@ -157,7 +157,7 @@ export async function loadSettings() {
     state.loadError =
       error instanceof ApiError
         ? error.message
-        : __('Failed to load Address Guard settings.');
+        : __('Failed to load settings.');
   }
 }
 

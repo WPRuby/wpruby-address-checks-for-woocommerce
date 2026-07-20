@@ -1,12 +1,12 @@
 /**
- * Address Guard checkout autocomplete.
+ * WPRuby Address Checks checkout autocomplete.
  *
  * Lightweight vanilla JS with optional jQuery for WooCommerce field updates.
  */
 (function (window, document) {
 	'use strict';
 
-	var config = window.addressGuardAutocomplete || {};
+	var config = window.wprubyAddressChecksAutocomplete || {};
 	if (!config.restUrl) {
 		return;
 	}
@@ -23,7 +23,7 @@
 			return;
 		}
 
-		console.log.apply(console, ['[Address Guard autocomplete]'].concat(Array.prototype.slice.call(arguments)));
+		console.log.apply(console, ['[WPRuby Address Checks autocomplete]'].concat(Array.prototype.slice.call(arguments)));
 	}
 
 	function getWpData() {
@@ -1248,29 +1248,29 @@
 	};
 
 	function attachAutocomplete(input, type, mode) {
-		if (!input || input.dataset.addressGuardBound === '1') {
+		if (!input || input.dataset.wprubyAcBound === '1') {
 			return;
 		}
 
-		input.dataset.addressGuardBound = '1';
+		input.dataset.wprubyAcBound = '1';
 		instances.push(new Autocomplete(input, type, mode));
 	}
 
 	function initClassic() {
 		if (config.billingEnabled) {
-			$all('[data-address-guard-autocomplete="billing"], #billing_address_1').forEach(function (input) {
+			$all('[data-wpruby-ac-autocomplete="billing"], #billing_address_1').forEach(function (input) {
 				attachAutocomplete(input, 'billing', 'classic');
 			});
 		}
 
 		if (config.shippingEnabled) {
-			$all('[data-address-guard-autocomplete="shipping"], #shipping_address_1').forEach(function (input) {
+			$all('[data-wpruby-ac-autocomplete="shipping"], #shipping_address_1').forEach(function (input) {
 				attachAutocomplete(input, 'shipping', 'classic');
 			});
 		}
 	}
 
-	window.addressGuardClassicInit = initClassic;
+	window.wprubyAcClassicInit = initClassic;
 
 	function resolveMode() {
 		if (config.checkoutMode === 'blocks') {
@@ -1282,7 +1282,7 @@
 		}
 
 		var blocksRoot = $('.wp-block-woocommerce-checkout') || $('.wc-block-checkout');
-		var classicField = $('#billing_address_1') || $('[data-address-guard-autocomplete="billing"]');
+		var classicField = $('#billing_address_1') || $('[data-wpruby-ac-autocomplete="billing"]');
 		var classicForm = $('form.checkout.woocommerce-checkout') || $('form.woocommerce-checkout');
 
 		if (classicField || classicForm) {

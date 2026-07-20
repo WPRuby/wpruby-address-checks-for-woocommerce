@@ -123,7 +123,7 @@ class CheckoutValidation {
 		}
 
 		return array(
-			'restUrl'         => esc_url_raw( rest_url( 'address-guard/v1/' ) ),
+			'restUrl'         => esc_url_raw( rest_url( 'wpruby-address-checks/v1/' ) ),
 			'restNonce'       => wp_create_nonce( 'wp_rest' ),
 			'mode'            => $this->settings->validation_mode(),
 			'billingEnabled'  => $this->settings->is_validate_billing_enabled(),
@@ -288,7 +288,7 @@ class CheckoutValidation {
 		}
 
 		throw new RouteException(
-			'address_guard_' . sanitize_key( $type ) . '_invalid',
+			'wpruby_ac_' . sanitize_key( $type ) . '_invalid',
 			esc_html( wp_strip_all_tags( $message ) ),
 			400
 		);

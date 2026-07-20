@@ -5,8 +5,8 @@
  * @package WPRuby\AddressGuard\Tests
  */
 
-if ( ! defined( 'ADDRESS_GUARD_TESTING' ) ) {
-	define( 'ADDRESS_GUARD_TESTING', true );
+if ( ! defined( 'WPRUBY_ADDRESS_CHECKS_TESTING' ) ) {
+	define( 'WPRUBY_ADDRESS_CHECKS_TESTING', true );
 }
 
 $plugin_root = dirname( __DIR__ );
@@ -32,16 +32,16 @@ if ( ! defined( 'WPINC' ) ) {
 	define( 'WPINC', 'wp-includes' );
 }
 
-if ( ! defined( 'ADDRESS_GUARD_VERSION' ) ) {
-	define( 'ADDRESS_GUARD_VERSION', '1.0.0' );
-	define( 'ADDRESS_GUARD_PLUGIN_FILE', $plugin_root . '/address-guard-for-woocommerce.php' );
-	define( 'ADDRESS_GUARD_PLUGIN_DIR', $plugin_root . '/' );
-	define( 'ADDRESS_GUARD_PLUGIN_URL', 'https://example.test/wp-content/plugins/address-guard-for-woocommerce/' );
-	define( 'ADDRESS_GUARD_TEXT_DOMAIN', 'checkout-address-guard-for-woocommerce' );
-	define( 'ADDRESS_GUARD_BASENAME', 'address-guard-for-woocommerce/address-guard-for-woocommerce.php' );
+if ( ! defined( 'WPRUBY_ADDRESS_CHECKS_VERSION' ) ) {
+	define( 'WPRUBY_ADDRESS_CHECKS_VERSION', '1.0.0' );
+	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_FILE', $plugin_root . '/wpruby-address-checks-for-woocommerce.php' );
+	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR', $plugin_root . '/' );
+	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_URL', 'https://example.test/wp-content/plugins/wpruby-address-checks-for-woocommerce/' );
+	define( 'WPRUBY_ADDRESS_CHECKS_TEXT_DOMAIN', 'wpruby-address-checks-for-woocommerce' );
+	define( 'WPRUBY_ADDRESS_CHECKS_BASENAME', 'wpruby-address-checks-for-woocommerce/wpruby-address-checks-for-woocommerce.php' );
 }
 
-$GLOBALS['address_guard_test_options'] = array(
+$GLOBALS['wpruby_address_checks_test_options'] = array(
 	'date_format'     => 'F j, Y',
 	'time_format'     => 'g:i a',
 	'timezone_string' => 'UTC',
@@ -119,14 +119,14 @@ if ( ! function_exists( 'wp_strip_all_tags' ) ) {
 
 if ( ! function_exists( 'get_option' ) ) {
 	function get_option( $option, $default = false ) {
-		return array_key_exists( $option, $GLOBALS['address_guard_test_options'] ) ? $GLOBALS['address_guard_test_options'][ $option ] : $default;
+		return array_key_exists( $option, $GLOBALS['wpruby_address_checks_test_options'] ) ? $GLOBALS['wpruby_address_checks_test_options'][ $option ] : $default;
 	}
 }
 
 if ( ! function_exists( 'update_option' ) ) {
 	function update_option( $option, $value, $autoload = null ) {
 		unset( $autoload );
-		$GLOBALS['address_guard_test_options'][ $option ] = $value;
+		$GLOBALS['wpruby_address_checks_test_options'][ $option ] = $value;
 		return true;
 	}
 }
@@ -134,17 +134,17 @@ if ( ! function_exists( 'update_option' ) ) {
 if ( ! function_exists( 'add_option' ) ) {
 	function add_option( $option, $value = '', $deprecated = '', $autoload = 'yes' ) {
 		unset( $deprecated, $autoload );
-		if ( array_key_exists( $option, $GLOBALS['address_guard_test_options'] ) ) {
+		if ( array_key_exists( $option, $GLOBALS['wpruby_address_checks_test_options'] ) ) {
 			return false;
 		}
-		$GLOBALS['address_guard_test_options'][ $option ] = $value;
+		$GLOBALS['wpruby_address_checks_test_options'][ $option ] = $value;
 		return true;
 	}
 }
 
 if ( ! function_exists( 'delete_option' ) ) {
 	function delete_option( $option ) {
-		unset( $GLOBALS['address_guard_test_options'][ $option ] );
+		unset( $GLOBALS['wpruby_address_checks_test_options'][ $option ] );
 		return true;
 	}
 }

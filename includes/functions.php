@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Whether Address Guard Pro is active.
+ * Whether WPRuby Address Checks Pro is active.
  *
  * Checked before Lite class loading to avoid namespace collisions when both
  * plugins are installed. Detection uses the Pro bootstrap constant when
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @return bool
  */
-function address_guard_pro_is_active(): bool {
+function wpruby_address_checks_pro_is_active(): bool {
 	if ( defined( 'WPRUBY_AG_ITEM_ID' ) && WPRUBY_AG_ITEM_ID ) {
 		return true;
 	}
@@ -66,15 +66,15 @@ function address_guard_pro_is_active(): bool {
  *
  * @return void
  */
-function address_guard_pro_conflict_notice(): void {
+function wpruby_address_checks_pro_conflict_notice(): void {
 	if ( ! current_user_can( 'activate_plugins' ) ) {
 		return;
 	}
 
 	echo '<div class="notice notice-warning"><p>';
 	echo esc_html__(
-		'Address Guard Pro is active. Please deactivate Checkout Address Guard for WooCommerce to avoid duplicate checkout address checks.',
-		'checkout-address-guard-for-woocommerce'
+		'WPRuby Address Checks Pro is active. Please deactivate WPRuby Address Checks for WooCommerce to avoid duplicate checkout address checks.',
+		'wpruby-address-checks-for-woocommerce'
 	);
 	echo '</p></div>';
 }

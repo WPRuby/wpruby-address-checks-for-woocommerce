@@ -88,7 +88,7 @@ class AddressValidator {
 		 * @param Settings              $settings Settings accessor.
 		 */
 		$filtered = apply_filters(
-			'address_guard_validate_address',
+			'wpruby_address_checks_validate_address',
 			null,
 			$address,
 			$type,
@@ -232,14 +232,14 @@ class AddressValidator {
 	 */
 	public function issue_label( string $code ): string {
 		$labels = array(
-			'missing_house_number'      => __( 'Missing house number', 'checkout-address-guard-for-woocommerce' ),
-			'po_box_detected'           => __( 'PO box detected', 'checkout-address-guard-for-woocommerce' ),
-			'parcel_locker_detected'    => __( 'Parcel locker detected', 'checkout-address-guard-for-woocommerce' ),
-			'postcode_country_mismatch' => __( 'Postcode format mismatch', 'checkout-address-guard-for-woocommerce' ),
-			'missing_address_1'         => __( 'Missing street address', 'checkout-address-guard-for-woocommerce' ),
-			'missing_country'           => __( 'Missing country', 'checkout-address-guard-for-woocommerce' ),
-			'missing_postcode'          => __( 'Missing postcode', 'checkout-address-guard-for-woocommerce' ),
-			'missing_state'             => __( 'Missing state', 'checkout-address-guard-for-woocommerce' ),
+			'missing_house_number'      => __( 'Missing house number', 'wpruby-address-checks-for-woocommerce' ),
+			'po_box_detected'           => __( 'PO box detected', 'wpruby-address-checks-for-woocommerce' ),
+			'parcel_locker_detected'    => __( 'Parcel locker detected', 'wpruby-address-checks-for-woocommerce' ),
+			'postcode_country_mismatch' => __( 'Postcode format mismatch', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_address_1'         => __( 'Missing street address', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_country'           => __( 'Missing country', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_postcode'          => __( 'Missing postcode', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_state'             => __( 'Missing state', 'wpruby-address-checks-for-woocommerce' ),
 		);
 
 		return $labels[ $code ] ?? sanitize_text_field( $code );
@@ -365,8 +365,8 @@ class AddressValidator {
 	 */
 	private function address_type_label( string $type ): string {
 		return Address::TYPE_BILLING === $type
-			? __( 'Billing address', 'checkout-address-guard-for-woocommerce' )
-			: __( 'Shipping address', 'checkout-address-guard-for-woocommerce' );
+			? __( 'Billing address', 'wpruby-address-checks-for-woocommerce' )
+			: __( 'Shipping address', 'wpruby-address-checks-for-woocommerce' );
 	}
 
 	/**
@@ -378,14 +378,14 @@ class AddressValidator {
 	 */
 	private function field_label_for_code( string $code ): string {
 		$labels = array(
-			'missing_address_1'         => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
-			'missing_country'           => __( 'Country', 'checkout-address-guard-for-woocommerce' ),
-			'missing_postcode'          => __( 'Postcode', 'checkout-address-guard-for-woocommerce' ),
-			'missing_state'             => __( 'State / Region', 'checkout-address-guard-for-woocommerce' ),
-			'missing_house_number'      => __( 'House number', 'checkout-address-guard-for-woocommerce' ),
-			'postcode_country_mismatch' => __( 'Postcode', 'checkout-address-guard-for-woocommerce' ),
-			'po_box_detected'           => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
-			'parcel_locker_detected'    => __( 'Street address', 'checkout-address-guard-for-woocommerce' ),
+			'missing_address_1'         => __( 'Street address', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_country'           => __( 'Country', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_postcode'          => __( 'Postcode', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_state'             => __( 'State / Region', 'wpruby-address-checks-for-woocommerce' ),
+			'missing_house_number'      => __( 'House number', 'wpruby-address-checks-for-woocommerce' ),
+			'postcode_country_mismatch' => __( 'Postcode', 'wpruby-address-checks-for-woocommerce' ),
+			'po_box_detected'           => __( 'Street address', 'wpruby-address-checks-for-woocommerce' ),
+			'parcel_locker_detected'    => __( 'Street address', 'wpruby-address-checks-for-woocommerce' ),
 		);
 
 		return $labels[ $code ] ?? '';

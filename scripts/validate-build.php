@@ -29,8 +29,8 @@ for ( $i = 0; $i < $zip->numFiles; $i++ ) {
 }
 $zip->close();
 
-$slug = 'checkout-address-guard-for-woocommerce';
-$main_file = 'address-guard-for-woocommerce.php';
+$slug = 'wpruby-address-checks-for-woocommerce';
+$main_file = 'wpruby-address-checks-for-woocommerce.php';
 
 $required = array(
 	"{$slug}/{$main_file}",
@@ -107,13 +107,13 @@ if ( true === $zip->open( $zip_path ) ) {
 	$contents = $zip->getFromName( $main );
 	$zip->close();
 	if ( is_string( $contents ) ) {
-		if ( false === strpos( $contents, 'Plugin Name:       Checkout Address Guard for WooCommerce' ) ) {
+		if ( false === strpos( $contents, 'Plugin Name:       WPRuby Address Checks for WooCommerce' ) ) {
 			$errors[] = 'Plugin Name header mismatch.';
 		}
-		if ( false === strpos( $contents, 'Text Domain:       checkout-address-guard-for-woocommerce' ) ) {
+		if ( false === strpos( $contents, 'Text Domain:       wpruby-address-checks-for-woocommerce' ) ) {
 			$errors[] = 'Text Domain header mismatch.';
 		}
-		if ( false !== strpos( $contents, 'Plugin Name:       WooCommerce Address Guard' ) ) {
+		if ( false !== strpos( $contents, 'Plugin Name:       WooCommerce Address Checks' ) ) {
 			$errors[] = 'Plugin Name must not use WooCommerce-first branding.';
 		}
 	} else {

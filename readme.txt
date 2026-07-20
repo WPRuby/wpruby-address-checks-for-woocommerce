@@ -1,20 +1,20 @@
-=== Checkout Address Guard for WooCommerce ===
+=== WPRuby Address Checks for WooCommerce ===
 Contributors: waseem_senjer, wprubyplugins
-Tags: woocommerce, checkout, address, autocomplete, google places
-Requires at least: 5.6
+Tags: woocommerce, address autocomplete, address check, checkout, google places
+Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add Google address autocomplete and local checkout address checks for WooCommerce, including house number, PO box, and parcel locker detection.
+Add Google address autocomplete and local checkout address checks for WooCommerce, including missing house number, PO box, and parcel locker detection.
 
 == Description ==
 
-Checkout Address Guard for WooCommerce helps customers enter addresses faster with Google Places Autocomplete and catches common checkout address issues such as missing house numbers, PO boxes, and parcel locker addresses.
+WPRuby Address Checks for WooCommerce helps customers enter addresses faster with Google Places Autocomplete and catches common checkout address issues such as missing house numbers, PO boxes, and parcel locker addresses.
 
-Checkout Address Guard for WooCommerce is an independent plugin and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+WPRuby Address Checks for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 This plugin provides address autocomplete and checkout address checks. It does not perform full postal deliverability validation.
 
@@ -36,33 +36,35 @@ This plugin provides address autocomplete and checkout address checks. It does n
 * Parcel locker / Packstation detection
 * Basic postcode format checks for selected countries
 * Warn customer or block checkout modes
-* Optional private order notes when a check triggers
+* Optional private order notes
 
 Local checkout checks run on your server and do not require Google.
 
+Provider-powered address validation and correction suggestions are available in WPRuby Address Checks Pro.
+
 == External services ==
 
-When Google Places Autocomplete is enabled, address search queries entered by customers at checkout are sent to Google Places through the merchant’s configured Google Maps Platform account. This is used to return address suggestions.
+When Google Places Autocomplete is enabled, address search queries entered by customers at checkout are sent to Google Places through the store owner's configured Google Maps Platform account. This is used to return address suggestions.
 
 This plugin does not include bundled Google API usage. Store owners must use their own Google Maps Platform API key.
 
-* Service provider: Google Maps Platform
-* Service documentation: https://developers.google.com/maps/documentation/places
-* Terms: https://cloud.google.com/maps-platform/terms
-* Privacy Policy: https://policies.google.com/privacy
+Service provider: Google Maps Platform
+Service documentation: https://developers.google.com/maps/documentation/places
+Terms: https://cloud.google.com/maps-platform/terms
+Privacy Policy: https://policies.google.com/privacy
 
 == Source code ==
 
 Compiled admin assets live in `assets/admin/dist/`. The human-readable Vue source used to build them is included in `assets/admin/vue/`.
 
-Public repository: https://github.com/WPRuby/address-guard-for-woocommerce
+Public repository: https://github.com/WPRuby/wpruby-address-checks-for-woocommerce
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/checkout-address-guard-for-woocommerce`, or install through the WordPress plugins screen.
+1. Upload the plugin files to `/wp-content/plugins/wpruby-address-checks-for-woocommerce`, or install through the WordPress plugins screen.
 2. Activate the plugin through the Plugins screen.
 3. Ensure WooCommerce is installed and active.
-4. Go to WooCommerce → Address Guard to configure autocomplete, checks, and messages.
+4. Go to WooCommerce → Address Checks to configure autocomplete, checks, and messages.
 5. Optional: enable Google Places Autocomplete and enter your Google Maps Platform API key.
 
 == Frequently Asked Questions ==
@@ -81,15 +83,15 @@ Only when Google Places Autocomplete is enabled. Customer address search input i
 
 = Does this support Checkout Blocks? =
 
-Yes. Checkout Address Guard for WooCommerce supports WooCommerce Checkout Blocks and the classic checkout shortcode.
+Yes. WPRuby Address Checks for WooCommerce supports WooCommerce Checkout Blocks and the classic checkout shortcode.
 
 = Can I warn instead of blocking checkout? =
 
-Yes. Choose **Warn customer** or **Block checkout** under WooCommerce → Address Guard → General.
+Yes. Choose **Warn customer** or **Block checkout** under WooCommerce → Address Checks → General.
 
 = Is this an official WooCommerce or Google plugin? =
 
-No. Checkout Address Guard for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
+No. WPRuby Address Checks for WooCommerce is an independent plugin by WPRuby and is not affiliated with, endorsed by, or sponsored by WooCommerce, Automattic, WordPress, or Google.
 
 == Screenshots ==
 

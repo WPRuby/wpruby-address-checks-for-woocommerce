@@ -39,7 +39,7 @@ class RestPermissionsTest extends TestCase {
 
 		$result = $controller->check_permission( $request );
 		$this->assertInstanceOf( WP_Error::class, $result );
-		$this->assertSame( 'address_guard_invalid_nonce', $result->get_error_code() );
+		$this->assertSame( 'wpruby_ac_invalid_nonce', $result->get_error_code() );
 
 		$this->register_rest_nonce();
 		$request->set_header( 'X-WP-Nonce', 'valid-rest-nonce' );

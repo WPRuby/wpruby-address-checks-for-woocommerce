@@ -1,10 +1,10 @@
-/* Address Guard Lite admin — scoped under .address-guard-lite-admin */
+/* WPRuby Address Checks admin — scoped under .wpruby-address-checks-admin */
 
-.address-guard-lite-wrap {
+.wpruby-address-checks-wrap {
   margin-top: 0;
 }
 
-.address-guard-lite-admin,
+.wpruby-address-checks-admin,
 .wpruby-ag-app {
   --ag-bg: #f8fafc;
   --ag-card: #ffffff;
@@ -33,16 +33,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.address-guard-lite-admin *,
-.address-guard-lite-admin *::before,
-.address-guard-lite-admin *::after,
+.wpruby-address-checks-admin *,
+.wpruby-address-checks-admin *::before,
+.wpruby-address-checks-admin *::after,
 .wpruby-ag-app *,
 .wpruby-ag-app *::before,
 .wpruby-ag-app *::after {
   box-sizing: border-box;
 }
 
-.address-guard-lite-admin__loading,
+.wpruby-address-checks-admin__loading,
 .wpruby-ag-app__loading {
   color: var(--ag-muted);
   padding: 24px 0;
@@ -452,9 +452,9 @@
   font-size: 12.5px;
 }
 
-.address-guard-lite-admin .wpruby-ag-input,
-.address-guard-lite-admin .wpruby-ag-textarea,
-.address-guard-lite-admin .wpruby-ag-select,
+.wpruby-address-checks-admin .wpruby-ag-input,
+.wpruby-address-checks-admin .wpruby-ag-textarea,
+.wpruby-address-checks-admin .wpruby-ag-select,
 .wpruby-ag-app .wpruby-ag-input,
 .wpruby-ag-app .wpruby-ag-textarea,
 .wpruby-ag-app .wpruby-ag-select {
@@ -466,16 +466,16 @@
   font-size: 14px;
 }
 
-.address-guard-lite-admin .wpruby-ag-textarea,
+.wpruby-address-checks-admin .wpruby-ag-textarea,
 .wpruby-ag-app .wpruby-ag-textarea {
   max-width: 100%;
   min-height: 64px;
   resize: vertical;
 }
 
-.address-guard-lite-admin .wpruby-ag-input:focus,
-.address-guard-lite-admin .wpruby-ag-textarea:focus,
-.address-guard-lite-admin .wpruby-ag-select:focus,
+.wpruby-address-checks-admin .wpruby-ag-input:focus,
+.wpruby-address-checks-admin .wpruby-ag-textarea:focus,
+.wpruby-address-checks-admin .wpruby-ag-select:focus,
 .wpruby-ag-app .wpruby-ag-input:focus,
 .wpruby-ag-app .wpruby-ag-textarea:focus,
 .wpruby-ag-app .wpruby-ag-select:focus {
@@ -484,9 +484,9 @@
   box-shadow: 0 0 0 1px var(--ag-primary);
 }
 
-.address-guard-lite-admin .wpruby-ag-input:disabled,
-.address-guard-lite-admin .wpruby-ag-textarea:disabled,
-.address-guard-lite-admin .wpruby-ag-select:disabled,
+.wpruby-address-checks-admin .wpruby-ag-input:disabled,
+.wpruby-address-checks-admin .wpruby-ag-textarea:disabled,
+.wpruby-address-checks-admin .wpruby-ag-select:disabled,
 .wpruby-ag-app .wpruby-ag-input:disabled,
 .wpruby-ag-app .wpruby-ag-textarea:disabled,
 .wpruby-ag-app .wpruby-ag-select:disabled {
@@ -2288,11 +2288,11 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Address Guard Lite — shell, header, tabs, cards, controls          */
-/* Scoped under .address-guard-lite-admin only                          */
+/* WPRuby Address Checks — shell, header, tabs, cards, controls          */
+/* Scoped under .wpruby-address-checks-admin only                          */
 /* ------------------------------------------------------------------ */
 
-.address-guard-lite-admin .screen-reader-text {
+.wpruby-address-checks-admin .screen-reader-text {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -2304,7 +2304,7 @@
   border: 0;
 }
 
-.address-guard-lite-admin .agl-shell {
+.wpruby-address-checks-admin .agl-shell {
   max-width: 1180px;
   background: #fff;
   border: 1px solid #dcdcde;
@@ -2314,22 +2314,22 @@
   margin: 0 auto;
 }
 
-.address-guard-lite-admin .agl-shell__body {
+.wpruby-address-checks-admin .agl-shell__body {
   padding: 24px;
 }
 
-.address-guard-lite-admin .agl-shell__notice {
+.wpruby-address-checks-admin .agl-shell__notice {
   margin-bottom: 16px;
 }
 
-.address-guard-lite-admin .agl-skeleton {
+.wpruby-address-checks-admin .agl-skeleton {
   padding: 32px 0;
   color: var(--ag-muted);
   text-align: center;
 }
 
 /* Header */
-.address-guard-lite-admin .agl-header {
+.wpruby-address-checks-admin .agl-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -2339,19 +2339,19 @@
   background: #fff;
 }
 
-.address-guard-lite-admin .agl-header__brand {
+.wpruby-address-checks-admin .agl-header__brand {
   flex: 1 1 360px;
   min-width: 0;
 }
 
-.address-guard-lite-admin .agl-header__titlebar {
+.wpruby-address-checks-admin .agl-header__titlebar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px 12px;
 }
 
-.address-guard-lite-admin .agl-header__logo {
+.wpruby-address-checks-admin .agl-header__logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2363,14 +2363,14 @@
   background: var(--ag-primary-soft);
 }
 
-.address-guard-lite-admin .agl-header__logo img {
+.wpruby-address-checks-admin .agl-header__logo img {
   display: block;
   width: 36px;
   height: 36px;
   object-fit: contain;
 }
 
-.address-guard-lite-admin .agl-header__title {
+.wpruby-address-checks-admin .agl-header__title {
   margin: 0;
   font-size: 20px;
   font-weight: 700;
@@ -2379,7 +2379,7 @@
   color: var(--ag-text);
 }
 
-.address-guard-lite-admin .agl-header__version {
+.wpruby-address-checks-admin .agl-header__version {
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
@@ -2390,21 +2390,21 @@
   font-weight: 600;
 }
 
-.address-guard-lite-admin .agl-header__desc {
+.wpruby-address-checks-admin .agl-header__desc {
   margin: 8px 0 0;
   color: var(--ag-muted);
   font-size: 13.5px;
   max-width: 56ch;
 }
 
-.address-guard-lite-admin .agl-header__chips {
+.wpruby-address-checks-admin .agl-header__chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 14px;
 }
 
-.address-guard-lite-admin .agl-chip {
+.wpruby-address-checks-admin .agl-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2418,7 +2418,7 @@
   line-height: 1.3;
 }
 
-.address-guard-lite-admin .agl-chip__dot {
+.wpruby-address-checks-admin .agl-chip__dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -2426,45 +2426,45 @@
   flex: none;
 }
 
-.address-guard-lite-admin .agl-chip--enabled {
+.wpruby-address-checks-admin .agl-chip--enabled {
   border-color: #86efac;
   background: var(--ag-success-soft);
   color: #166534;
 }
 
-.address-guard-lite-admin .agl-chip--enabled .agl-chip__dot {
+.wpruby-address-checks-admin .agl-chip--enabled .agl-chip__dot {
   background: var(--ag-success);
 }
 
-.address-guard-lite-admin .agl-chip--disabled {
+.wpruby-address-checks-admin .agl-chip--disabled {
   border-color: #cbd5e1;
   background: #f1f5f9;
   color: #64748b;
 }
 
-.address-guard-lite-admin .agl-chip--disabled .agl-chip__dot {
+.wpruby-address-checks-admin .agl-chip--disabled .agl-chip__dot {
   background: #94a3b8;
 }
 
-.address-guard-lite-admin .agl-chip--warn {
+.wpruby-address-checks-admin .agl-chip--warn {
   border-color: #fcd34d;
   background: var(--ag-warning-soft);
   color: #92400e;
 }
 
-.address-guard-lite-admin .agl-chip--block {
+.wpruby-address-checks-admin .agl-chip--block {
   border-color: #fda4af;
   background: var(--ag-danger-soft);
   color: #9f1239;
 }
 
-.address-guard-lite-admin .agl-chip--checkout {
+.wpruby-address-checks-admin .agl-chip--checkout {
   border-color: #93c5fd;
   background: #eff6ff;
   color: #1d4ed8;
 }
 
-.address-guard-lite-admin .agl-header__actions {
+.wpruby-address-checks-admin .agl-header__actions {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2473,23 +2473,23 @@
   margin-left: auto;
 }
 
-.address-guard-lite-admin .agl-save-status {
+.wpruby-address-checks-admin .agl-save-status {
   font-size: 13px;
   font-weight: 500;
   color: var(--ag-faint);
   white-space: nowrap;
 }
 
-.address-guard-lite-admin .agl-save-status--dirty {
+.wpruby-address-checks-admin .agl-save-status--dirty {
   color: var(--ag-warning);
 }
 
-.address-guard-lite-admin .agl-save-status--saved {
+.wpruby-address-checks-admin .agl-save-status--saved {
   color: var(--ag-success);
 }
 
 /* Buttons */
-.address-guard-lite-admin .agl-button {
+.wpruby-address-checks-admin .agl-button {
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -2512,12 +2512,12 @@
   transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease, color 0.12s ease;
 }
 
-.address-guard-lite-admin .agl-button:hover:not(:disabled) {
+.wpruby-address-checks-admin .agl-button:hover:not(:disabled) {
   background: #f8fafc;
   border-color: #cbd5e1;
 }
 
-.address-guard-lite-admin .agl-button--save {
+.wpruby-address-checks-admin .agl-button--save {
   min-width: 132px;
   background: #f1f5f9;
   color: #94a3b8;
@@ -2526,7 +2526,7 @@
   box-shadow: none;
 }
 
-.address-guard-lite-admin .agl-button--save-active {
+.wpruby-address-checks-admin .agl-button--save-active {
   background: #e91e63;
   color: #fff;
   border-color: #e91e63;
@@ -2534,19 +2534,19 @@
   box-shadow: 0 8px 18px rgba(233, 30, 99, 0.2);
 }
 
-.address-guard-lite-admin .agl-button--save-active:hover:not(:disabled) {
+.wpruby-address-checks-admin .agl-button--save-active:hover:not(:disabled) {
   background: #c2185b;
   border-color: #c2185b;
 }
 
-.address-guard-lite-admin .agl-button--save-saving {
+.wpruby-address-checks-admin .agl-button--save-saving {
   background: #f1f5f9;
   color: #64748b;
   border-color: #e2e8f0;
   cursor: wait;
 }
 
-.address-guard-lite-admin .agl-button__spinner {
+.wpruby-address-checks-admin .agl-button__spinner {
   width: 14px;
   height: 14px;
   border: 2px solid #cbd5e1;
@@ -2563,7 +2563,7 @@
 }
 
 /* Tabs */
-.address-guard-lite-admin .agl-tabs {
+.wpruby-address-checks-admin .agl-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
@@ -2572,7 +2572,7 @@
   background: #fff;
 }
 
-.address-guard-lite-admin .agl-tab {
+.wpruby-address-checks-admin .agl-tab {
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -2588,42 +2588,42 @@
   transition: color 0.12s ease, border-color 0.12s ease, background 0.12s ease;
 }
 
-.address-guard-lite-admin .agl-tab:hover {
+.wpruby-address-checks-admin .agl-tab:hover {
   color: #0f172a;
   background: #f8fafc;
 }
 
-.address-guard-lite-admin .agl-tab--active {
+.wpruby-address-checks-admin .agl-tab--active {
   color: #e91e63;
   border-bottom-color: #e91e63;
   background: transparent;
 }
 
 /* Views & cards */
-.address-guard-lite-admin .agl-view {
+.wpruby-address-checks-admin .agl-view {
   display: grid;
   gap: 16px;
 }
 
-.address-guard-lite-admin .agl-view-header {
+.wpruby-address-checks-admin .agl-view-header {
   margin-bottom: 4px;
 }
 
-.address-guard-lite-admin .agl-view-header__title {
+.wpruby-address-checks-admin .agl-view-header__title {
   margin: 0;
   font-size: 18px;
   font-weight: 700;
   color: var(--ag-text);
 }
 
-.address-guard-lite-admin .agl-view-header__desc {
+.wpruby-address-checks-admin .agl-view-header__desc {
   margin: 6px 0 0;
   color: var(--ag-muted);
   font-size: 13.5px;
   max-width: 70ch;
 }
 
-.address-guard-lite-admin .agl-card {
+.wpruby-address-checks-admin .agl-card {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -2631,11 +2631,11 @@
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
-.address-guard-lite-admin .agl-card--compact {
+.wpruby-address-checks-admin .agl-card--compact {
   padding: 16px 18px;
 }
 
-.address-guard-lite-admin .agl-card__head {
+.wpruby-address-checks-admin .agl-card__head {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -2644,32 +2644,32 @@
   border-bottom: 1px solid #f1f5f9;
 }
 
-.address-guard-lite-admin .agl-card__head-main {
+.wpruby-address-checks-admin .agl-card__head-main {
   min-width: 0;
   flex: 1;
 }
 
-.address-guard-lite-admin .agl-card__title {
+.wpruby-address-checks-admin .agl-card__title {
   margin: 0;
   font-size: 15px;
   font-weight: 700;
   color: var(--ag-text);
 }
 
-.address-guard-lite-admin .agl-card__desc {
+.wpruby-address-checks-admin .agl-card__desc {
   margin: 4px 0 0;
   color: var(--ag-muted);
   font-size: 13px;
   line-height: 1.45;
 }
 
-.address-guard-lite-admin .agl-card__body {
+.wpruby-address-checks-admin .agl-card__body {
   display: grid;
   gap: 0;
 }
 
 /* Toggle rows */
-.address-guard-lite-admin .agl-field-row {
+.wpruby-address-checks-admin .agl-field-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -2678,25 +2678,25 @@
   border-bottom: 1px solid #f1f5f9;
 }
 
-.address-guard-lite-admin .agl-field-row:first-child {
+.wpruby-address-checks-admin .agl-field-row:first-child {
   padding-top: 0;
 }
 
-.address-guard-lite-admin .agl-field-row:last-child {
+.wpruby-address-checks-admin .agl-field-row:last-child {
   border-bottom: 0;
   padding-bottom: 0;
 }
 
-.address-guard-lite-admin .agl-field-row--disabled {
+.wpruby-address-checks-admin .agl-field-row--disabled {
   opacity: 0.55;
 }
 
-.address-guard-lite-admin .agl-field-row__content {
+.wpruby-address-checks-admin .agl-field-row__content {
   min-width: 0;
   flex: 1;
 }
 
-.address-guard-lite-admin .agl-field-row__label {
+.wpruby-address-checks-admin .agl-field-row__label {
   display: block;
   font-weight: 600;
   color: var(--ag-text);
@@ -2704,7 +2704,7 @@
   line-height: 1.35;
 }
 
-.address-guard-lite-admin .agl-field-row__help {
+.wpruby-address-checks-admin .agl-field-row__help {
   margin: 4px 0 0;
   color: var(--ag-muted);
   font-size: 12.5px;
@@ -2712,7 +2712,7 @@
 }
 
 /* Switch */
-.address-guard-lite-admin .agl-switch {
+.wpruby-address-checks-admin .agl-switch {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -2721,7 +2721,7 @@
   margin: 2px 0 0;
 }
 
-.address-guard-lite-admin .agl-switch__track {
+.wpruby-address-checks-admin .agl-switch__track {
   position: relative;
   width: 44px;
   height: 24px;
@@ -2731,7 +2731,7 @@
   flex: none;
 }
 
-.address-guard-lite-admin .agl-switch__track::after {
+.wpruby-address-checks-admin .agl-switch__track::after {
   content: '';
   position: absolute;
   top: 2px;
@@ -2744,7 +2744,7 @@
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
 }
 
-.address-guard-lite-admin .agl-switch input {
+.wpruby-address-checks-admin .agl-switch input {
   position: absolute;
   opacity: 0;
   width: 44px;
@@ -2753,29 +2753,29 @@
   cursor: pointer;
 }
 
-.address-guard-lite-admin .agl-switch input:checked + .agl-switch__track {
+.wpruby-address-checks-admin .agl-switch input:checked + .agl-switch__track {
   background: #e91e63;
 }
 
-.address-guard-lite-admin .agl-switch input:checked + .agl-switch__track::after {
+.wpruby-address-checks-admin .agl-switch input:checked + .agl-switch__track::after {
   transform: translateX(20px);
 }
 
-.address-guard-lite-admin .agl-switch input:focus-visible + .agl-switch__track {
+.wpruby-address-checks-admin .agl-switch input:focus-visible + .agl-switch__track {
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e91e63;
 }
 
-.address-guard-lite-admin .agl-switch input:disabled {
+.wpruby-address-checks-admin .agl-switch input:disabled {
   cursor: not-allowed;
 }
 
-.address-guard-lite-admin .agl-switch input:disabled + .agl-switch__track {
+.wpruby-address-checks-admin .agl-switch input:disabled + .agl-switch__track {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
 /* Radio cards */
-.address-guard-lite-admin .agl-radio-cards {
+.wpruby-address-checks-admin .agl-radio-cards {
   display: grid;
   gap: 10px;
   margin: 0;
@@ -2784,7 +2784,7 @@
   min-width: 0;
 }
 
-.address-guard-lite-admin .agl-radio-card {
+.wpruby-address-checks-admin .agl-radio-card {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -2796,17 +2796,17 @@
   transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease;
 }
 
-.address-guard-lite-admin .agl-radio-card:hover {
+.wpruby-address-checks-admin .agl-radio-card:hover {
   border-color: #94a3b8;
 }
 
-.address-guard-lite-admin .agl-radio-card--selected {
+.wpruby-address-checks-admin .agl-radio-card--selected {
   border-color: #e91e63;
   background: #fdf2f8;
   box-shadow: 0 0 0 1px rgba(233, 30, 99, 0.08);
 }
 
-.address-guard-lite-admin .agl-radio-card__input {
+.wpruby-address-checks-admin .agl-radio-card__input {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -2814,7 +2814,7 @@
   margin: 0;
 }
 
-.address-guard-lite-admin .agl-radio-card__indicator {
+.wpruby-address-checks-admin .agl-radio-card__indicator {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2829,41 +2829,41 @@
   transition: border-color 0.12s ease, background 0.12s ease;
 }
 
-.address-guard-lite-admin .agl-radio-card--selected .agl-radio-card__indicator {
+.wpruby-address-checks-admin .agl-radio-card--selected .agl-radio-card__indicator {
   border-color: #e91e63;
   background: #e91e63;
 }
 
-.address-guard-lite-admin .agl-radio-card__content {
+.wpruby-address-checks-admin .agl-radio-card__content {
   display: grid;
   gap: 4px;
   min-width: 0;
 }
 
-.address-guard-lite-admin .agl-radio-card__label {
+.wpruby-address-checks-admin .agl-radio-card__label {
   font-weight: 600;
   color: var(--ag-text);
   font-size: 14px;
   line-height: 1.35;
 }
 
-.address-guard-lite-admin .agl-radio-card__desc {
+.wpruby-address-checks-admin .agl-radio-card__desc {
   color: var(--ag-muted);
   font-size: 13px;
   line-height: 1.45;
 }
 
-.address-guard-lite-admin .agl-radio-card__input:focus-visible + .agl-radio-card__indicator {
+.wpruby-address-checks-admin .agl-radio-card__input:focus-visible + .agl-radio-card__indicator {
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e91e63;
 }
 
-.address-guard-lite-admin fieldset.agl-radio-cards:disabled .agl-radio-card {
+.wpruby-address-checks-admin fieldset.agl-radio-cards:disabled .agl-radio-card {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
 /* Messages tab — keep legacy field styles working inside cards */
-.address-guard-lite-admin .agl-view--messages .wpruby-ag-message-card {
+.wpruby-address-checks-admin .agl-view--messages .wpruby-ag-message-card {
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 16px;
@@ -2871,60 +2871,60 @@
   background: #f8fafc;
 }
 
-.address-guard-lite-admin .agl-view--messages .wpruby-ag-message-card:last-child {
+.wpruby-address-checks-admin .agl-view--messages .wpruby-ag-message-card:last-child {
   margin-bottom: 0;
 }
 
-.address-guard-lite-admin .wpruby-ag-btn--primary {
+.wpruby-address-checks-admin .wpruby-ag-btn--primary {
   background: var(--ag-primary);
   border-color: var(--ag-primary);
   color: #fff;
 }
 
-.address-guard-lite-admin .wpruby-ag-btn--primary:hover:not(:disabled) {
+.wpruby-address-checks-admin .wpruby-ag-btn--primary:hover:not(:disabled) {
   background: var(--ag-primary-dark);
 }
 
 @media (max-width: 782px) {
-  .address-guard-lite-admin {
+  .wpruby-address-checks-admin {
     padding: 12px 12px 32px 0;
   }
 
-  .address-guard-lite-admin .agl-header {
+  .wpruby-address-checks-admin .agl-header {
     padding: 18px 16px 16px;
   }
 
-  .address-guard-lite-admin .agl-header__actions {
+  .wpruby-address-checks-admin .agl-header__actions {
     width: 100%;
     margin-left: 0;
     justify-content: space-between;
   }
 
-  .address-guard-lite-admin .agl-tabs {
+  .wpruby-address-checks-admin .agl-tabs {
     padding: 0 12px;
     overflow-x: auto;
   }
 
-  .address-guard-lite-admin .agl-tab {
+  .wpruby-address-checks-admin .agl-tab {
     padding: 12px 12px;
     font-size: 13px;
     white-space: nowrap;
   }
 
-  .address-guard-lite-admin .agl-shell__body {
+  .wpruby-address-checks-admin .agl-shell__body {
     padding: 16px;
   }
 
-  .address-guard-lite-admin .agl-card {
+  .wpruby-address-checks-admin .agl-card {
     padding: 16px;
   }
 
-  .address-guard-lite-admin .agl-field-row {
+  .wpruby-address-checks-admin .agl-field-row {
     flex-direction: column;
     gap: 10px;
   }
 
-  .address-guard-lite-admin .agl-switch {
+  .wpruby-address-checks-admin .agl-switch {
     align-self: flex-start;
   }
 }
