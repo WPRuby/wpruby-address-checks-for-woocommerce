@@ -53,7 +53,7 @@ Privacy Policy: https://policies.google.com/privacy
 
 == Source code ==
 
-Compiled admin assets live in `assets/admin/dist/`. The human-readable Vue source used to build them is included in `assets/admin/vue/`.
+Compiled admin assets live in `assets/admin/dist/`. Human-readable Vue source is available in the public repository linked below.
 
 Public repository: https://github.com/WPRuby/wpruby-address-checks-for-woocommerce
 

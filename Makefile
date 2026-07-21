@@ -11,9 +11,8 @@ DIST_DIR := dist
 ZIP_FILE := $(DIST_DIR)/$(PLUGIN_SLUG).zip
 ZIP_VERSIONED := $(DIST_DIR)/$(PLUGIN_SLUG)-$(VERSION).zip
 
-# Production ZIP: keep human-readable Vue source + build tooling required by
-# WordPress.org when shipping compiled/minified admin assets. Exclude tests,
-# vendor, node_modules, IDE folders, and local build leftovers.
+# Production ZIP: ship compiled admin assets only. Exclude Vue source, dev
+# tooling, tests, vendor, node_modules, IDE folders, and local build leftovers.
 RSYNC_EXCLUDES := \
 	--exclude .git \
 	--exclude .github \
@@ -27,13 +26,16 @@ RSYNC_EXCLUDES := \
 	--exclude /build \
 	--exclude /dist \
 	--exclude phpunit.xml.dist \
+	--exclude package.json \
 	--exclude package-lock.json \
+	--exclude vite.config.js \
 	--exclude Makefile \
 	--exclude composer.json \
 	--exclude composer.lock \
 	--exclude .phpunit.result.cache \
 	--exclude docs \
 	--exclude scripts \
+	--exclude assets/admin/vue \
 	--exclude assets/frontend \
 	--exclude '*.map' \
 	--exclude '*/.DS_Store'

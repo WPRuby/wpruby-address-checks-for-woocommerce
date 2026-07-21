@@ -42,7 +42,7 @@ Output:
 * `dist/wpruby-address-checks-for-woocommerce.zip`
 * `dist/wpruby-address-checks-for-woocommerce-{version}.zip`
 
-The ZIP includes compiled admin assets plus human-readable Vue source (`assets/admin/vue/`), `package.json`, and `vite.config.js` for WordPress.org review. It excludes tests, `node_modules`, `vendor`, and development folders.
+The ZIP includes compiled admin assets only. Vue source, build tooling, tests, `node_modules`, `vendor`, and development folders are excluded. Human-readable source is available in the public GitHub repository.
 
 ## WordPress.org release checklist
 
