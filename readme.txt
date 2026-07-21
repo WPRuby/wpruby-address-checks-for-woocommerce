@@ -1,5 +1,5 @@
 === WPRuby Address Checks for WooCommerce ===
-Contributors: waseem_senjer, wprubyplugins
+Contributors: wprubyplugins, waseem_senjer
 Tags: woocommerce, address autocomplete, address check, checkout, google places
 Requires at least: 6.5
 Tested up to: 7.0
@@ -97,6 +97,7 @@ No. WPRuby Address Checks for WooCommerce is an independent plugin by WPRuby and
 2. Autocomplete — Google Places API key and country limits
 3. Checks — toggle local address checks
 4. Messages — customize customer-facing warning and error text
+5. Google Autocomplete
 
 == Changelog ==
 
