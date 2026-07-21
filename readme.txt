@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add Google address autocomplete and local checkout address checks for WooCommerce, including missing house number, PO box, and parcel locker detection.
+Add Google address autocomplete and local checkout address checks for WooCommerce, including missing house number, PO box, and parcel locker checks.
 
 == Description ==
 
