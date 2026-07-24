@@ -4,7 +4,7 @@ Tags: woocommerce, address autocomplete, address check, checkout, google places
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,26 @@ This plugin provides address autocomplete and checkout address checks. It does n
 * Optional private order notes
 
 Local checkout checks run on your server and do not require Google.
+
+**Upgrade to Pro**
+
+Need deeper address protection? [Upgrade to Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wporg&utm_medium=readme&utm_campaign=upgrade-to-pro&utm_content=description-cta) for provider-powered address validation, correction suggestions, advanced rules, an address tester, logs, and order review tools.
+
+Pro adds:
+
+* Google Address Validation
+* Loqate Address Verify
+* Mapbox Address Autofill
+* Loqate Address Capture
+* Correction suggestions
+* Advanced checkout rules and rule presets
+* Address tester
+* Order review panel
+* Logs and diagnostics
+* Multi-provider setup
+* Priority support
+
+The free plugin does not include provider-powered postal deliverability validation. Learn more at [WPRuby Address Checks Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wporg&utm_medium=readme&utm_campaign=upgrade-to-pro&utm_content=description-learn-more).
 
 == External services ==
 
@@ -100,6 +120,12 @@ No. WPRuby Address Checks for WooCommerce is an independent plugin by WPRuby and
 5. Google Autocomplete
 
 == Changelog ==
+
+= 1.0.1 =
+* Add an Upgrade to Pro tab in the settings UI with a clear Free vs Pro feature comparison
+* Add icons to admin settings tabs for clearer navigation
+* Clarify Lite feature positioning and documentation for local checkout checks
+* Exclude Vue source and build tooling from the production ZIP; point to the public repository for human-readable source
 
 = 1.0.0 =
 * Google Places Autocomplete for Checkout Blocks and classic checkout

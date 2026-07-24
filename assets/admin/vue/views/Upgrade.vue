@@ -185,6 +185,14 @@ const featureGrid = [
   __('Logs'),
 ];
 
-const proUrl = computed(() => state.meta.pro_url || 'https://wpruby.com/plugins');
-const docsUrl = computed(() => state.meta.docs_url || 'https://wpruby.com/knowledgebase/');
+const proUrl = computed(
+  () =>
+    state.meta.pro_url ||
+    'https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wpruby-address-checks&utm_medium=plugin&utm_campaign=upgrade-to-pro&utm_content=settings-upgrade-tab'
+);
+const docsUrl = computed(
+  () =>
+    state.meta.docs_url ||
+    'https://wpruby.com/knowledgebase_category/woocommerce-address-guard-pro/?utm_source=wpruby-address-checks&utm_medium=plugin&utm_campaign=upgrade-to-pro&utm_content=settings-view-pro-features'
+);
 </script>

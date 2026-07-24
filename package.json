@@ -1,6 +1,6 @@
 {
   "name": "wpruby-address-checks-for-woocommerce-admin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Vue 3 admin app for WPRuby Address Checks for WooCommerce.",
   "type": "module",

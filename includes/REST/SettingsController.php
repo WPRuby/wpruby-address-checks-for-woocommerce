@@ -220,8 +220,28 @@ class SettingsController {
 			'supports_blocks'         => $checkout['supports_blocks'],
 			'supports_classic'        => $checkout['supports_classic'],
 			'country_options'         => CountryOptions::for_app(),
-			'docs_url'                => esc_url_raw( WPRUBY_ADDRESS_CHECKS_DOCS_URL ),
-			'pro_url'                 => esc_url_raw( WPRUBY_ADDRESS_CHECKS_PRO_URL ),
+			'docs_url'                => esc_url_raw(
+				add_query_arg(
+					array(
+						'utm_source'   => 'wpruby-address-checks',
+						'utm_medium'   => 'plugin',
+						'utm_campaign' => 'upgrade-to-pro',
+						'utm_content'  => 'settings-view-pro-features',
+					),
+					WPRUBY_ADDRESS_CHECKS_DOCS_URL
+				)
+			),
+			'pro_url'                 => esc_url_raw(
+				add_query_arg(
+					array(
+						'utm_source'   => 'wpruby-address-checks',
+						'utm_medium'   => 'plugin',
+						'utm_campaign' => 'upgrade-to-pro',
+						'utm_content'  => 'settings-upgrade-tab',
+					),
+					WPRUBY_ADDRESS_CHECKS_PRO_URL
+				)
+			),
 		);
 	}
 
