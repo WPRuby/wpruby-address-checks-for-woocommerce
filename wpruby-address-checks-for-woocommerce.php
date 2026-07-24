@@ -38,6 +38,8 @@ define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPRUBY_ADDRESS_CHECKS_TEXT_DOMAIN', 'wpruby-address-checks-for-woocommerce' );
 define( 'WPRUBY_ADDRESS_CHECKS_BASENAME', plugin_basename( __FILE__ ) );
+define( 'WPRUBY_ADDRESS_CHECKS_PRO_URL', 'https://wpruby.com/plugin/woocommerce-address-guard-pro/' );
+define( 'WPRUBY_ADDRESS_CHECKS_DOCS_URL', 'https://wpruby.com/knowledgebase_category/woocommerce-address-guard-pro/' );
 
 require_once WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR . 'includes/autoload.php';
 

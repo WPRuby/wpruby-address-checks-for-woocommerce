@@ -40,6 +40,7 @@ import General from './views/General.vue';
 import Autocomplete from './views/Autocomplete.vue';
 import Checks from './views/Checks.vue';
 import Messages from './views/Messages.vue';
+import Upgrade from './views/Upgrade.vue';
 import {
   state,
   isDirty,
@@ -54,6 +55,7 @@ const tabs = [
   { id: 'autocomplete', view: Autocomplete },
   { id: 'checks', view: Checks },
   { id: 'messages', view: Messages },
+  { id: 'upgrade', view: Upgrade },
 ];
 const tabIds = tabs.map((tab) => tab.id);
 const activeTab = ref(tabFromHash());

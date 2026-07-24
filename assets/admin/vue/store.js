@@ -37,6 +37,7 @@ export function blankMeta() {
     supports_classic: true,
     country_options: boot.countryOptions || [],
     docs_url: '',
+    pro_url: '',
   };
 }
 

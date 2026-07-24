@@ -2546,6 +2546,24 @@
   cursor: wait;
 }
 
+.wpruby-address-checks-admin .agl-button--primary {
+  background: #e91e63;
+  color: #fff;
+  border-color: #e91e63;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(233, 30, 99, 0.18);
+}
+
+.wpruby-address-checks-admin .agl-button--primary:hover:not(:disabled) {
+  background: #c2185b;
+  border-color: #c2185b;
+  color: #fff;
+}
+
+.wpruby-address-checks-admin a.agl-button {
+  text-decoration: none;
+}
+
 .wpruby-address-checks-admin .agl-button__spinner {
   width: 14px;
   height: 14px;
@@ -2576,6 +2594,7 @@
   appearance: none;
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   background: transparent;
   border: 0;
   border-bottom: 2px solid transparent;
@@ -2586,6 +2605,23 @@
   color: #475569;
   cursor: pointer;
   transition: color 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.wpruby-address-checks-admin .agl-tab__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  color: currentColor;
+  opacity: 0.85;
+}
+
+.wpruby-address-checks-admin .agl-tab__icon svg {
+  display: block;
+}
+
+.wpruby-address-checks-admin .agl-tab__label {
+  line-height: 1.2;
 }
 
 .wpruby-address-checks-admin .agl-tab:hover {
@@ -2926,5 +2962,116 @@
 
   .wpruby-address-checks-admin .agl-switch {
     align-self: flex-start;
+  }
+
+  .wpruby-address-checks-admin .agl-upgrade-compare,
+  .wpruby-address-checks-admin .agl-upgrade-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Upgrade to Pro tab */
+.wpruby-address-checks-admin .agl-upgrade-positioning {
+  margin: 0 0 12px;
+  color: var(--ag-muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-positioning--pro {
+  margin-bottom: 0;
+  color: var(--ag-text);
+  font-weight: 500;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-card--pro {
+  border-color: #f9a8d4;
+  background: linear-gradient(180deg, #fff7fb 0%, #ffffff 48%);
+}
+
+.wpruby-address-checks-admin .agl-upgrade-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--ag-text);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-list__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 999px;
+  background: var(--ag-success-soft);
+  color: var(--ag-success);
+}
+
+.wpruby-address-checks-admin .agl-upgrade-list__icon--pro {
+  background: var(--ag-primary-soft);
+  color: var(--ag-primary-dark);
+}
+
+.wpruby-address-checks-admin .agl-upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-grid__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--ag-text);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.wpruby-address-checks-admin .agl-upgrade-grid__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 999px;
+  background: var(--ag-primary-soft);
+  color: var(--ag-primary-dark);
+}
+
+@media (max-width: 900px) {
+  .wpruby-address-checks-admin .agl-upgrade-compare,
+  .wpruby-address-checks-admin .agl-upgrade-grid {
+    grid-template-columns: 1fr;
   }
 }
