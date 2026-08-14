@@ -13,6 +13,7 @@ use WP_REST_Response;
 use WP_REST_Server;
 use WPRuby\AddressGuard\Domain\Google\GooglePlacesService;
 use WPRuby\AddressGuard\Infrastructure\CountryOptions;
+use WPRuby\AddressGuard\Infrastructure\ProUrls;
 use WPRuby\AddressGuard\Infrastructure\Sanitizer;
 use WPRuby\AddressGuard\Infrastructure\Settings;
 use WPRuby\AddressGuard\WooCommerce\CheckoutCompatibility;
@@ -213,14 +214,14 @@ class SettingsController {
 		$checkout      = $compatibility->summary_for_app();
 
 		return array(
-			'checkout_blocks'         => $checkout['checkout_blocks'],
-			'checkout_classic'        => $checkout['checkout_classic'],
-			'checkout_detected'       => $checkout['checkout_detected'],
-			'checkout_detected_label' => $checkout['detected_label'],
-			'supports_blocks'         => $checkout['supports_blocks'],
-			'supports_classic'        => $checkout['supports_classic'],
-			'country_options'         => CountryOptions::for_app(),
-			'docs_url'                => esc_url_raw(
+			'checkout_blocks'            => $checkout['checkout_blocks'],
+			'checkout_classic'           => $checkout['checkout_classic'],
+			'checkout_detected'          => $checkout['checkout_detected'],
+			'checkout_detected_label'    => $checkout['detected_label'],
+			'supports_blocks'            => $checkout['supports_blocks'],
+			'supports_classic'           => $checkout['supports_classic'],
+			'country_options'            => CountryOptions::for_app(),
+			'docs_url'                   => esc_url_raw(
 				add_query_arg(
 					array(
 						'utm_source'   => 'wpruby-address-checks',
@@ -231,17 +232,8 @@ class SettingsController {
 					WPRUBY_ADDRESS_CHECKS_DOCS_URL
 				)
 			),
-			'pro_url'                 => esc_url_raw(
-				add_query_arg(
-					array(
-						'utm_source'   => 'wpruby-address-checks',
-						'utm_medium'   => 'plugin',
-						'utm_campaign' => 'upgrade-to-pro',
-						'utm_content'  => 'settings-upgrade-tab',
-					),
-					WPRUBY_ADDRESS_CHECKS_PRO_URL
-				)
-			),
+			'pro_url'                    => ProUrls::get( 'upgrade_tab' ),
+			'pro_url_feature_comparison' => ProUrls::get( 'feature_comparison' ),
 		);
 	}
 

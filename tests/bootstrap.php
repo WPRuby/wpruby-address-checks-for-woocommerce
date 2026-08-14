@@ -39,6 +39,8 @@ if ( ! defined( 'WPRUBY_ADDRESS_CHECKS_VERSION' ) ) {
 	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_URL', 'https://example.test/wp-content/plugins/wpruby-address-checks-for-woocommerce/' );
 	define( 'WPRUBY_ADDRESS_CHECKS_TEXT_DOMAIN', 'wpruby-address-checks-for-woocommerce' );
 	define( 'WPRUBY_ADDRESS_CHECKS_BASENAME', 'wpruby-address-checks-for-woocommerce/wpruby-address-checks-for-woocommerce.php' );
+	define( 'WPRUBY_ADDRESS_CHECKS_PRO_URL', 'https://wpruby.com/plugin/woocommerce-address-guard-pro/' );
+	define( 'WPRUBY_ADDRESS_CHECKS_DOCS_URL', 'https://wpruby.com/knowledgebase_category/woocommerce-address-guard-pro/' );
 }
 
 $GLOBALS['wpruby_address_checks_test_options'] = array(
@@ -90,6 +92,65 @@ if ( ! function_exists( '__' ) ) {
 if ( ! function_exists( 'esc_url_raw' ) ) {
 	function esc_url_raw( $url ) {
 		return filter_var( (string) $url, FILTER_SANITIZE_URL );
+	}
+}
+
+if ( ! function_exists( 'add_query_arg' ) ) {
+	/**
+	 * Minimal WordPress add_query_arg stub for unit tests.
+	 *
+	 * @param mixed ...$args Key/value pair + URL, or associative array + URL.
+	 *
+	 * @return string
+	 */
+	function add_query_arg( ...$args ) {
+		if ( 3 === count( $args ) ) {
+			$key   = (string) $args[0];
+			$value = $args[1];
+			$url   = (string) $args[2];
+			$params = array( $key => $value );
+		} elseif ( 2 === count( $args ) && is_array( $args[0] ) ) {
+			$params = $args[0];
+			$url    = (string) $args[1];
+		} else {
+			return (string) ( $args[0] ?? '' );
+		}
+
+		$parts    = wp_parse_url( $url );
+		$base     = '';
+		$query    = array();
+		$fragment = '';
+
+		if ( ! empty( $parts['scheme'] ) && ! empty( $parts['host'] ) ) {
+			$base = $parts['scheme'] . '://' . $parts['host'];
+			if ( ! empty( $parts['port'] ) ) {
+				$base .= ':' . $parts['port'];
+			}
+		}
+
+		if ( isset( $parts['path'] ) ) {
+			$base .= $parts['path'];
+		}
+
+		if ( ! empty( $parts['query'] ) ) {
+			parse_str( $parts['query'], $query );
+		}
+
+		foreach ( $params as $key => $value ) {
+			if ( false === $value || null === $value ) {
+				unset( $query[ $key ] );
+				continue;
+			}
+			$query[ $key ] = $value;
+		}
+
+		if ( ! empty( $parts['fragment'] ) ) {
+			$fragment = '#' . $parts['fragment'];
+		}
+
+		$query_string = http_build_query( $query, '', '&', PHP_QUERY_RFC3986 );
+
+		return $base . ( '' !== $query_string ? '?' . $query_string : '' ) . $fragment;
 	}
 }
 

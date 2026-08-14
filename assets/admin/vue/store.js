@@ -38,6 +38,7 @@ export function blankMeta() {
     country_options: boot.countryOptions || [],
     docs_url: '',
     pro_url: '',
+    pro_url_feature_comparison: '',
   };
 }
 

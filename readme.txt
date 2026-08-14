@@ -42,7 +42,7 @@ Local checkout checks run on your server and do not require Google.
 
 **Upgrade to Pro**
 
-Need deeper address protection? [Upgrade to Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wporg&utm_medium=readme&utm_campaign=upgrade-to-pro&utm_content=description-cta) for provider-powered address validation, correction suggestions, advanced rules, an address tester, logs, and order review tools.
+Need deeper address protection? [Upgrade to Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wordpress_org&utm_medium=referral&utm_campaign=address_guard_free&utm_content=upgrade_to_pro) for provider-powered address validation, correction suggestions, advanced rules, an address tester, logs, and order review tools.
 
 Pro adds:
 
@@ -58,7 +58,7 @@ Pro adds:
 * Multi-provider setup
 * Priority support
 
-The free plugin does not include provider-powered postal deliverability validation. Learn more at [WPRuby Address Checks Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wporg&utm_medium=readme&utm_campaign=upgrade-to-pro&utm_content=description-learn-more).
+The free plugin does not include provider-powered postal deliverability validation. Learn more at [WPRuby Address Checks Pro](https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wordpress_org&utm_medium=referral&utm_campaign=address_guard_free&utm_content=learn_more).
 
 == External services ==
 

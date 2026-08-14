@@ -15,7 +15,7 @@
       <div class="agl-upgrade-actions">
         <a
           class="agl-button agl-button--primary"
-          :href="proUrl"
+          :href="proUrlUpgradeTab"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -97,7 +97,7 @@
       <div class="agl-upgrade-actions">
         <a
           class="agl-button agl-button--primary"
-          :href="proUrl"
+          :href="proUrlFeatureComparison"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -121,6 +121,7 @@ import { computed } from 'vue';
 import SettingsCard from '../components/SettingsCard.vue';
 import { state } from '../store.js';
 import { __ } from '../api/client.js';
+import { getProUrl } from '../utils/proUrls.js';
 
 const pageTitle = __('Upgrade to Pro');
 const pageIntro = __(
@@ -185,10 +186,11 @@ const featureGrid = [
   __('Logs'),
 ];
 
-const proUrl = computed(
-  () =>
-    state.meta.pro_url ||
-    'https://wpruby.com/plugin/woocommerce-address-guard-pro/?utm_source=wpruby-address-checks&utm_medium=plugin&utm_campaign=upgrade-to-pro&utm_content=settings-upgrade-tab'
+const proUrlUpgradeTab = computed(
+  () => state.meta.pro_url || getProUrl('upgrade_tab')
+);
+const proUrlFeatureComparison = computed(
+  () => state.meta.pro_url_feature_comparison || getProUrl('feature_comparison')
 );
 const docsUrl = computed(
   () =>
