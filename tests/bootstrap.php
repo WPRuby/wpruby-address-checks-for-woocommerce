@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 if ( ! defined( 'WPRUBY_ADDRESS_CHECKS_VERSION' ) ) {
-	define( 'WPRUBY_ADDRESS_CHECKS_VERSION', '1.0.1' );
+	define( 'WPRUBY_ADDRESS_CHECKS_VERSION', '1.0.2' );
 	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_FILE', $plugin_root . '/wpruby-address-checks-for-woocommerce.php' );
 	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_DIR', $plugin_root . '/' );
 	define( 'WPRUBY_ADDRESS_CHECKS_PLUGIN_URL', 'https://example.test/wp-content/plugins/wpruby-address-checks-for-woocommerce/' );

@@ -2,9 +2,9 @@
 Contributors: wprubyplugins, waseem_senjer
 Tags: woocommerce, address autocomplete, address check, checkout, google places
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,11 @@ No. WPRuby Address Checks for WooCommerce is an independent plugin by WPRuby and
 5. Google Autocomplete
 
 == Changelog ==
+
+= 1.0.2 =
+* Add consistent UTM tracking parameters to Address Guard Pro upgrade links in the plugin admin and WordPress.org readme
+* Add WordPress 7.1 compatibility. 
+* Add WooCommerce 11.0 compatibility. 
 
 = 1.0.1 =
 * Add an Upgrade to Pro tab in the settings UI with a clear Free vs Pro feature comparison
